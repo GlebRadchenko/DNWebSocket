@@ -12,6 +12,14 @@
 		F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
 		F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
 		F781C73F2024B2670009B0D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C73E2024B2670009B0D4 /* main.swift */; };
+		F781C74F2024B7B10009B0D4 /* DataProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C74E2024B7B10009B0D4 /* DataProcessStrategy.swift */; };
+		F781C7502024B7B10009B0D4 /* DataProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C74E2024B7B10009B0D4 /* DataProcessStrategy.swift */; };
+		F781C7552024BC920009B0D4 /* InflateDeflateStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7542024BC920009B0D4 /* InflateDeflateStatus.swift */; };
+		F781C7562024BC920009B0D4 /* InflateDeflateStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7542024BC920009B0D4 /* InflateDeflateStatus.swift */; };
+		F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */; };
+		F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */; };
+		F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */; };
+		F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +43,10 @@
 		F781C7352024B0FE0009B0D4 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		F781C73C2024B2670009B0D4 /* Example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Example; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C73E2024B2670009B0D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F781C74E2024B7B10009B0D4 /* DataProcessStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessStrategy.swift; sourceTree = "<group>"; };
+		F781C7542024BC920009B0D4 /* InflateDeflateStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InflateDeflateStatus.swift; sourceTree = "<group>"; };
+		F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeRetrievable.swift; sourceTree = "<group>"; };
+		F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnsafePointer+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +96,14 @@
 		F781C72D2024AF5D0009B0D4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F781C7462024B3E90009B0D4 /* Extensions */,
+				F781C7452024B3E00009B0D4 /* Protocols */,
+				F781C7442024B3AE0009B0D4 /* Сompression */,
+				F781C7472024B4000009B0D4 /* Security */,
+				F781C7432024B3A20009B0D4 /* WebSocket */,
 				F781C7322024B0CA0009B0D4 /* DNWebSocket.h */,
 				F781C72E2024AF9B0009B0D4 /* Info-iOS.plist */,
 				F781C72F2024AF9B0009B0D4 /* Info-macOS.plist */,
-				F781C7352024B0FE0009B0D4 /* WebSocket.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -98,6 +114,46 @@
 				F781C73E2024B2670009B0D4 /* main.swift */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		F781C7432024B3A20009B0D4 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				F781C7352024B0FE0009B0D4 /* WebSocket.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		F781C7442024B3AE0009B0D4 /* Сompression */ = {
+			isa = PBXGroup;
+			children = (
+				F781C7542024BC920009B0D4 /* InflateDeflateStatus.swift */,
+				F781C74E2024B7B10009B0D4 /* DataProcessStrategy.swift */,
+			);
+			path = "Сompression";
+			sourceTree = "<group>";
+		};
+		F781C7452024B3E00009B0D4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F781C7462024B3E90009B0D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F781C7472024B4000009B0D4 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F781C74F2024B7B10009B0D4 /* DataProcessStrategy.swift in Sources */,
+				F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
+				F781C7552024BC920009B0D4 /* InflateDeflateStatus.swift in Sources */,
 				F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F781C7502024B7B10009B0D4 /* DataProcessStrategy.swift in Sources */,
+				F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
+				F781C7562024BC920009B0D4 /* InflateDeflateStatus.swift in Sources */,
 				F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
