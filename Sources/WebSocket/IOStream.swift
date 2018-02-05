@@ -17,6 +17,8 @@ public class IOStream: NSObject {
     
     var onReceiveEvent: ((_ event: Event, _ streamType: StreamType) -> Void)?
     
+    deinit { disconnect() }
+    
     override public init() {
         queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .background)
         super.init()
@@ -37,6 +39,23 @@ public class IOStream: NSObject {
         } catch {
             completion(error.result())
         }
+    }
+    
+    func disconnect() {
+        if let stream = inputStream {
+            stream.delegate = nil
+            CFReadStreamSetDispatchQueue(stream, nil)
+            stream.close()
+        }
+        
+        if let stream = outputStream {
+            stream.delegate = nil
+            CFWriteStreamSetDispatchQueue(stream, nil)
+            stream.close()
+        }
+        
+        inputStream = nil
+        outputStream = nil
     }
     
     public func read() throws -> Data? {
