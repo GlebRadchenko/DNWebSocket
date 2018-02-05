@@ -21,7 +21,7 @@ extension Data {
         return [0x00, 0x00, 0xFF, 0xFF]
     }
     
-    public func compress(windowBits: CInt) throws -> Data {
+    public mutating func compress(windowBits: CInt) throws -> Data {
         var compressedData = Data()
         var buffer = Data(count: Data.chunkSize)
         
@@ -37,8 +37,8 @@ extension Data {
                 buffer.count += Data.chunkSize
             }
             
-            buffer.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-                stream.next_out = bytes.mutable()
+            buffer.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) in
+                stream.next_out = bytes
                 stream.avail_out = uInt(buffer.count)
                 
                 let code = deflate(&stream, Z_SYNC_FLUSH)
@@ -52,7 +52,7 @@ extension Data {
         return compressedData
     }
     
-    public func decompress(windowBits: CInt) throws -> Data {
+    public mutating func decompress(windowBits: CInt) throws -> Data {
         var decompressedData = Data()
         var buffer = Data(count: Data.chunkSize)
         
@@ -68,8 +68,8 @@ extension Data {
                 buffer.count += Data.chunkSize
             }
             
-            buffer.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-                stream.next_out = bytes.mutable()
+            buffer.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) in
+                stream.next_out = bytes
                 stream.avail_out = uInt(buffer.count)
                 
                 let code = inflate(&stream, Z_NO_FLUSH)
@@ -104,10 +104,11 @@ extension Data {
         try process(code)
     }
     
-    private func prepareZStream() -> z_stream {
+    private mutating func prepareZStream() -> z_stream {
         var stream = z_stream()
-        withUnsafeBytes { (bytes) in
-            stream.next_in = bytes.mutable()
+        
+        withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) in
+            stream.next_in = bytes
         }
         
         stream.avail_in = uint(count)

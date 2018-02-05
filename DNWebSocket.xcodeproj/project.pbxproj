@@ -29,6 +29,24 @@
 		F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
 		F7A65D8920286B2000F190CB /* README.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A65D8820286B2000F190CB /* README.strings */; };
 		F7A65D8A20286B2000F190CB /* README.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A65D8820286B2000F190CB /* README.strings */; };
+		F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F7A65D8E2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F7A65D902028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
+		F7A65D912028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
+		F7A65D922028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
+		F7A65D942028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
+		F7A65D952028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
+		F7A65D962028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
+		F7A65D9820288C7C00F190CB /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F7A65D9920288C7C00F190CB /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F7A65D9C2028942000F190CB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F7A65D9D2028942000F190CB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F7A65D9E2028942000F190CB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F7A65DA020289EE400F190CB /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
+		F7A65DA120289EE400F190CB /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
+		F7A65DA220289EE400F190CB /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +88,12 @@
 		F781C765202852DF0009B0D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7A65D84202869B800F190CB /* Data+Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Compression.swift"; sourceTree = "<group>"; };
 		F7A65D8820286B2000F190CB /* README.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = README.strings; sourceTree = "<group>"; };
+		F7A65D8B2028837600F190CB /* Data+SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SHA1.swift"; sourceTree = "<group>"; };
+		F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64+SHA1.swift"; sourceTree = "<group>"; };
+		F7A65D932028868400F190CB /* Registry Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registry Models.swift"; sourceTree = "<group>"; };
+		F7A65D9720288C7C00F190CB /* IOStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOStream.swift; sourceTree = "<group>"; };
+		F7A65D9B2028942000F190CB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F7A65D9F20289EE400F190CB /* Data+Buffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Buffer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +178,10 @@
 		F781C7432024B3A20009B0D4 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
+				F7A65D9720288C7C00F190CB /* IOStream.swift */,
 				F781C7352024B0FE0009B0D4 /* WebSocket.swift */,
+				F7A65D932028868400F190CB /* Registry Models.swift */,
+				F7A65D9B2028942000F190CB /* Result.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -178,8 +205,11 @@
 		F781C7462024B3E90009B0D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
 				F7A65D84202869B800F190CB /* Data+Compression.swift */,
+				F7A65D8B2028837600F190CB /* Data+SHA1.swift */,
+				F7A65D9F20289EE400F190CB /* Data+Buffer.swift */,
+				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
+				F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,9 +411,15 @@
 			files = (
 				F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
 				F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
+				F7A65DA020289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F781C7552024BC920009B0D4 /* CompressionStatus.swift in Sources */,
 				F7A65D85202869B800F190CB /* Data+Compression.swift in Sources */,
+				F7A65D9820288C7C00F190CB /* IOStream.swift in Sources */,
+				F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */,
+				F7A65D9C2028942000F190CB /* Result.swift in Sources */,
+				F7A65D942028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */,
+				F7A65D902028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,9 +429,15 @@
 			files = (
 				F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
 				F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
+				F7A65DA120289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F781C7562024BC920009B0D4 /* CompressionStatus.swift in Sources */,
 				F7A65D86202869B800F190CB /* Data+Compression.swift in Sources */,
+				F7A65D9920288C7C00F190CB /* IOStream.swift in Sources */,
+				F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */,
+				F7A65D9D2028942000F190CB /* Result.swift in Sources */,
+				F7A65D952028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */,
+				F7A65D912028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +447,16 @@
 			files = (
 				F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */,
 				F781C73F2024B2670009B0D4 /* main.swift in Sources */,
+				F7A65D962028868400F190CB /* Registry Models.swift in Sources */,
+				F7A65D922028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 				F7A65D8320285F4900F190CB /* WebSocket.swift in Sources */,
+				F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8120285F4900F190CB /* CompressionStatus.swift in Sources */,
+				F7A65DA220289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F7A65D7F20285F4900F190CB /* UnsafePointer+Extensions.swift in Sources */,
+				F7A65D8E2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D8020285F4900F190CB /* SizeRetrievable.swift in Sources */,
+				F7A65D9E2028942000F190CB /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

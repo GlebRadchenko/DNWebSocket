@@ -10,7 +10,7 @@ import Foundation
 print("123")
 
 let initialString = "String to test"
-let initialData = initialString.data(using: .utf8) ?? Data()
+var initialData = initialString.data(using: .utf8) ?? Data()
 
 do {
     var compressed = try initialData.compress(windowBits: 15)
