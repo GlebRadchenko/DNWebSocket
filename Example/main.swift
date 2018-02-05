@@ -6,5 +6,20 @@
 //
 
 import Foundation
-import DNWebSocket
 
+print("123")
+
+let initialString = "String to test"
+let initialData = initialString.data(using: .utf8) ?? Data()
+
+do {
+    var compressed = try initialData.compress(windowBits: 15)
+    compressed.removeTail()
+    compressed.addTail()
+    let decompressed = try compressed.decompress(windowBits: 15)
+    print(String(data: decompressed, encoding: .utf8))
+} catch {
+    debugPrint(error)
+}
+
+RunLoop.main.run()
