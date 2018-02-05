@@ -15,9 +15,7 @@ extension URL {
 }
 
 class SSLSettings {
-    static var supportedSSLSchemes: [String] {
-        return ["wss", "https"]
-    }
+    static var supportedSSLSchemes = ["wss", "https"]
     
     var useSSL: Bool
     var certificateValidationEnabled: Bool
