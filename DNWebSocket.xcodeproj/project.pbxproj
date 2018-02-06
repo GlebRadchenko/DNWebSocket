@@ -254,9 +254,9 @@
 		F781C7432024B3A20009B0D4 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
+				F7A65D9720288C7C00F190CB /* IOStream.swift */,
 				F781C7352024B0FE0009B0D4 /* WebSocket.swift */,
 				F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */,
-				F7A65D9720288C7C00F190CB /* IOStream.swift */,
 				F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */,
 				F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */,
 				F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */,
