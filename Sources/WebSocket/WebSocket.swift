@@ -7,6 +7,7 @@
 
 import Foundation
 
+//TODO: - Add write methods
 open class WebSocket {
     public static let GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
     
@@ -138,6 +139,7 @@ open class WebSocket {
     
     fileprivate func closeConnection(timeout: TimeInterval, code: CloseCode) {
         guard status == .connected || status == .connecting else { return }
+        //TODO: - Complete with sending close code
     }
     
     fileprivate func tearDown(reasonError: Error?) {
@@ -146,16 +148,12 @@ open class WebSocket {
             ? operationQueue.waitUntilAllOperationsAreFinished()
             : operationQueue.cancelAllOperations()
         
-        closeStream()
+        stream.disconnect()
         inputStreamBuffer.reset()
         
         status = .disconnected
         
         handleEvent(.disconnected(reasonError))
-    }
-    
-    fileprivate func closeStream() {
-        stream.disconnect()
     }
 }
 
@@ -307,7 +305,7 @@ extension WebSocket {
     }
     
     fileprivate func processData(_ data: Data) {
-        
+        //TODO: - Add processing of frames etc
     }
 }
 
