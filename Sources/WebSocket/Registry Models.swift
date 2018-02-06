@@ -10,31 +10,31 @@ import Foundation
 //https://tools.ietf.org/html/rfc6455#page-65
 extension WebSocket {
     public enum Opcode: Int {
-        case continuationFrame = 0x0
-        case textFrame = 0x1
-        case binaryFrame = 0x2
+        case continuationFrame     = 0x0
+        case textFrame             = 0x1
+        case binaryFrame           = 0x2
         //*  %x3-7 are reserved for further non-control frames
-        case connectionCloseFrame = 0x8
-        case pingFrame = 0x9
-        case pongFrame = 0xA
+        case connectionCloseFrame  = 0x8
+        case pingFrame             = 0x9
+        case pongFrame             = 0xA
         //*  %xB-F are reserved for further control frames
-        case unknown = 999
+        case unknown               = 999
     }
     
     public enum CloseCode: CInt {
-        case normalClosure = 1000
-        case goingAway = 1001
-        case protocolError = 1002
-        case unsupportedData = 1003
+        case normalClosure            = 1000
+        case goingAway                = 1001
+        case protocolError            = 1002
+        case unsupportedData          = 1003
         /*1004 reserved*/
-        case noStatusReceived = 1005
-        case abnormalClosure = 1006
-        case invalidFramePayloadData = 1007
-        case policyViolation = 1008
-        case messageTooBig = 1009
-        case mandatoryExt = 1010
-        case internalServerError = 1011
-        case TLSHandshake = 1015
+        case noStatusReceived         = 1005
+        case abnormalClosure          = 1006
+        case invalidFramePayloadData  = 1007
+        case policyViolation          = 1008
+        case messageTooBig            = 1009
+        case mandatoryExt             = 1010
+        case internalServerError      = 1011
+        case TLSHandshake             = 1015
     }
     
     //    0                   1                   2                   3
@@ -80,10 +80,10 @@ extension WebSocket {
     }
     
     public struct HeaderValue {
-        static let connection = "Upgrade"
-        static let upgrade    = "websocket"
+        static let connection   = "Upgrade"
+        static let upgrade      = "websocket"
         static let `extension`  = "permessage-deflate; client_max_window_bits; server_max_window_bits=15"
-        static var version    = "13"
+        static var version      = "13"
     }
     
     public enum HTTPCode: Int {
