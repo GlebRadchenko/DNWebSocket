@@ -7,27 +7,6 @@
 
 import Foundation
 
-public enum WebSocketStatus {
-    case disconnected
-    case connecting
-    case connected
-    case disconnecting
-}
-
-public enum WebSocketError: Error {
-    case sslValidationFailed
-    case handshakeFailed(response: String)
-    case missingHeader(header: String)
-}
-
-public enum WebSocketEvent {
-    case connected
-    case textReceived(String)
-    case dataReceived(Data)
-    case pongReceived(Data)
-    case disconnected(Error?)
-}
-
 open class WebSocket {
     public static let GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
     
@@ -60,7 +39,6 @@ open class WebSocket {
     public var useCompression = true
     public var timeout: TimeInterval
     
-    //MARK: - Events
     public var onEvent: ((WebSocketEvent) -> Void)?
     public var onConnect: (() -> Void)?
     public var onText: ((String) -> Void)?
@@ -68,10 +46,10 @@ open class WebSocket {
     public var onPong: ((Data) -> Void)?
     public var onDisconnect: ((Error?) -> Void)?
     
+    fileprivate var compressionSettings: CompressionSettings = .default
     fileprivate let operationQueue: OperationQueue
-    fileprivate var secKey = ""
-    
     fileprivate var inputStreamBuffer = StreamBuffer()
+    fileprivate var secKey = ""
     
     deinit { tearDown(reasonError: nil) }
     
@@ -321,6 +299,10 @@ extension WebSocket {
         let clientKey = (secKey + WebSocket.GUID).sha1base64()
         guard clientKey == acceptKey else {
             throw WebSocketError.handshakeFailed(response: response.rawBodyString)
+        }
+        
+        if let extensions = response.httpHeaders[Header.secExtension.lowercased()] {
+            compressionSettings.update(with: extensions)
         }
     }
     

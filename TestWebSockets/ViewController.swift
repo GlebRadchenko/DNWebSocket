@@ -17,8 +17,7 @@ class ViewController: UIViewController {
         let url = URL(string: "wss://echo.websocket.org:80")!
         websocket = WebSocket(url: url)
         websocket.securitySettings.useSSL = false
-        websocket.onEvent = { [weak self] (event) in
-            guard let wSelf = self else { return }
+        websocket.onEvent = { (event) in
             print(event)
         }
         
