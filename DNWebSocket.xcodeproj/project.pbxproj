@@ -30,9 +30,9 @@
 		F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
 		F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
 		F7A65D8E2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
-		F7A65D902028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
-		F7A65D912028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
-		F7A65D922028850200F190CB /* String+Base64+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */; };
+		F7A65D902028850200F190CB /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
+		F7A65D912028850200F190CB /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
+		F7A65D922028850200F190CB /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
 		F7A65D942028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
 		F7A65D952028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
 		F7A65D962028868400F190CB /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
@@ -57,12 +57,56 @@
 		F7A65DB02028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
 		F7A65DB12028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
 		F7A65DB22028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
+		F7B141C42029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F7B141C52029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F7B141C62029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F7B141CE2029EF0800E49DB5 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B141CD2029EF0800E49DB5 /* test.plist */; };
+		F7B141CF2029EF0800E49DB5 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B141CD2029EF0800E49DB5 /* test.plist */; };
+		F7B141D72029EFDC00E49DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141D62029EFDC00E49DB5 /* AppDelegate.swift */; };
+		F7B141D92029EFDC00E49DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141D82029EFDC00E49DB5 /* ViewController.swift */; };
+		F7B141DC2029EFDC00E49DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B141DA2029EFDC00E49DB5 /* Main.storyboard */; };
+		F7B141DE2029EFDC00E49DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7B141DD2029EFDC00E49DB5 /* Assets.xcassets */; };
+		F7B141E12029EFDC00E49DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B141DF2029EFDC00E49DB5 /* LaunchScreen.storyboard */; };
+		F7B141E62029EFFE00E49DB5 /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
+		F7B141E72029EFFE00E49DB5 /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F7B141E82029EFFE00E49DB5 /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
+		F7B141E92029EFFE00E49DB5 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */; };
+		F7B141EA2029EFFE00E49DB5 /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
+		F7B141EB2029EFFE00E49DB5 /* Stream+SSLTrust.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */; };
+		F7B141EC2029EFFE00E49DB5 /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F7B141ED2029EFFE00E49DB5 /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F7B141EE2029EFFE00E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F7B141EF2029F00400E49DB5 /* SizeRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */; };
+		F7B141F02029F00400E49DB5 /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F7B141F12029F00600E49DB5 /* CompressionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7542024BC920009B0D4 /* CompressionStatus.swift */; };
+		F7B141F22029F00900E49DB5 /* SSLCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA72028B17F00F190CB /* SSLCertificate.swift */; };
+		F7B141F32029F00900E49DB5 /* SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAB2028B83C00F190CB /* SSLSettings.swift */; };
+		F7B141F42029F00900E49DB5 /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
+		F7B141F52029F00D00E49DB5 /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F7B141F62029F00D00E49DB5 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
+		F7B141F72029F00D00E49DB5 /* Registry Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry Models.swift */; };
+		F7B141F82029F00D00E49DB5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F7B141FA202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F7B141FB202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F7B141FC202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F7B141FD202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F7B141FF202A253A00E49DB5 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */; };
+		F7B14200202A253A00E49DB5 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */; };
+		F7B14201202A253A00E49DB5 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */; };
+		F7B14202202A253A00E49DB5 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */; };
+		F7B14204202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
+		F7B14205202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
+		F7B14206202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
+		F7B14207202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
 		F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85172029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
 		F7DB85182029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
 		F7DB85192029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F7DB851B2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F7DB851C2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F7DB851D2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,7 +136,7 @@
 		F7A65D84202869B800F190CB /* Data+Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Compression.swift"; sourceTree = "<group>"; };
 		F7A65D8820286B2000F190CB /* README.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = README.strings; sourceTree = "<group>"; };
 		F7A65D8B2028837600F190CB /* Data+SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SHA1.swift"; sourceTree = "<group>"; };
-		F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64+SHA1.swift"; sourceTree = "<group>"; };
+		F7A65D8F2028850200F190CB /* String+Handshaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handshaking.swift"; sourceTree = "<group>"; };
 		F7A65D932028868400F190CB /* Registry Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registry Models.swift"; sourceTree = "<group>"; };
 		F7A65D9720288C7C00F190CB /* IOStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOStream.swift; sourceTree = "<group>"; };
 		F7A65D9B2028942000F190CB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -101,8 +145,21 @@
 		F7A65DA72028B17F00F190CB /* SSLCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLCertificate.swift; sourceTree = "<group>"; };
 		F7A65DAB2028B83C00F190CB /* SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLSettings.swift; sourceTree = "<group>"; };
 		F7A65DAF2028BB3800F190CB /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
+		F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		F7B141CD2029EF0800E49DB5 /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		F7B141D42029EFDC00E49DB5 /* TestWebSockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWebSockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B141D62029EFDC00E49DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F7B141D82029EFDC00E49DB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7B141DB2029EFDC00E49DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7B141DD2029EFDC00E49DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7B141E02029EFDC00E49DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F7B141E22029EFDC00E49DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamBuffer.swift; sourceTree = "<group>"; };
+		F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+WebSocket.swift"; sourceTree = "<group>"; };
 		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
 		F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLContextRetrievable.swift; sourceTree = "<group>"; };
+		F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Handshake.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +184,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7B141D12029EFDC00E49DB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +199,7 @@
 			children = (
 				F781C72D2024AF5D0009B0D4 /* Sources */,
 				F781C73D2024B2670009B0D4 /* Example */,
+				F7B141D52029EFDC00E49DB5 /* TestWebSockets */,
 				F781C7182024AF130009B0D4 /* Products */,
 				F781C76C202855250009B0D4 /* Frameworks */,
 			);
@@ -146,6 +211,7 @@
 				F781C7172024AF130009B0D4 /* DNWebSocket.framework */,
 				F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */,
 				F781C73C2024B2670009B0D4 /* Example */,
+				F7B141D42029EFDC00E49DB5 /* TestWebSockets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				F781C73E2024B2670009B0D4 /* main.swift */,
+				F7B141CD2029EF0800E49DB5 /* test.plist */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -177,8 +244,10 @@
 		F781C7432024B3A20009B0D4 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
-				F7A65D9720288C7C00F190CB /* IOStream.swift */,
 				F781C7352024B0FE0009B0D4 /* WebSocket.swift */,
+				F7A65D9720288C7C00F190CB /* IOStream.swift */,
+				F7B141FE202A253A00E49DB5 /* HTTPResponse.swift */,
+				F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */,
 				F7A65D932028868400F190CB /* Registry Models.swift */,
 				F7A65D9B2028942000F190CB /* Result.swift */,
 			);
@@ -205,13 +274,16 @@
 		F781C7462024B3E90009B0D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F7A65D9F20289EE400F190CB /* Data+Buffer.swift */,
 				F7A65D84202869B800F190CB /* Data+Compression.swift */,
 				F7A65D8B2028837600F190CB /* Data+SHA1.swift */,
-				F7A65D9F20289EE400F190CB /* Data+Buffer.swift */,
 				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
-				F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */,
+				F7A65D8F2028850200F190CB /* String+Handshaking.swift */,
 				F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */,
 				F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */,
+				F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */,
+				F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */,
+				F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +303,19 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7B141D52029EFDC00E49DB5 /* TestWebSockets */ = {
+			isa = PBXGroup;
+			children = (
+				F7B141D62029EFDC00E49DB5 /* AppDelegate.swift */,
+				F7B141D82029EFDC00E49DB5 /* ViewController.swift */,
+				F7B141DA2029EFDC00E49DB5 /* Main.storyboard */,
+				F7B141DD2029EFDC00E49DB5 /* Assets.xcassets */,
+				F7B141DF2029EFDC00E49DB5 /* LaunchScreen.storyboard */,
+				F7B141E22029EFDC00E49DB5 /* Info.plist */,
+			);
+			path = TestWebSockets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +393,23 @@
 			productReference = F781C73C2024B2670009B0D4 /* Example */;
 			productType = "com.apple.product-type.tool";
 		};
+		F7B141D32029EFDC00E49DB5 /* TestWebSockets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7B141E32029EFDC00E49DB5 /* Build configuration list for PBXNativeTarget "TestWebSockets" */;
+			buildPhases = (
+				F7B141D02029EFDC00E49DB5 /* Sources */,
+				F7B141D12029EFDC00E49DB5 /* Frameworks */,
+				F7B141D22029EFDC00E49DB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestWebSockets;
+			productName = TestWebSockets;
+			productReference = F7B141D42029EFDC00E49DB5 /* TestWebSockets.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -330,6 +432,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					F7B141D32029EFDC00E49DB5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = F781C70F2024AEED0009B0D4 /* Build configuration list for PBXProject "DNWebSocket" */;
@@ -338,6 +444,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = F781C70B2024AEED0009B0D4;
 			productRefGroup = F781C7182024AF130009B0D4 /* Products */;
@@ -347,6 +454,7 @@
 				F781C7162024AF130009B0D4 /* DNWebSocket-iOS */,
 				F781C7242024AF2D0009B0D4 /* DNWebSocket-macOS */,
 				F781C73B2024B2670009B0D4 /* Example */,
+				F7B141D32029EFDC00E49DB5 /* TestWebSockets */,
 			);
 		};
 /* End PBXProject section */
@@ -356,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B141CE2029EF0800E49DB5 /* test.plist in Resources */,
 				F7A65D8920286B2000F190CB /* README.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +473,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B141CF2029EF0800E49DB5 /* test.plist in Resources */,
 				F7A65D8A20286B2000F190CB /* README.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7B141D22029EFDC00E49DB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7B141E12029EFDC00E49DB5 /* LaunchScreen.storyboard in Resources */,
+				F7B141DE2029EFDC00E49DB5 /* Assets.xcassets in Resources */,
+				F7B141DC2029EFDC00E49DB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,18 +500,23 @@
 				F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA020289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F7A65DAC2028B83C00F190CB /* SSLSettings.swift in Sources */,
+				F7B14204202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65DA82028B17F00F190CB /* SSLCertificate.swift in Sources */,
 				F781C7552024BC920009B0D4 /* CompressionStatus.swift in Sources */,
+				F7DB851B2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F7A65D85202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65D9820288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9C2028942000F190CB /* Result.swift in Sources */,
+				F7B141FF202A253A00E49DB5 /* HTTPResponse.swift in Sources */,
+				F7B141C42029DDA700E49DB5 /* URL+Extensions.swift in Sources */,
 				F7DB85172029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
 				F7A65D942028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */,
 				F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DA42028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
-				F7A65D902028850200F190CB /* String+Base64+SHA1.swift in Sources */,
+				F7A65D902028850200F190CB /* String+Handshaking.swift in Sources */,
+				F7B141FA202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,18 +529,23 @@
 				F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA120289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F7A65DAD2028B83C00F190CB /* SSLSettings.swift in Sources */,
+				F7B14205202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65DA92028B17F00F190CB /* SSLCertificate.swift in Sources */,
 				F781C7562024BC920009B0D4 /* CompressionStatus.swift in Sources */,
+				F7DB851C2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F7A65D86202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65D9920288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9D2028942000F190CB /* Result.swift in Sources */,
+				F7B14200202A253A00E49DB5 /* HTTPResponse.swift in Sources */,
+				F7B141C52029DDA700E49DB5 /* URL+Extensions.swift in Sources */,
 				F7DB85182029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
 				F7A65D952028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */,
 				F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DA52028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
-				F7A65D912028850200F190CB /* String+Base64+SHA1.swift in Sources */,
+				F7A65D912028850200F190CB /* String+Handshaking.swift in Sources */,
+				F7B141FB202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,9 +559,12 @@
 				F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65DAA2028B17F00F190CB /* SSLCertificate.swift in Sources */,
 				F781C73F2024B2670009B0D4 /* main.swift in Sources */,
+				F7B14201202A253A00E49DB5 /* HTTPResponse.swift in Sources */,
 				F7A65DB22028BB3800F190CB /* SSLValidator.swift in Sources */,
 				F7A65D962028868400F190CB /* Registry Models.swift in Sources */,
-				F7A65D922028850200F190CB /* String+Base64+SHA1.swift in Sources */,
+				F7A65D922028850200F190CB /* String+Handshaking.swift in Sources */,
+				F7B141FC202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
+				F7DB851D2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F7A65D8320285F4900F190CB /* WebSocket.swift in Sources */,
 				F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */,
@@ -439,12 +572,64 @@
 				F7A65DA220289EE400F190CB /* Data+Buffer.swift in Sources */,
 				F7A65D7F20285F4900F190CB /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65D8E2028837600F190CB /* Data+SHA1.swift in Sources */,
+				F7B141C62029DDA700E49DB5 /* URL+Extensions.swift in Sources */,
 				F7A65D8020285F4900F190CB /* SizeRetrievable.swift in Sources */,
+				F7B14206202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65D9E2028942000F190CB /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7B141D02029EFDC00E49DB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7B141F12029F00600E49DB5 /* CompressionStatus.swift in Sources */,
+				F7B141EE2029EFFE00E49DB5 /* URL+Extensions.swift in Sources */,
+				F7B141E72029EFFE00E49DB5 /* Data+SHA1.swift in Sources */,
+				F7B14207202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
+				F7B14202202A253A00E49DB5 /* HTTPResponse.swift in Sources */,
+				F7B141ED2029EFFE00E49DB5 /* URLRequest+Handshake.swift in Sources */,
+				F7B141E92029EFFE00E49DB5 /* UnsafePointer+Extensions.swift in Sources */,
+				F7B141FD202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
+				F7B141D92029EFDC00E49DB5 /* ViewController.swift in Sources */,
+				F7B141EB2029EFFE00E49DB5 /* Stream+SSLTrust.swift in Sources */,
+				F7B141F02029F00400E49DB5 /* SSLContextRetrievable.swift in Sources */,
+				F7B141E62029EFFE00E49DB5 /* Data+Compression.swift in Sources */,
+				F7B141E82029EFFE00E49DB5 /* Data+Buffer.swift in Sources */,
+				F7B141EF2029F00400E49DB5 /* SizeRetrievable.swift in Sources */,
+				F7B141D72029EFDC00E49DB5 /* AppDelegate.swift in Sources */,
+				F7B141F22029F00900E49DB5 /* SSLCertificate.swift in Sources */,
+				F7B141F72029F00D00E49DB5 /* Registry Models.swift in Sources */,
+				F7B141F62029F00D00E49DB5 /* WebSocket.swift in Sources */,
+				F7B141F52029F00D00E49DB5 /* IOStream.swift in Sources */,
+				F7B141F42029F00900E49DB5 /* SSLValidator.swift in Sources */,
+				F7B141EC2029EFFE00E49DB5 /* Stream+SSLSettings.swift in Sources */,
+				F7B141F82029F00D00E49DB5 /* Result.swift in Sources */,
+				F7B141EA2029EFFE00E49DB5 /* String+Handshaking.swift in Sources */,
+				F7B141F32029F00900E49DB5 /* SSLSettings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7B141DA2029EFDC00E49DB5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7B141DB2029EFDC00E49DB5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F7B141DF2029EFDC00E49DB5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7B141E02029EFDC00E49DB5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F781C7102024AEED0009B0D4 /* Debug */ = {
@@ -797,9 +982,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/test.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialognet.test.websockets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -853,12 +1040,139 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/test.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialognet.test.websockets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		F7B141E42029EFDC00E49DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = TestWebSockets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = gleb.radchenko.TestWebSockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7B141E52029EFDC00E49DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = TestWebSockets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = gleb.radchenko.TestWebSockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -897,6 +1211,15 @@
 			buildConfigurations = (
 				F781C7412024B2670009B0D4 /* Debug */,
 				F781C7422024B2670009B0D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7B141E32029EFDC00E49DB5 /* Build configuration list for PBXNativeTarget "TestWebSockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7B141E42029EFDC00E49DB5 /* Debug */,
+				F7B141E52029EFDC00E49DB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

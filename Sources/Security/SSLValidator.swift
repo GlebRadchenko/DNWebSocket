@@ -8,12 +8,12 @@
 import Foundation
 import Security
 
-class SSLValidator {
-    var shouldValidateDomainName: Bool = true
-    var usePublicKeys: Bool
-    var certificates: [SSLSertificate]
+public class SSLValidator {
+    public var shouldValidateDomainName: Bool = true
+    public var usePublicKeys: Bool
+    public var certificates: [SSLSertificate]
     
-    init(certificates: [SSLSertificate], usePublicKeys: Bool) {
+    public init(certificates: [SSLSertificate], usePublicKeys: Bool) {
         self.usePublicKeys = usePublicKeys
         self.certificates = certificates
         
@@ -22,7 +22,7 @@ class SSLValidator {
         }
     }
     
-    convenience init(usePublicKeys: Bool = false) {
+    public convenience init(usePublicKeys: Bool = false) {
         let urls = Bundle.main.urls(forResourcesWithExtension: "cer", subdirectory: nil) ?? []
         let certificates = urls.flatMap { (url) -> SSLSertificate? in
             guard let data = try? Data(contentsOf: url) else { return nil }
@@ -79,3 +79,4 @@ class SSLValidator {
         }
     }
 }
+

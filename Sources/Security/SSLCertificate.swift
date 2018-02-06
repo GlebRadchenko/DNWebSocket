@@ -7,16 +7,16 @@
 
 import Foundation
 
-class SSLSertificate {
-    var data: Data?
-    var publicKey: SecKey?
+public class SSLSertificate {
+    public var data: Data?
+    public var publicKey: SecKey?
     
     var secCertificate: SecCertificate? {
         guard let data = data else { return nil }        
         return SecCertificateCreateWithData(nil, data as CFData)
     }
     
-    init(data: Data? = nil, publicKey: SecKey? = nil) {
+    public init(data: Data? = nil, publicKey: SecKey? = nil) {
         self.data = data
         self.publicKey = publicKey
     }

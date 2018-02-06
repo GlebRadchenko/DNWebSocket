@@ -13,14 +13,14 @@ public class IOStream: NSObject {
     var inputStream: InputStream?
     var outputStream: OutputStream?
     
-    var enableProxy: Bool = false
+    public var enableProxy: Bool = false
     
     var onReceiveEvent: ((_ event: Event, _ streamType: StreamType) -> Void)?
     
     deinit { disconnect() }
     
     override public init() {
-        queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .background)
+        queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .default)
         super.init()
     }
     
@@ -28,7 +28,7 @@ public class IOStream: NSObject {
         self.queue = queue
     }
     
-    func connect(url: URL, port: UInt32, timeout: TimeInterval, settings: SSLSettings, completion: @escaping Completion<Void>) {
+    func connect(url: URL, port: uint, timeout: TimeInterval, settings: SSLSettings, completion: @escaping Completion<Void>) {
         do {
             try createIOPair(url: url, port: port)
             try configureProxySetting()
@@ -58,7 +58,7 @@ public class IOStream: NSObject {
         outputStream = nil
     }
     
-    public func read() throws -> Data? {
+    public func read() throws -> Data {
         guard let input = inputStream else { throw StreamError.wrongIOPair }
         var buffer = Data.buffer()
         
@@ -85,7 +85,7 @@ public class IOStream: NSObject {
         }
     }
     
-    fileprivate func createIOPair(url: URL, port: UInt32) throws {
+    fileprivate func createIOPair(url: URL, port: uint) throws {
         guard let host = url.host as CFString? else { throw StreamError.wrongHost }
         
         var readStream: Unmanaged<CFReadStream>?
@@ -163,8 +163,8 @@ extension IOStream: StreamDelegate {
     public func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
         let event = Event(eventCode: eventCode)
         let streamType: StreamType = aStream == inputStream
-            ? .input(aStream)
-            : .output(aStream)
+            ? .input
+            : .output
         
         onReceiveEvent?(event, streamType)
     }
@@ -182,8 +182,8 @@ extension IOStream {
     }
     
     public enum StreamType {
-        case input(Stream)
-        case output(Stream)
+        case input
+        case output
     }
     
     public enum Event {
