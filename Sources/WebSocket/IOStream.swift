@@ -28,11 +28,11 @@ public class IOStream: NSObject {
         self.queue = queue
     }
     
-    func connect(url: URL, port: UInt32, timeout: TimeInterval, completion: @escaping Completion<Void>) {
+    func connect(url: URL, port: UInt32, timeout: TimeInterval, settings: SSLSettings, completion: @escaping Completion<Void>) {
         do {
             try createIOPair(url: url, port: port)
             try configureProxySetting()
-            try configureSSLSettings()
+            try configureSSLSettings(settings)
             try setupIOPair()
             
             openConnection(timeout: timeout, completion: completion)
@@ -109,8 +109,13 @@ public class IOStream: NSObject {
         CFWriteStreamSetProperty(output, key, settings)
     }
     
-    fileprivate func configureSSLSettings() throws {
+    fileprivate func configureSSLSettings(_ settings: SSLSettings) throws {
+        guard let input = inputStream, let output = outputStream else {
+            throw StreamError.wrongIOPair
+        }
         
+        try input.apply(settings)
+        try output.apply(settings)
     }
     
     fileprivate func setupIOPair() throws {
@@ -171,6 +176,7 @@ extension IOStream {
         case wrongIOPair
         case connectionTimeout
         case deinited
+        case osError(status: OSStatus)
         
         case unknown
     }

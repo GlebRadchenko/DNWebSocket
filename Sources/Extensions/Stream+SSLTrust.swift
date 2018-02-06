@@ -7,13 +7,13 @@
 
 import Foundation
 
-extension InputStream {
+extension InputStream: SSLContextRetrievable {
     var sslContext: SSLContext? {
         return CFReadStreamCopyProperty(self, CFStreamPropertyKey(rawValue: kCFStreamPropertySSLContext)) as! SSLContext?
     }
 }
 
-extension OutputStream {
+extension OutputStream: SSLContextRetrievable {
     var sslContext: SSLContext? {
         return CFWriteStreamCopyProperty(self, CFStreamPropertyKey(rawValue: kCFStreamPropertySSLContext)) as! SSLContext?
     }

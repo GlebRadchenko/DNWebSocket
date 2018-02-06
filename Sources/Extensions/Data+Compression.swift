@@ -14,7 +14,7 @@ public enum DataProcessingError: LocalizedError {
 
 extension Data {
     private static var chunkSize: Int {
-        return 0x2000 // 8192 bits
+        return 0x2000 // 8192 bytes
     }
     
     private static var tail: [UInt8] {

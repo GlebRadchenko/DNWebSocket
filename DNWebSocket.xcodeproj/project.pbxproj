@@ -57,6 +57,12 @@
 		F7A65DB02028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
 		F7A65DB12028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
 		F7A65DB22028BB3800F190CB /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
+		F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F7DB85172029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F7DB85182029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F7DB85192029B080009C3E0B /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +101,8 @@
 		F7A65DA72028B17F00F190CB /* SSLCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLCertificate.swift; sourceTree = "<group>"; };
 		F7A65DAB2028B83C00F190CB /* SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLSettings.swift; sourceTree = "<group>"; };
 		F7A65DAF2028BB3800F190CB /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
+		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
+		F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLContextRetrievable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */,
+				F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
 				F7A65D8F2028850200F190CB /* String+Base64+SHA1.swift */,
 				F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */,
+				F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,8 +386,10 @@
 				F7A65D9820288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9C2028942000F190CB /* Result.swift in Sources */,
+				F7DB85172029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
 				F7A65D942028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */,
+				F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DA42028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D902028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 			);
@@ -398,8 +410,10 @@
 				F7A65D9920288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9D2028942000F190CB /* Result.swift in Sources */,
+				F7DB85182029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
 				F7A65D952028868400F190CB /* Registry Models.swift in Sources */,
 				F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */,
+				F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DA52028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D912028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 			);
@@ -409,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7DB85192029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
 				F7A65DAE2028B83C00F190CB /* SSLSettings.swift in Sources */,
 				F7A65DA62028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */,
@@ -418,6 +433,7 @@
 				F7A65D962028868400F190CB /* Registry Models.swift in Sources */,
 				F7A65D922028850200F190CB /* String+Base64+SHA1.swift in Sources */,
 				F7A65D8320285F4900F190CB /* WebSocket.swift in Sources */,
+				F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8120285F4900F190CB /* CompressionStatus.swift in Sources */,
 				F7A65DA220289EE400F190CB /* Data+Buffer.swift in Sources */,

@@ -7,8 +7,6 @@
 
 import Foundation
 
-print("123")
-
 let initialString = "String to test"
 var initialData = initialString.data(using: .utf8) ?? Data()
 
