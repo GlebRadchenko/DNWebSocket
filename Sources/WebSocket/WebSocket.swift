@@ -158,6 +158,8 @@ open class WebSocket {
     }
     
     fileprivate func tearDown(reasonError: Error?) {
+        guard status == .connected || status == .connecting else { return }
+        
         status = .disconnecting
         reasonError == nil
             ? operationQueue.waitUntilAllOperationsAreFinished()
@@ -212,9 +214,7 @@ extension WebSocket {
     
     fileprivate func handleInputEvent(_ event: IOStream.Event) {
         switch event {
-        case .openCompleted:
-            break
-        case .hasSpaceAvailable:
+        case .openCompleted, .hasSpaceAvailable, .unknown:
             break
         case .hasBytesAvailable:
             handleInputBytesAvailable()
@@ -222,25 +222,17 @@ extension WebSocket {
             tearDown(reasonError: nil)
         case .errorOccurred:
             handleInputError()
-        case .unknown:
-            break
         }
     }
     
     fileprivate func handleOutputEvent(_ event: IOStream.Event) {
         switch event {
-        case .openCompleted:
-            break
-        case .hasSpaceAvailable:
-            break
-        case .hasBytesAvailable:
+        case .openCompleted, .hasSpaceAvailable, .hasBytesAvailable, .unknown:
             break
         case .endEncountered:
             tearDown(reasonError: nil)
         case .errorOccurred:
             handleOutputError()
-        case .unknown:
-            break
         }
     }
     
@@ -270,11 +262,11 @@ extension WebSocket {
     fileprivate func processInputStreamData() {
         while !inputStreamBuffer.isEmpty {
             inputStreamBuffer.dequeueIntoBuffer()
-            handleInputBufferData()
+            processInputBufferData()
         }
     }
     
-    fileprivate func handleInputBufferData() {
+    fileprivate func processInputBufferData() {
         let data = inputStreamBuffer.buffer
         
         switch status {
