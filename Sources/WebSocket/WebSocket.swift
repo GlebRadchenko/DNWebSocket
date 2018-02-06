@@ -54,7 +54,17 @@ open class WebSocket {
     
     deinit { tearDown(reasonError: nil) }
     
-    public init(url: URL,
+    public convenience init(url: URL,
+                            timeout: TimeInterval = 5,
+                            protocols: [String] = [],
+                            queue: DispatchQueue = .main,
+                            processingQoS: QualityOfService = .default) {
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        self.init(request: request, timeout: timeout, protocols: protocols, queue: queue, processingQoS: processingQoS)
+    }
+    
+    public init(request: URLRequest,
                 timeout: TimeInterval = 5,
                 protocols: [String] = [],
                 queue: DispatchQueue = .main,
@@ -63,8 +73,8 @@ open class WebSocket {
         self.queue = queue
         self.stream = IOStream()
         
-        self.url = url
-        self.request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        self.url = request.url!
+        self.request = request
         self.timeout = timeout
         self.protocols = protocols
         
@@ -102,7 +112,12 @@ open class WebSocket {
     
     fileprivate func openConnecttion(port: uint, msTimeout: TimeInterval, completion: @escaping Completion<Void>) {
         stream.onReceiveEvent = streamEventHandler()
-        stream.connect(url: url, port: port, timeout: msTimeout, settings: securitySettings, completion: completion)
+        stream.connect(url: url,
+                       port: port,
+                       timeout: msTimeout,
+                       networkSystemType: request.networkServiceType,
+                       settings: securitySettings,
+                       completion: completion)
     }
     
     fileprivate func handleSuccessConnection(handshake: String) {

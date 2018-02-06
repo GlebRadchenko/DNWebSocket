@@ -28,9 +28,10 @@ public class IOStream: NSObject {
         self.queue = queue
     }
     
-    func connect(url: URL, port: uint, timeout: TimeInterval, settings: SSLSettings, completion: @escaping Completion<Void>) {
+    func connect(url: URL, port: uint, timeout: TimeInterval, networkSystemType: URLRequest.NetworkServiceType = .default, settings: SSLSettings, completion: @escaping Completion<Void>) {
         do {
             try createIOPair(url: url, port: port)
+            try setupNetworkServiceType(networkSystemType)
             try configureProxySetting()
             try configureSSLSettings(settings)
             try setupIOPair()
@@ -93,6 +94,38 @@ public class IOStream: NSObject {
         CFStreamCreatePairWithSocketToHost(nil, host, port, &readStream, &writeStream)
         inputStream = readStream?.takeRetainedValue()
         outputStream = writeStream?.takeRetainedValue()
+    }
+    
+    fileprivate func setupNetworkServiceType(_ type: URLRequest.NetworkServiceType) throws {
+        guard let input = inputStream, let output = outputStream else {
+            throw StreamError.wrongIOPair
+        }
+        
+        let streamNetworkServiceType: StreamNetworkServiceTypeValue
+        
+        switch type {
+        case .default:
+            return
+        case .voip:
+            if #available(iOS 8, *) {
+                let message = "This service type is deprecated. Please use PushKit for VoIP control"
+                debugPrint("\(type) - \(message)")
+                return
+            } else {
+                streamNetworkServiceType = .voIP
+            }
+        case .voice:
+            streamNetworkServiceType = .voice
+        case .video:
+            streamNetworkServiceType = .video
+        case .networkServiceTypeCallSignaling:
+            streamNetworkServiceType = .callSignaling
+        case .background:
+            streamNetworkServiceType = .background
+        }
+        
+        input.setValue(streamNetworkServiceType.rawValue, forKey: Stream.PropertyKey.networkServiceType.rawValue)
+        output.setValue(streamNetworkServiceType.rawValue, forKey: Stream.PropertyKey.networkServiceType.rawValue)
     }
     
     fileprivate func configureProxySetting() throws {
@@ -172,6 +205,7 @@ extension IOStream: StreamDelegate {
 
 extension IOStream {
     public enum StreamError: Error {
+        case noURL
         case wrongHost
         case wrongIOPair
         case connectionTimeout
@@ -212,3 +246,4 @@ extension IOStream {
         }
     }
 }
+
