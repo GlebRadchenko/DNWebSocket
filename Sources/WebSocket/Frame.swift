@@ -107,7 +107,8 @@ public class Frame {
         
         var data = Data(bytes)
         
-        if let lengthData = lengthData {
+        if var lengthData = lengthData {
+            lengthData.reverse()
             data.append(lengthData)
         }
         

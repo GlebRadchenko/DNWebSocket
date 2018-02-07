@@ -183,10 +183,11 @@ extension WebSocket {
         guard status != .disconnected else { return }
         
         var value = code.rawValue
-        let data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
+        var data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
+        data.reverse()
         
-        status = .disconnecting
         performSend(data: data, code: .connectionCloseFrame, completion: nil)
+        status = .disconnecting
         checkStatus(.disconnected, msTimeout: timeout * 1000)
     }
     
