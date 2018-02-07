@@ -15,4 +15,10 @@ extension Data {
     static func buffer() -> Data {
         return Data(count: bufferSize)
     }
+    
+    func unsafeBuffer() -> UnsafeBufferPointer<UInt8> {
+        return withUnsafeBytes { (pointer) in
+            UnsafeBufferPointer<UInt8>(start: pointer, count: count)
+        }
+    }
 }

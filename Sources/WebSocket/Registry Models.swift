@@ -9,7 +9,7 @@ import Foundation
 
 //https://tools.ietf.org/html/rfc6455#page-65
 extension WebSocket {
-    public enum Opcode: Int {
+    public enum Opcode: UInt8 {
         case continuationFrame     = 0x0
         case textFrame             = 0x1
         case binaryFrame           = 0x2
@@ -18,10 +18,10 @@ extension WebSocket {
         case pingFrame             = 0x9
         case pongFrame             = 0xA
         //*  %xB-F are reserved for further control frames
-        case unknown               = 999
+        case unknown               = 0xF
     }
     
-    public enum CloseCode: CInt {
+    public enum CloseCode: UInt16 {
         case normalClosure            = 1000
         case goingAway                = 1001
         case protocolError            = 1002
@@ -56,14 +56,14 @@ extension WebSocket {
     //    |                     Payload Data continued ...                |
     //    +---------------------------------------------------------------+
     public struct Mask {
-        static let fin        = 0b10000000
-        static let rsv        = 0b01110000
-        static let rsv1       = 0b01000000
-        static let rsv2       = 0b00100000
-        static let rsv3       = 0b00010000
-        static let opCode     = 0b00001111
-        static let mask       = 0b10000000
-        static let payloadLen = 0b01111111
+        static let fin: UInt8        = 0b10000000
+        static let rsv: UInt8        = 0b01110000
+        static let rsv1: UInt8       = 0b01000000
+        static let rsv2: UInt8       = 0b00100000
+        static let rsv3: UInt8       = 0b00010000
+        static let opCode: UInt8     = 0b00001111
+        static let mask: UInt8       = 0b10000000
+        static let payloadLen: UInt8 = 0b01111111
     }
     
     public struct Header {
