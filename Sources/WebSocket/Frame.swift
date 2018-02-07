@@ -104,10 +104,11 @@ public class Frame {
         var offset = 2
         if payloadLengthSize > 0 {
             frame.payloadLength = extractValue(from: buffer, offset: offset, count: payloadLengthSize)
-            estimatedFrameSize += frame.payloadLength
-            guard buffer.count >= estimatedFrameSize else { return 0 }
-            offset += payloadLengthSize
         }
+        
+        estimatedFrameSize += frame.payloadLength
+        guard buffer.count >= estimatedFrameSize else { return 0 }
+        offset += payloadLengthSize
         
         if frame.isMasked {
             // next 4 bytes - mask
@@ -119,6 +120,8 @@ public class Frame {
         
         frame.payload = Data(bytes: base + offset, count: Int(frame.payloadLength))
         frame.isFullfilled = true
+        
+        offset += Int(frame.payloadLength)
         
         return offset
     }

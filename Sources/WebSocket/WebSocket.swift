@@ -7,7 +7,7 @@
 
 import Foundation
 
-//TODO: - Add write methods
+
 open class WebSocket {
     public static let GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
     
@@ -350,7 +350,7 @@ extension WebSocket {
         if let (frame, usedAmount) = Frame.decode(from: unsafeBuffer) {
             inputStreamBuffer.clearBuffer()
             if usedAmount < data.count {
-                inputStreamBuffer.buffer = data[usedAmount..<data.count]
+                inputStreamBuffer.buffer = Data(unsafeBuffer[usedAmount..<data.count])
             }
             
             let success = processFrame(frame)
@@ -498,6 +498,16 @@ extension WebSocket {
     
     fileprivate func performSend(data: Data, code: Opcode, completion: (() -> Void)?) {
         guard status == .connected else { return }
+        
+        let operation = BlockOperation()
+        operation.addExecutionBlock { [weak self, weak operation] in
+            guard let wSelf = self else { return }
+            guard let wOperation = operation, !wOperation.isCancelled else { return }
+            
+            
+        }
+        
+        operationQueue.addOperation(operation)
     }
 }
 
