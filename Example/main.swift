@@ -9,9 +9,9 @@ import Foundation
 
 let str = "ws://signalrchat20180201032925.azurewebsites.net/signalr/connect?transport=webSockets&clientProtocol=1.5&connectionToken=mT85pc9hiBkbZL%2BwJLsbELvL1Lii2OGqMRvONbTGXADf8X%2B7tY%2BJJ8jlTUKJFPbfEFoZeurDLV9HUxZOT%2Bh0VBaZTJSW0qRgOuFNmfxsGZSHhLQ4C6Uzep7Oy6xoAONJ&connectionData=%5B%7B%22name%22%3A%22chathub%22%7D%5D&tid=4"
 
-//let url = URL(string: "wss://echo.websocket.org:80")!
-let url = URL(string: str)!
-let websocket = WebSocket(url: url)
+let url = URL(string: "wss://echo.websocket.org:80")!
+//let url = URL(string: str)!
+let websocket = WebSocket(url: url, timeout: 10, protocols: ["chat", "superchat"])
 websocket.securitySettings.useSSL = false
 websocket.onEvent = { (event) in
     print(event)
@@ -22,10 +22,22 @@ websocket.onEvent = { (event) in
 //    websocket.send(string: message)
 //}
 
+
+//let dictionaty: [String: Any] = ["H": "chathub",
+//                                 "M": "Send",
+//                                 "A": ["test", "TEXTFORMESSAGE"],
+//                                 "I": 0]
+
+//let data = try JSONSerialization.data(withJSONObject: dictionaty, options: .prettyPrinted)
+
+websocket.onConnect = {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+        websocket.discconnect()
+    })
+}
+
 websocket.onText = { (text) in
-//let message = "{\u{22}H\u{22}:\u{22}chathub\u{22},\u{22}M\u{22}:\u{22}Send\u{22},\u{22}A\u{22}:[\u{22}test\u{22},\u{22}TEXTFORMESSAGE\u{22}],\u{22}I\u{22}:0}"
-//    //let message = text + "."
-//    websocket.send(string: message)
+    print(text)
 }
 
 websocket.onDisconnect = { (error) in
@@ -33,11 +45,7 @@ websocket.onDisconnect = { (error) in
 }
 
 
-DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-    let message = "{\u{22}H\u{22}:\u{22}chathub\u{22},\u{22}M\u{22}:\u{22}Send\u{22},\u{22}A\u{22}:[\u{22}test\u{22},\u{22}TEXTFORMESSAGE\u{22}],\u{22}I\u{22}:0}"
-    websocket.send(string: message)
-}
-
 websocket.connect()
 
 RunLoop.main.run()
+

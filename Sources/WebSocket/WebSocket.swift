@@ -185,6 +185,7 @@ extension WebSocket {
         var value = code.rawValue
         let data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
         
+        status = .disconnecting
         performSend(data: data, code: .connectionCloseFrame, completion: nil)
         checkStatus(.disconnected, msTimeout: timeout * 1000)
     }
@@ -202,7 +203,7 @@ extension WebSocket {
     }
     
     fileprivate func tearDown(reasonError: Error?) {
-        guard status == .connected || status == .connecting else { return }
+        guard status != .disconnected else { return }
         
         status = .disconnecting
         reasonError == nil
