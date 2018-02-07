@@ -16,4 +16,7 @@ extension SizeRetrievable {
 }
 
 extension z_stream: SizeRetrievable { }
+extension UInt8: SizeRetrievable { }
 extension UInt16: SizeRetrievable { }
+extension UInt32: SizeRetrievable { }
+extension UInt64: SizeRetrievable { }

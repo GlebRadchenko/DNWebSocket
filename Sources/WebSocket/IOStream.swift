@@ -75,15 +75,18 @@ public class IOStream: NSObject {
         return buffer
     }
     
-    public func write(_ data: Data) throws {
+    @discardableResult
+    public func write(_ data: Data) throws -> Int {
         guard let output = outputStream else { throw StreamError.wrongIOPair }
         let writeLength = data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
             output.write(bytes, maxLength: data.count)
         }
         
-        if writeLength < 0 {
+        if writeLength <= 0 {
             throw output.streamError ?? StreamError.unknown
         }
+        
+        return writeLength
     }
     
     fileprivate func createIOPair(url: URL, port: uint) throws {

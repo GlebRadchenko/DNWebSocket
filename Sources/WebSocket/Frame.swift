@@ -65,6 +65,60 @@ public class Frame {
         payload.append(frame.payload)
     }
     
+    static func encode(_ frame: Frame) -> Data {
+        var bytes: [UInt8] = [0, 0]
+        
+        if frame.fin {
+            bytes[0] |= Mask.fin
+        }
+        
+        if frame.rsv1 {
+            bytes[0] |= Mask.rsv1
+        }
+        
+        if frame.rsv2 {
+            bytes[0] |= Mask.rsv2
+        }
+        
+        if frame.rsv3 {
+            bytes[0] |= Mask.rsv3
+        }
+        
+        bytes[0] |= frame.opCode.rawValue
+        
+        if frame.isMasked {
+            bytes[1] |= Mask.mask
+        }
+        
+        let payloadLength = frame.payloadLength
+        var lengthData: Data?
+        
+        if payloadLength <= 125 {
+            bytes[1] |= UInt8(frame.payloadLength)
+            var length = UInt8(frame.payloadLength)
+            lengthData = Data(bytes: &length, count: Int(UInt8.memoryLayoutSize))
+        } else if payloadLength <= Int(UInt16.max) {
+            bytes[1] |= 126
+            var length = UInt16(frame.payloadLength)
+            lengthData = Data(bytes: &length, count: Int(UInt16.memoryLayoutSize))
+        } else if payloadLength <= Int(UInt64.max) {
+            bytes[1] |= 127
+            var length = UInt64(frame.payloadLength)
+            lengthData = Data(bytes: &length, count: Int(UInt64.memoryLayoutSize))
+        }
+        
+        var data = Data(bytes)
+        data.append(lengthData ?? Data())
+        
+        if frame.isMasked {
+            data.append(frame.mask)
+        }
+        
+        data.append(frame.payload)
+        
+        return data
+    }
+    
     static func decode(from unsafeBuffer: UnsafeBufferPointer<UInt8>) -> (Frame, Int)? {
         guard unsafeBuffer.count > 1 else { return nil }
         let frame = Frame()

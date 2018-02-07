@@ -20,4 +20,15 @@ extension Data {
     func unmasked(with mask: Data) -> Data {
         return masked(with: mask)
     }
+    
+    static func randomMask() -> Data {
+        let size = Int(UInt32.memoryLayoutSize)
+        var data = Data(count: size)
+        
+        _ = data.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) in
+            SecRandomCopyBytes(kSecRandomDefault, size, bytes)
+        }
+        
+        return data
+    }
 }

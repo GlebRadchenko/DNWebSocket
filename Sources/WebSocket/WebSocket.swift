@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 open class WebSocket {
     public static let GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
     
@@ -35,6 +34,7 @@ open class WebSocket {
         }
     }
     
+    public var maskOutputData: Bool = false
     public var securitySettings: SSLSettings
     public var securityValidator: SSLValidator
     public var useCompression = true
@@ -503,8 +503,51 @@ extension WebSocket {
         operation.addExecutionBlock { [weak self, weak operation] in
             guard let wSelf = self else { return }
             guard let wOperation = operation, !wOperation.isCancelled else { return }
+            var data = data
             
+            let frame = Frame()
+            frame.fin = true
+            frame.rsv1 = wSelf.compressionSettings.useCompression
+            frame.opCode = code
+            frame.isMasked = wSelf.maskOutputData
+            frame.mask = Data.randomMask()
             
+            if wSelf.compressionSettings.useCompression {
+                do {
+                    frame.payload = try data.compress(windowBits: wSelf.compressionSettings.clientMaxWindowBits)
+                    frame.payload.removeTail()
+                } catch {
+                    //Temporary solution
+                    debugPrint(error.localizedDescription)
+                    frame.payload = data
+                    frame.rsv1 = false
+                }
+            } else {
+                frame.payload = data
+            }
+            
+            frame.payloadLength = UInt64(frame.payload.count)
+            
+            let frameData = Frame.encode(frame)
+            let frameSize = frameData.count
+            
+            var totalDataWritten = 0
+            let buffer = frameData.unsafeBuffer()
+            
+            while totalDataWritten < frameSize && !wOperation.isCancelled {
+                do {
+                    let dataToWrite = Data(buffer[totalDataWritten..<frameSize])
+                    let dataWritten = try wSelf.stream.write(dataToWrite)
+                    totalDataWritten += dataWritten
+                } catch {
+                    wSelf.tearDown(reasonError: error)
+                    return
+                }
+            }
+            
+            wSelf.queue.async {
+                completion?()
+            }
         }
         
         operationQueue.addOperation(operation)
