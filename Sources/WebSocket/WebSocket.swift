@@ -102,7 +102,7 @@ open class WebSocket {
         }
     }
     
-    open func discconnect() {
+    open func disconnect() {
         disconnect(timeout)
     }
     
