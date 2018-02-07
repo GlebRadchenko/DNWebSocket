@@ -17,21 +17,26 @@ websocket.onEvent = { (event) in
     print(event)
 }
 
-websocket.onConnect = {
-    let message = "Message"
-    websocket.send(string: message)
-}
+//websocket.onConnect = {
+//    let message = "Message"
+//    websocket.send(string: message)
+//}
 
 websocket.onText = { (text) in
-//    let message = "{\u{22}H\u{22}:\u{22}chathub\u{22},\u{22}M\u{22}:\u{22}Send\u{22},\u{22}A\u{22}:[\u{22}test\u{22},\u{22}TEXTFORMESSAGE\u{22}],\u{22}I\u{22}:0}"
-    let message = text + "."
-    websocket.send(string: message)
+//let message = "{\u{22}H\u{22}:\u{22}chathub\u{22},\u{22}M\u{22}:\u{22}Send\u{22},\u{22}A\u{22}:[\u{22}test\u{22},\u{22}TEXTFORMESSAGE\u{22}],\u{22}I\u{22}:0}"
+//    //let message = text + "."
+//    websocket.send(string: message)
 }
 
 websocket.onDisconnect = { (error) in
     print(error)
 }
 
+
+DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+    let message = "{\u{22}H\u{22}:\u{22}chathub\u{22},\u{22}M\u{22}:\u{22}Send\u{22},\u{22}A\u{22}:[\u{22}test\u{22},\u{22}TEXTFORMESSAGE\u{22}],\u{22}I\u{22}:0}"
+    websocket.send(string: message)
+}
 
 websocket.connect()
 

@@ -94,9 +94,7 @@ public class Frame {
         var lengthData: Data?
         
         if payloadLength <= 125 {
-            bytes[1] |= UInt8(frame.payloadLength)
-            var length = UInt8(frame.payloadLength)
-            lengthData = Data(bytes: &length, count: Int(UInt8.memoryLayoutSize))
+            bytes[1] |= UInt8(payloadLength)
         } else if payloadLength <= Int(UInt16.max) {
             bytes[1] |= 126
             var length = UInt16(frame.payloadLength)
@@ -108,7 +106,10 @@ public class Frame {
         }
         
         var data = Data(bytes)
-        data.append(lengthData ?? Data())
+        
+        if let lengthData = lengthData {
+            data.append(lengthData)
+        }
         
         if frame.isMasked {
             data.append(frame.mask)

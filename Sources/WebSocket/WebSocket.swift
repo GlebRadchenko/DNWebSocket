@@ -94,9 +94,8 @@ open class WebSocket {
         request.prepare(secKey: secKey, url: url, useCompression: useCompression, protocols: protocols)
         
         let port = uint(url.webSocketPort)
-        let timeout = self.timeout * 1000
         
-        openConnecttion(port: port, msTimeout: timeout) { [weak self] (result) in
+        openConnecttion(port: port, msTimeout: timeout * 1000) { [weak self] (result) in
             guard let wSelf = self else { return }
             result.onNegative { wSelf.tearDown(reasonError: $0) }
             result.onPositive { wSelf.handleSuccessConnection() }
@@ -267,7 +266,7 @@ extension WebSocket {
         case .hasBytesAvailable:
             handleInputBytesAvailable()
         case .endEncountered:
-            tearDown(reasonError: nil)
+            tearDown(reasonError: stream.inputStream?.streamError)
         case .errorOccurred:
             handleInputError()
         }
@@ -485,7 +484,7 @@ extension WebSocket {
         case .openCompleted, .hasSpaceAvailable, .hasBytesAvailable, .unknown:
             break
         case .endEncountered:
-            tearDown(reasonError: nil)
+            tearDown(reasonError: stream.outputStream?.streamError)
         case .errorOccurred:
             handleOutputError()
         }
