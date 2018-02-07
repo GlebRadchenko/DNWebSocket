@@ -304,11 +304,11 @@ extension WebSocket {
         
         switch status {
         case .connecting:
-            guard let response = HTTPResponse(data: data) else { return }
+            guard let handshake = Handshake(data: data) else { return }
             inputStreamBuffer.clearBuffer()
             
             do {
-                try processResponse(response)
+                try processHandshake(handshake)
             } catch {
                 tearDown(reasonError: error, code: .TLSHandshake)
             }
@@ -317,29 +317,29 @@ extension WebSocket {
         }
     }
     
-    fileprivate func processResponse(_ response: HTTPResponse) throws {
-        if let remainingData = response.remainingData {
+    fileprivate func processHandshake(_ handshake: Handshake) throws {
+        if let remainingData = handshake.remainingData {
             inputStreamBuffer.buffer = remainingData
-            response.remainingData = nil
+            handshake.remainingData = nil
         }
         
-        guard response.code == .switching else {
-            throw WebSocketError.handshakeFailed(response: response.rawBodyString)
+        guard handshake.code == .switching else {
+            throw WebSocketError.handshakeFailed(response: handshake.rawBodyString)
         }
         
         status = .connected
         handleEvent(.connected)
         
-        guard let acceptKey = response.httpHeaders[Header.accept.lowercased()] else {
+        guard let acceptKey = handshake.httpHeaders[Header.accept.lowercased()] else {
             throw WebSocketError.missingHeader(header: Header.accept)
         }
         
         let clientKey = (secKey + WebSocket.GUID).sha1base64()
         guard clientKey == acceptKey else {
-            throw WebSocketError.handshakeFailed(response: response.rawBodyString)
+            throw WebSocketError.handshakeFailed(response: handshake.rawBodyString)
         }
         
-        if let extensions = response.httpHeaders[Header.secExtension.lowercased()] {
+        if let extensions = handshake.httpHeaders[Header.secExtension.lowercased()] {
             compressionSettings.update(with: extensions)
         }
     }

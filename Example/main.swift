@@ -38,7 +38,8 @@ websocket.onConnect = {
     })
 }
 websocket.onPong = { (_) in
-    websocket.send(string: string)
+    //websocket.send(string: string)
+    websocket.send(data: data)
 }
 
 websocket.connect()

@@ -1,5 +1,5 @@
 //
-//  Registry Models.swift
+//  Registry.swift
 //  DNWebSocket
 //
 //  Created by Gleb Radchenko on 2/5/18.

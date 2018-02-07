@@ -1,5 +1,5 @@
 //
-//  HTTPResponse.swift
+//  Handshake.swift
 //  DNWebSocket
 //
 //  Created by Gleb Radchenko on 2/6/18.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HTTPResponse {
+class Handshake {
     var statusLine: String
     var code: WebSocket.HTTPCode
     var httpHeaders: [String: String] = [:]
@@ -16,8 +16,8 @@ class HTTPResponse {
     var remainingData: Data?
     
     init?(data: Data) {
-        guard let possibleBodyRange = HTTPResponse.httpDataRange(for: data) else { return nil }
-        remainingData = HTTPResponse.remainingData(for: data, usefulRange: possibleBodyRange)
+        guard let possibleBodyRange = Handshake.httpDataRange(for: data) else { return nil }
+        remainingData = Handshake.remainingData(for: data, usefulRange: possibleBodyRange)
         
         let possibleBody = data[possibleBodyRange]
         guard let bodyString = String(data: possibleBody, encoding: .utf8) else { return nil }
