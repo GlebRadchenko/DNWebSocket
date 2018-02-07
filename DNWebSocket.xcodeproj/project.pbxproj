@@ -300,6 +300,7 @@
 				F7A65D9F20289EE400F190CB /* Data+Buffer.swift */,
 				F7A65D84202869B800F190CB /* Data+Compression.swift */,
 				F7A65D8B2028837600F190CB /* Data+SHA1.swift */,
+				F7A65DB8202B1E2900F190CB /* Data+Mask.swift */,
 				F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */,
 				F7A65D8F2028850200F190CB /* String+Handshaking.swift */,
 				F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */,
@@ -307,7 +308,6 @@
 				F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */,
 				F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */,
 				F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */,
-				F7A65DB8202B1E2900F190CB /* Data+Mask.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
