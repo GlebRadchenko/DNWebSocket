@@ -18,6 +18,12 @@ open class WebSocket {
     public fileprivate(set) var protocols: [String]
     public fileprivate(set) var certificatesValidated = false
     
+    fileprivate var compressionSettings: CompressionSettings = .default
+    fileprivate var inputStreamBuffer = StreamBuffer()
+    fileprivate let operationQueue: OperationQueue
+    fileprivate var currentInputFrame: Frame?
+    fileprivate var secKey = ""
+    
     fileprivate var _status: WebSocketStatus = .disconnected
     fileprivate var statusLock = NSLock()
     public fileprivate(set) var status: WebSocketStatus {
@@ -34,12 +40,14 @@ open class WebSocket {
         }
     }
     
+    public var timeout: TimeInterval
+    public var useCompression = true
     public var maskOutputData: Bool = true
+    public var respondPingRequestsAutomatically = true
     public var securitySettings: SSLSettings
     public var securityValidator: SSLValidator
-    public var useCompression = true
-    public var timeout: TimeInterval
     
+    //MARK: - Callbacks
     public var onEvent: ((WebSocketEvent) -> Void)?
     public var onConnect: (() -> Void)?
     public var onText: ((String) -> Void)?
@@ -48,12 +56,7 @@ open class WebSocket {
     public var onPing: ((Data) -> Void)?
     public var onDisconnect: ((Error?, CloseCode) -> Void)?
     
-    fileprivate var compressionSettings: CompressionSettings = .default
-    fileprivate let operationQueue: OperationQueue
-    fileprivate var inputStreamBuffer = StreamBuffer()
-    fileprivate var currentInputFrame: Frame?
-    fileprivate var secKey = ""
-    
+    //MARK: - Public methods
     deinit { tearDown(reasonError: nil, code: .normalClosure) }
     
     public convenience init(url: URL,
@@ -80,10 +83,9 @@ open class WebSocket {
         self.timeout = timeout
         self.protocols = protocols
         
+        operationQueue = OperationQueue(qos: processingQoS)
         securitySettings = SSLSettings(useSSL: url.sslSupported)
         securityValidator = SSLValidator()
-        
-        operationQueue = WebSocket.operationQueue(qos: processingQoS)
     }
     
     open func connect() {
@@ -383,41 +385,39 @@ extension WebSocket {
             frame.payload = frame.payload.unmasked(with: frame.mask)
         }
         
-        switch frame.opCode {
-        case .pingFrame, .pongFrame, .connectionCloseFrame:
+        if frame.isControlFrame {
             return processControlFrame(frame)
-        case .binaryFrame, .textFrame, .continuationFrame:
-            return processDataFrame(frame)
-        default:
-            return false
         }
+        
+        if frame.isDataFrame {
+            return processDataFrame(frame)
+        }
+        
+        tearDown(reasonError: WebSocketError.wrongOpCode, code: .protocolError)
+        return false
     }
     
     fileprivate func processControlFrame(_ frame: Frame) -> Bool {
         switch frame.opCode {
         case .pingFrame:
             handleEvent(.pingReceived(frame.payload))
-            sendPong(data: frame.payload)
-        case .pongFrame:
-            if compressionSettings.useCompression && frame.rsv1 {
-                do {
-                    frame.payload.addTail()
-                    let data = try frame.payload.decompress(windowBits: compressionSettings.serverMaxWindowBits)
-                    handleEvent(.pongReceived(data))
-                } catch {
-                    closeConnection(timeout: timeout, code: .invalidFramePayloadData)
-                    return false
-                }
-            } else {
-                handleEvent(.pongReceived(frame.payload))
+            if respondPingRequestsAutomatically {
+                sendPong(data: frame.payload)
             }
+        case .pongFrame:
+            do {
+                try decompressFrameIfNeeded(frame)
+            } catch {
+                closeConnection(timeout: timeout, code: .invalidFramePayloadData)
+                return false
+            }
+            
+            handleEvent(.pongReceived(frame.payload))
         case .connectionCloseFrame:
             let closeCode = frame.closeCode() ?? .protocolError
-            if status == .disconnecting {
-                tearDown(reasonError: nil, code: closeCode)
-            } else {
-                closeConnection(timeout: timeout, code: closeCode)
-            }
+            status == .disconnecting
+                ? tearDown(reasonError: nil, code: closeCode)
+                : closeConnection(timeout: timeout, code: closeCode)
         default:
             return false
         }
@@ -431,15 +431,11 @@ extension WebSocket {
         }
         
         if frame.fin {
-            if compressionSettings.useCompression && frame.rsv1 {
-                do {
-                    frame.payload.addTail()
-                    let data = try frame.payload.decompress(windowBits: compressionSettings.serverMaxWindowBits)
-                    frame.payload = data
-                } catch {
-                    closeConnection(timeout: timeout, code: .invalidFramePayloadData)
-                    return false
-                }
+            do {
+                try decompressFrameIfNeeded(frame)
+            } catch {
+                closeConnection(timeout: timeout, code: .invalidFramePayloadData)
+                return false
             }
             
             if frame.opCode == .binaryFrame {
@@ -480,6 +476,14 @@ extension WebSocket {
         return true
     }
     
+    fileprivate func decompressFrameIfNeeded(_ frame: Frame) throws {
+        if compressionSettings.useCompression && frame.rsv1 {
+            frame.payload.addTail()
+            let data = try frame.payload.decompress(windowBits: compressionSettings.serverMaxWindowBits)
+            handleEvent(.pongReceived(data))
+        }
+    }
+    
     //MARK: - OUTPUT Flow
     fileprivate func handleOutputEvent(_ event: IOStream.Event) {
         switch event {
@@ -504,46 +508,19 @@ extension WebSocket {
         operation.addExecutionBlock { [weak self, weak operation] in
             guard let wSelf = self else { return }
             guard let wOperation = operation, !wOperation.isCancelled else { return }
-            var data = data
             
-            let frame = Frame()
-            frame.fin = true
-            frame.rsv1 = wSelf.compressionSettings.useCompression
-            frame.opCode = code
-            frame.isMasked = wSelf.maskOutputData
-            frame.mask = Data.randomMask()
-            
-            if wSelf.compressionSettings.useCompression {
-                do {
-                    frame.payload = try data.compress(windowBits: wSelf.compressionSettings.clientMaxWindowBits)
-                    frame.payload.removeTail()
-                } catch {
-                    //Temporary solution
-                    debugPrint(error.localizedDescription)
-                    frame.payload = data
-                    frame.rsv1 = false
-                }
-            } else {
-                frame.payload = data
-            }
-            
-            if frame.isMasked {
-                frame.payload = frame.payload.masked(with: frame.mask)
-            }
-            
-            frame.payloadLength = UInt64(frame.payload.count)
-            
+            let frame = wSelf.prepareFrame(payload: data, opCode: code)
             let frameData = Frame.encode(frame)
             let frameSize = frameData.count
             
-            var totalDataWritten = 0
             let buffer = frameData.unsafeBuffer()
+            var totalBytesWritten = 0
             
-            while totalDataWritten < frameSize && !wOperation.isCancelled {
+            while totalBytesWritten < frameSize && !wOperation.isCancelled && wSelf.status == .connected {
                 do {
-                    let dataToWrite = Data(buffer[totalDataWritten..<frameSize])
+                    let dataToWrite = Data(buffer[totalBytesWritten..<frameSize])
                     let dataWritten = try wSelf.stream.write(dataToWrite)
-                    totalDataWritten += dataWritten
+                    totalBytesWritten += dataWritten
                 } catch {
                     wSelf.tearDown(reasonError: error, code: .unsupportedData)
                     return
@@ -557,14 +534,35 @@ extension WebSocket {
         
         operationQueue.addOperation(operation)
     }
-}
-
-//MARK: - Configuration
-extension WebSocket {
-    fileprivate static func operationQueue(qos: QualityOfService) -> OperationQueue {
-        let operationQueue = OperationQueue()
-        operationQueue.maxConcurrentOperationCount = 1
-        operationQueue.qualityOfService = qos
-        return operationQueue
+    
+    fileprivate func prepareFrame(payload: Data, opCode: Opcode) -> Frame {
+        var payload = payload
+        
+        let frame = Frame(fin: true, opCode: opCode)
+        frame.rsv1 = compressionSettings.useCompression
+        frame.isMasked = maskOutputData
+        frame.mask = Data.randomMask()
+        
+        if compressionSettings.useCompression {
+            do {
+                frame.payload = try payload.compress(windowBits:compressionSettings.clientMaxWindowBits)
+                frame.payload.removeTail()
+            } catch {
+                //Temporary solution
+                debugPrint(error.localizedDescription)
+                frame.payload = payload
+                frame.rsv1 = false
+            }
+        } else {
+            frame.payload = payload
+        }
+        
+        if frame.isMasked {
+            frame.payload = frame.payload.masked(with: frame.mask)
+        }
+        
+        frame.payloadLength = UInt64(frame.payload.count)
+        
+        return frame
     }
 }

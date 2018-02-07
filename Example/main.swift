@@ -31,6 +31,7 @@ let dictionaty: [String: Any] = ["H": "chathub",
 let data = try JSONSerialization.data(withJSONObject: dictionaty, options: .prettyPrinted)
 let string = String(data: data, encoding: .utf8) ?? ""
 
+
 websocket.onConnect = {
     DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
 //        websocket.disconnect()
@@ -39,8 +40,8 @@ websocket.onConnect = {
 }
 websocket.onPong = { (_) in
     //websocket.send(string: string)
-    websocket.send(data: data)
 }
+
 
 websocket.connect()
 

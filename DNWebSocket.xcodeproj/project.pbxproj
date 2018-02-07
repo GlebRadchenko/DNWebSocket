@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
+		F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
+		F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F781C7332024B0CA0009B0D4 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F781C7342024B0DF0009B0D4 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
@@ -107,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Setup.swift"; sourceTree = "<group>"; };
 		F781C7172024AF130009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C72E2024AF9B0009B0D4 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				F7A65D8F2028850200F190CB /* String+Handshaking.swift */,
 				F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */,
 				F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */,
+				F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */,
 				F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */,
 				F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */,
 				F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */,
@@ -436,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
 				F7A65DB02028BB3800F190CB /* SSLValidator.swift in Sources */,
 				F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA020289EE400F190CB /* Data+Buffer.swift in Sources */,
@@ -469,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
 				F7A65DB12028BB3800F190CB /* SSLValidator.swift in Sources */,
 				F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA120289EE400F190CB /* Data+Buffer.swift in Sources */,
@@ -516,6 +523,7 @@
 				F7B141FC202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
 				F7B14210202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F7DB851D2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
+				F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
 				F7A65D8320285F4900F190CB /* WebSocket.swift in Sources */,
 				F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */,

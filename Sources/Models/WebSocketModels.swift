@@ -18,6 +18,7 @@ public enum WebSocketError: LocalizedError {
     case sslValidationFailed
     case handshakeFailed(response: String)
     case missingHeader(header: String)
+    case wrongOpCode
     case timeout
 }
 

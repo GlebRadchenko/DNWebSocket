@@ -8,7 +8,7 @@
 import Foundation
 
 public class IOStream: NSObject {
-    var queue: DispatchQueue
+    public var queue: DispatchQueue
     
     var inputStream: InputStream?
     var outputStream: OutputStream?
@@ -19,12 +19,12 @@ public class IOStream: NSObject {
     
     deinit { disconnect() }
     
-    override public init() {
+    override init() {
         queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .default)
         super.init()
     }
     
-    public init(queue: DispatchQueue) {
+    init(queue: DispatchQueue) {
         self.queue = queue
     }
     
@@ -59,7 +59,7 @@ public class IOStream: NSObject {
         outputStream = nil
     }
     
-    public func read() throws -> Data {
+    func read() throws -> Data {
         guard let input = inputStream else { throw StreamError.wrongIOPair }
         var buffer = Data.buffer()
         
@@ -76,7 +76,7 @@ public class IOStream: NSObject {
     }
     
     @discardableResult
-    public func write(_ data: Data) throws -> Int {
+    func write(_ data: Data) throws -> Int {
         guard let output = outputStream else { throw StreamError.wrongIOPair }
         let writeLength = data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
             output.write(bytes, maxLength: data.count)
@@ -218,12 +218,12 @@ extension IOStream {
         case unknown
     }
     
-    public enum StreamType {
+    enum StreamType {
         case input
         case output
     }
     
-    public enum Event {
+    enum Event {
         case openCompleted
         case hasBytesAvailable
         case hasSpaceAvailable
@@ -249,4 +249,3 @@ extension IOStream {
         }
     }
 }
-

@@ -11,17 +11,13 @@ public class Frame {
     typealias Mask = WebSocket.Mask
     
     var fin: Bool = false
-    
     var rsv1: Bool = false
     var rsv2: Bool = false
     var rsv3: Bool = false
-    
     var opCode: WebSocket.Opcode = .unknown
-    
     var isMasked: Bool = false
-    var mask: Data = Data()
-    
     var payloadLength: UInt64 = 0
+    var mask: Data = Data()
     var payload: Data = Data()
     
     var isFullfilled = false
@@ -35,6 +31,14 @@ public class Frame {
     }
     
     init() { }
+    
+    init(fin: Bool, rsv1: Bool = false, rsv2: Bool = false, rsv3: Bool = false, opCode: WebSocket.Opcode) {
+        self.fin = fin
+        self.rsv1 = rsv1
+        self.rsv2 = rsv2
+        self.rsv3 = rsv3
+        self.opCode = opCode
+    }
     
     func closeCode() -> WebSocket.CloseCode? {
         guard opCode == .connectionCloseFrame else { return nil }
@@ -95,11 +99,11 @@ public class Frame {
         
         if payloadLength <= 125 {
             bytes[1] |= UInt8(payloadLength)
-        } else if payloadLength <= Int(UInt16.max) {
+        } else if payloadLength <= UInt64(UInt16.max) {
             bytes[1] |= 126
             var length = UInt16(frame.payloadLength)
             lengthData = Data(bytes: &length, count: Int(UInt16.memoryLayoutSize))
-        } else if payloadLength <= Int(UInt64.max) {
+        } else if payloadLength <= UInt64.max {
             bytes[1] |= 127
             var length = UInt64(frame.payloadLength)
             lengthData = Data(bytes: &length, count: Int(UInt64.memoryLayoutSize))
