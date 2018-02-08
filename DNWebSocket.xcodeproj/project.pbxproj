@@ -28,8 +28,6 @@
 		F7A65D85202869B800F190CB /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
 		F7A65D86202869B800F190CB /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
 		F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
-		F7A65D8920286B2000F190CB /* README.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A65D8820286B2000F190CB /* README.strings */; };
-		F7A65D8A20286B2000F190CB /* README.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A65D8820286B2000F190CB /* README.strings */; };
 		F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
 		F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
 		F7A65D8E2028837600F190CB /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
@@ -123,7 +121,6 @@
 		F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeRetrievable.swift; sourceTree = "<group>"; };
 		F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnsafePointer+Extensions.swift"; sourceTree = "<group>"; };
 		F7A65D84202869B800F190CB /* Data+Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Compression.swift"; sourceTree = "<group>"; };
-		F7A65D8820286B2000F190CB /* README.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = README.strings; sourceTree = "<group>"; };
 		F7A65D8B2028837600F190CB /* Data+SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SHA1.swift"; sourceTree = "<group>"; };
 		F7A65D8F2028850200F190CB /* String+Handshaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handshaking.swift"; sourceTree = "<group>"; };
 		F7A65D932028868400F190CB /* Registry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registry.swift; sourceTree = "<group>"; };
@@ -207,7 +204,6 @@
 		F781C72D2024AF5D0009B0D4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F7A65D8820286B2000F190CB /* README.strings */,
 				F781C7462024B3E90009B0D4 /* Extensions */,
 				F781C7452024B3E00009B0D4 /* Protocols */,
 				F781C7442024B3AE0009B0D4 /* Сompression */,
@@ -420,7 +416,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B141CE2029EF0800E49DB5 /* test.plist in Resources */,
-				F7A65D8920286B2000F190CB /* README.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B141CF2029EF0800E49DB5 /* test.plist in Resources */,
-				F7A65D8A20286B2000F190CB /* README.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +589,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XN4R59V3UY;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -668,7 +662,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XN4R59V3UY;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
