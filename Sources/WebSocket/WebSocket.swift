@@ -184,9 +184,8 @@ extension WebSocket {
     fileprivate func closeConnection(timeout: TimeInterval, code: CloseCode) {
         guard status != .disconnected else { return }
         
-        var value = code.rawValue
-        var data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
-        data.reverse()
+        var value = code.rawValue.bigEndian
+        let data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
         
         performSend(data: data, code: .connectionCloseFrame, completion: nil)
         status = .disconnecting
@@ -262,7 +261,7 @@ extension WebSocket {
         }
     }
     
-    //MARK: - INPUT Flow
+    //MARK: - Input Flow
     fileprivate func handleInputEvent(_ event: IOStream.Event) {
         switch event {
         case .openCompleted, .hasSpaceAvailable, .unknown:
@@ -484,7 +483,7 @@ extension WebSocket {
         }
     }
     
-    //MARK: - OUTPUT Flow
+    //MARK: - Output Flow
     fileprivate func handleOutputEvent(_ event: IOStream.Event) {
         switch event {
         case .openCompleted, .hasSpaceAvailable, .hasBytesAvailable, .unknown:

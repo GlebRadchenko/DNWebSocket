@@ -101,18 +101,17 @@ public class Frame {
             bytes[1] |= UInt8(payloadLength)
         } else if payloadLength <= UInt64(UInt16.max) {
             bytes[1] |= 126
-            var length = UInt16(frame.payloadLength)
+            var length = UInt16(frame.payloadLength).bigEndian
             lengthData = Data(bytes: &length, count: Int(UInt16.memoryLayoutSize))
         } else if payloadLength <= UInt64.max {
             bytes[1] |= 127
-            var length = UInt64(frame.payloadLength)
+            var length = UInt64(frame.payloadLength).bigEndian
             lengthData = Data(bytes: &length, count: Int(UInt64.memoryLayoutSize))
         }
         
         var data = Data(bytes)
         
-        if var lengthData = lengthData {
-            lengthData.reverse()
+        if let lengthData = lengthData {
             data.append(lengthData)
         }
         
