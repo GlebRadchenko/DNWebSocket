@@ -27,7 +27,7 @@ class Handshake {
         let statusComponent = components.removeFirst()
         let statusComponents = statusComponent.components(separatedBy: .whitespaces)
         guard statusComponents.count > 1 else { return nil }
-        guard let rawStatusCode = Int(statusComponents[1]) else { return nil }
+        let rawStatusCode = Int(statusComponents[1]) ?? -1
         
         code = WebSocket.HTTPCode(rawValue: rawStatusCode) ?? .unknown
         statusLine = statusComponent

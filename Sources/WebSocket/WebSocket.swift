@@ -128,6 +128,10 @@ open class WebSocket {
     open func sendPong(data: Data, completion: (() -> Void)? = nil) {
         performSend(data: data, code: .pongFrame, completion: completion)
     }
+    
+    open func send(payload: Data, opCode: Opcode, completion: (() -> Void)? = nil) {
+        performSend(data: payload, code: opCode, completion: completion)
+    }
 }
 
 //MARK: - Lifecycle

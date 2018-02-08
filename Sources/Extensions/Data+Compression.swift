@@ -89,6 +89,7 @@ extension Data {
     }
     
     mutating public func removeTail() {
+        guard count > 3 else { return }
         removeLast(4)
     }
     
