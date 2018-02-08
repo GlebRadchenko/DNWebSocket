@@ -29,4 +29,5 @@ public enum WebSocketEvent {
     case pongReceived(Data)
     case pingReceived(Data)
     case disconnected(Error?, WebSocket.CloseCode)
+    case debug(String)
 }

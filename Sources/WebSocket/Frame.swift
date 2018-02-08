@@ -21,6 +21,7 @@ public class Frame {
     var payload: Data = Data()
     
     var isFullfilled = false
+    var frameSize: UInt64 = 0
     
     var isControlFrame: Bool {
         return opCode == .connectionCloseFrame || opCode == .pingFrame || opCode == .pongFrame
@@ -47,6 +48,15 @@ public class Frame {
         
         let rawCode = Frame.extractValue(from: payload.unsafeBuffer(), offset: 0, count: 2)
         return WebSocket.CloseCode(rawValue: UInt16(rawCode))
+    }
+    
+    func closeInfo() -> String? {
+        guard opCode == .connectionCloseFrame else { return nil }
+        guard payloadLength > 2 else { return nil }
+        
+        let messageData = payload[2..<payloadLength]
+        guard let message = String(data: messageData, encoding: .utf8) else { return nil }
+        return message
     }
     
     func merge(_ frame: Frame) {
@@ -179,6 +189,7 @@ public class Frame {
         guard let base = buffer.baseAddress else { return 0 }
         
         frame.payload = Data(bytes: base + offset, count: Int(frame.payloadLength))
+        frame.frameSize = estimatedFrameSize
         frame.isFullfilled = true
         
         offset += Int(frame.payloadLength)
@@ -192,5 +203,29 @@ public class Frame {
             value = (value << 8) | UInt64(buffer[offset + byteIndex])
         }
         return value
+    }
+}
+
+extension Frame: CustomStringConvertible {
+    public var description: String {
+        var info = "Frame:\n"
+        info += "size \(frameSize) bytes\r\n"
+        info += "fin \(fin)\r\n"
+        info += "rsv1 \(rsv1)\n"
+        info += "rsv2 \(rsv2)\n"
+        info += "rsv3 \(rsv3)\n"
+        info += "opCode \(opCode)\n"
+        info += "mask \(isMasked)\n"
+        info += "payloadLength: \(payloadLength)\n"
+        
+        if let code = closeCode() {
+            info += "closeCode: \(code)\n"
+        }
+        
+        if let closeMessage = closeInfo() {
+            info += "message: \(closeMessage)\n"
+        }
+        
+        return info
     }
 }
