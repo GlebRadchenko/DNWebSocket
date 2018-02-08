@@ -35,6 +35,7 @@ class WebSocketOperation: Operation {
         self.url = url
         websocket = WebSocket(url: url)
         websocket.securitySettings.useSSL = false
+        websocket.maskOutputData = false
     }
     
     override func start() {
@@ -109,7 +110,6 @@ class TestConfiguration {
         
         op.start()
         let success = op.waitUntilFinished(timeout: 10)
-        print(success)
         
         return info
     }

@@ -420,7 +420,7 @@ extension WebSocket {
             let closeCode = frame.closeCode() ?? .protocolError
             status == .disconnecting
                 ? tearDown(reasonError: nil, code: closeCode)
-                : closeConnection(timeout: timeout, code: closeCode)
+                : closeConnection(timeout: timeout, code: .normalClosure)
         default:
             return false
         }
