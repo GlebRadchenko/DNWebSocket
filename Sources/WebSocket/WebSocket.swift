@@ -223,7 +223,7 @@ extension WebSocket {
         operationQueue.cancelAllOperations()
         
         stream.disconnect()
-        inputStreamBuffer.reset()
+        inputStreamBuffer.clearBuffer()
         
         status = .disconnected
         
@@ -311,27 +311,25 @@ extension WebSocket {
         do {
             let data = try stream.read()
             inputStreamBuffer.enqueue(data)
-            
-            if inputStreamBuffer.shouldBeProcessed {
-                processInputStreamData()
-            }
+            processInputStreamData()
         } catch {
             tearDown(reasonError: error, code: .abnormalClosure)
         }
     }
     
     fileprivate func processInputStreamData() {
-        while !inputStreamBuffer.isEmpty {
-            inputStreamBuffer.dequeueIntoBuffer()
-            processInputBufferData()
+        while inputStreamBuffer.buffer.count >= 2 {
+            if !processInputBufferData() {
+                break
+            }
         }
     }
     
-    fileprivate func processInputBufferData() {
-        let data = inputStreamBuffer.buffer
-        
+    fileprivate func processInputBufferData() -> Bool {
         if status == .connecting {
-            guard let handshake = Handshake(data: data) else { return }
+            let data = inputStreamBuffer.buffer
+            guard let handshake = Handshake(data: data) else { return false }
+            
             log("Handshake received", message: handshake.rawBodyString)
             inputStreamBuffer.clearBuffer()
             
@@ -341,9 +339,12 @@ extension WebSocket {
             } catch {
                 tearDown(reasonError: error, code: .TLSHandshake)
             }
-        } else {
-            processData(data)
         }
+        
+        let data = inputStreamBuffer.buffer
+        guard data.count >= 2 else { return false }
+        inputStreamBuffer.clearBuffer()
+        return processData(data)
     }
     
     fileprivate func processHandshake(_ handshake: Handshake) throws {
@@ -373,9 +374,9 @@ extension WebSocket {
         }
     }
     
-    fileprivate func processData(_ data: Data) {
+    fileprivate func processData(_ data: Data) -> Bool {
         let unsafeBuffer = data.unsafeBuffer()
-        var shouldRestoreBuffer = true
+        var successed = false
         
         if let (frame, usedAmount) = Frame.decode(from: unsafeBuffer) {
             inputStreamBuffer.clearBuffer()
@@ -383,18 +384,19 @@ extension WebSocket {
                 inputStreamBuffer.buffer = Data(unsafeBuffer[usedAmount..<data.count])
             }
             
-            let success = processFrame(frame)
-            shouldRestoreBuffer = !success
+            successed = processFrame(frame)
         }
         
-        if shouldRestoreBuffer {
+        if !successed {
             inputStreamBuffer.buffer = data
         }
+        
+        return successed
     }
     
     fileprivate func processFrame(_ frame: Frame) -> Bool {
         if frame.opCode == .unknown {
-            closeConnection(timeout: timeout, code: .unsupportedData)
+            closeConnection(timeout: timeout, code: .protocolError)
             return false
         }
         
@@ -406,6 +408,11 @@ extension WebSocket {
         log("Frame received", message: frame.description)
         
         if frame.isControlFrame && !frame.fin {
+            closeConnection(timeout: timeout, code: .protocolError)
+            return false
+        }
+        
+        if frame.rsv, !compressionSettings.useCompression {
             closeConnection(timeout: timeout, code: .protocolError)
             return false
         }
@@ -427,6 +434,11 @@ extension WebSocket {
     }
     
     fileprivate func processControlFrame(_ frame: Frame) -> Bool {
+        guard frame.payloadLength <= 125 else {
+            tearDown(reasonError: nil, code: .protocolError)
+            return false
+        }
+        
         switch frame.opCode {
         case .pingFrame:
             handleEvent(.pingReceived(frame.payload))
@@ -456,6 +468,12 @@ extension WebSocket {
     fileprivate func processDataFrame(_ frame: Frame) -> Bool {
         if frame.opCode == .continuationFrame {
             return processContinuationFrame(frame)
+        }
+        
+        if currentInputFrame != nil {
+            //Received new Data frame when not fullfile current fragmented yet
+            closeConnection(timeout: timeout, code: .protocolError)
+            return false
         }
         
         if frame.fin {
@@ -498,7 +516,7 @@ extension WebSocket {
         
         if inputFrame.fin {
             currentInputFrame = nil
-            return processFrame(frame)
+            return processFrame(inputFrame)
         }
         
         return true
@@ -573,7 +591,7 @@ extension WebSocket {
         let frame = Frame(fin: true, opCode: opCode)
         frame.rsv1 = compressionSettings.useCompression
         
-        if frame.isDataFrame && maskOutputData {
+        if maskOutputData {
             frame.isMasked = maskOutputData
             frame.mask = Data.randomMask()
         }

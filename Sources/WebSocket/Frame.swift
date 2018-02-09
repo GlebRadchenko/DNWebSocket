@@ -31,6 +31,10 @@ public class Frame {
         return opCode == .binaryFrame || opCode == .textFrame || opCode == .continuationFrame
     }
     
+    var rsv: Bool {
+        return (rsv1 || rsv2 || rsv3)
+    }
+    
     init() { }
     
     init(fin: Bool, rsv1: Bool = false, rsv2: Bool = false, rsv3: Bool = false, opCode: WebSocket.Opcode) {
