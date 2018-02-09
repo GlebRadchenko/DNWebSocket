@@ -69,13 +69,13 @@ func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.onDebugInfo = { print($0) }
 }
 
-testCase = 217
+testCase = 222
 let infoURL = URL(string: "ws://localhost:9001/getCaseInfo?case=\(testCase)")!
 let infoWS = WebSocket(url: infoURL)
 configure(ws: infoWS, respond: false, number: testCase)
 //infoWS.connect()
 
-//performTestCase(testCase, agent: agent, completion: {})
-performTests(count: 10)
+performTestCase(testCase, agent: agent, completion: {})
+//performTests(count: 10)
 
 RunLoop.main.run()

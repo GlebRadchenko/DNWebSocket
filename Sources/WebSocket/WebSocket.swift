@@ -460,11 +460,15 @@ extension WebSocket {
             switch closingStatus {
             case .none:
                 closingStatus = .closingByServer
-                if frame.closeCode().isNil {
-                    closeConnection(timeout: timeout, code: .protocolError)
+                if checkCloseFramePayload(frame) {
+                    if frame.closeCode().isNil {
+                        closeConnection(timeout: timeout, code: .protocolError)
+                    } else {
+                        //use server close code ??
+                        closeConnection(timeout: timeout, code: .normalClosure)
+                    }
                 } else {
-                    //use server close code ??
-                    closeConnection(timeout: timeout, code: .normalClosure)
+                    closeConnection(timeout: timeout, code: .invalidFramePayloadData)
                 }
                 break
             case .closingByClient:
@@ -478,6 +482,13 @@ extension WebSocket {
         }
         
         return true
+    }
+    
+    fileprivate func checkCloseFramePayload(_ frame: Frame) -> Bool {
+        guard frame.opCode == .connectionCloseFrame else { return false }
+        guard frame.payloadLength > 2 else { return true } // Only code
+        
+        return !frame.closeInfo().isNil
     }
     
     fileprivate func processDataFrame(_ frame: Frame) -> Bool {
