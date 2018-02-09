@@ -14,6 +14,12 @@ public enum WebSocketStatus {
     case disconnecting
 }
 
+enum WebSocketClosingStatus {
+    case closingByClient
+    case closingByServer
+    case none
+}
+
 public enum WebSocketError: LocalizedError {
     case sslValidationFailed
     case handshakeFailed(response: String)

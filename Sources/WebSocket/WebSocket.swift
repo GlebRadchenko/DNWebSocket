@@ -23,9 +23,9 @@ open class WebSocket {
     fileprivate var inputStreamBuffer = StreamBuffer()
     fileprivate let operationQueue: OperationQueue
     fileprivate var currentInputFrame: Frame?
-    fileprivate var closingByMe: Bool = false
     fileprivate var secKey = ""
     
+    fileprivate var closingStatus: WebSocketClosingStatus = .none
     fileprivate var _status: WebSocketStatus = .disconnected
     fileprivate var statusLock = NSLock()
     public fileprivate(set) var status: WebSocketStatus {
@@ -112,7 +112,9 @@ open class WebSocket {
     }
     
     open func disconnect(_ timeout: TimeInterval) {
-        closingByMe = true
+        guard closingStatus == .none else { return }
+        
+        closingStatus = .closingByClient
         closeConnection(timeout: timeout, code: .normalClosure)
     }
     
@@ -455,9 +457,17 @@ extension WebSocket {
             
             handleEvent(.pongReceived(frame.payload))
         case .connectionCloseFrame:
-            status == .disconnecting
-                ? tearDown(reasonError: nil, code: frame.closeCode() ?? .protocolError)
-                : closeConnection(timeout: timeout, code: .normalClosure)
+            switch closingStatus {
+            case .none:
+                closingStatus = .closingByServer
+                closeConnection(timeout: timeout, code: .normalClosure)
+                break
+            case .closingByClient:
+                tearDown(reasonError: nil, code: frame.closeCode() ?? .protocolError)
+            case .closingByServer:
+                //Just ignore
+                return true
+            }
         default:
             return false
         }
