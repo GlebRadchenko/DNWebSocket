@@ -49,7 +49,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
         print(text)
     }
     
-    checkWS.connect()
+   // checkWS.connect()
 }
 
 let statusURL = URL(string: "ws://localhost:9001/updateReports?agent=com.dialognet.Tests-macOS")!
@@ -70,7 +70,7 @@ DispatchQueue.main.asyncAfter(wallDeadline: .now() + 10) {
         print(text)
     }
     
-    statusWS.connect()
+   // statusWS.connect()
 }
 
 RunLoop.main.run()

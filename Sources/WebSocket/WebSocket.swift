@@ -330,8 +330,7 @@ extension WebSocket {
     fileprivate func processInputBufferData() {
         let data = inputStreamBuffer.buffer
         
-        switch status {
-        case .connecting:
+        if status == .connecting {
             guard let handshake = Handshake(data: data) else { return }
             log("Handshake received", message: handshake.rawBodyString)
             inputStreamBuffer.clearBuffer()
@@ -342,7 +341,7 @@ extension WebSocket {
             } catch {
                 tearDown(reasonError: error, code: .TLSHandshake)
             }
-        default:
+        } else {
             processData(data)
         }
     }
