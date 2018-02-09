@@ -44,7 +44,7 @@ func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.securitySettings.useSSL = false
     ws.maskOutputData = true
     ws.useCompression = false
-    ws.debugMode = respond
+    ws.debugMode = false
     
     ws.onText = {
         if respond {
@@ -69,13 +69,13 @@ func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.onDebugInfo = { print($0) }
 }
 
-testCase = 222
+testCase = 275
 let infoURL = URL(string: "ws://localhost:9001/getCaseInfo?case=\(testCase)")!
 let infoWS = WebSocket(url: infoURL)
 configure(ws: infoWS, respond: false, number: testCase)
 //infoWS.connect()
 
-performTestCase(testCase, agent: agent, completion: {})
-//performTests(count: 10)
+//performTestCase(testCase, agent: agent, completion: {})
+performTests(count: 100)
 
 RunLoop.main.run()

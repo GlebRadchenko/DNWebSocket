@@ -35,6 +35,18 @@ extension WebSocket {
         case mandatoryExt             = 1010
         case internalServerError      = 1011
         case TLSHandshake             = 1015
+        
+        static func code(with rawCode: UInt16) -> CloseCode? {
+            if let closeCode = CloseCode(rawValue: rawCode) {
+                return closeCode
+            }
+            
+            if rawCode >= 3000 /*&& rawCode < 5000*/ {
+                return .normalClosure
+            }
+            
+            return nil
+        }
     }
     
     //    0                   1                   2                   3
