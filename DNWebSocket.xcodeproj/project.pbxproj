@@ -95,6 +95,9 @@
 		F7CEF8F3202C8CFD002E7EE6 /* TestCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F2202C8CFD002E7EE6 /* TestCommon.swift */; };
 		F7CEF8F6202CBC20002E7EE6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F5202CBC20002E7EE6 /* Helpers.swift */; };
 		F7CEF8F8202CBC4A002E7EE6 /* AutobahnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */; };
+		F7CEF8FA202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
+		F7CEF8FB202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
+		F7CEF8FC202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
 		F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
@@ -169,6 +172,7 @@
 		F7CEF8F2202C8CFD002E7EE6 /* TestCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommon.swift; sourceTree = "<group>"; };
 		F7CEF8F5202CBC20002E7EE6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnTests.swift; sourceTree = "<group>"; };
+		F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
 		F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLContextRetrievable.swift; sourceTree = "<group>"; };
 		F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Handshake.swift"; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 				F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */,
 				F715B165202D1A1A008FEB01 /* Date+Format.swift */,
 				F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */,
+				F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				F7B1420E202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F715B16A202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA42028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
+				F7CEF8FA202DE210002E7EE6 /* Optional+Extensions.swift in Sources */,
 				F7A65D902028850200F190CB /* String+Handshaking.swift in Sources */,
 				F7B14209202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
 				F7B141FA202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
@@ -586,6 +592,7 @@
 				F7B1420F202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F715B16B202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA52028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
+				F7CEF8FB202DE210002E7EE6 /* Optional+Extensions.swift in Sources */,
 				F7A65D912028850200F190CB /* String+Handshaking.swift in Sources */,
 				F7B1420A202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
 				F7B141FB202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,
@@ -605,6 +612,7 @@
 				F715B168202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F781C73F2024B2670009B0D4 /* main.swift in Sources */,
 				F7B14201202A253A00E49DB5 /* Handshake.swift in Sources */,
+				F7CEF8FC202DE210002E7EE6 /* Optional+Extensions.swift in Sources */,
 				F7B1420B202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
 				F7A65DBB202B1E2900F190CB /* Data+Mask.swift in Sources */,
 				F7A65DB22028BB3800F190CB /* SSLValidator.swift in Sources */,

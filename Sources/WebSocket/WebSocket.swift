@@ -231,7 +231,7 @@ extension WebSocket {
         
         handleEvent(.disconnected(reasonError, code))
         
-        let errorMessage = reasonError == nil ? "No error." : "Error: \(reasonError!.localizedDescription)"
+        let errorMessage = reasonError.isNil ? "No error." : "Error: \(reasonError!.localizedDescription)"
         log("Connection closed", message: "CloseCode: \(code). " + errorMessage)
     }
 }
@@ -460,7 +460,12 @@ extension WebSocket {
             switch closingStatus {
             case .none:
                 closingStatus = .closingByServer
-                closeConnection(timeout: timeout, code: .normalClosure)
+                if frame.closeCode().isNil {
+                    closeConnection(timeout: timeout, code: .protocolError)
+                } else {
+                    //use server close code ??
+                    closeConnection(timeout: timeout, code: .normalClosure)
+                }
                 break
             case .closingByClient:
                 tearDown(reasonError: nil, code: frame.closeCode() ?? .protocolError)
@@ -480,7 +485,7 @@ extension WebSocket {
             return processContinuationFrame(frame)
         }
         
-        if currentInputFrame != nil {
+        if !currentInputFrame.isNil {
             //Received new Data frame when not fullfile current fragmented yet
             closeConnection(timeout: timeout, code: .protocolError)
             return false

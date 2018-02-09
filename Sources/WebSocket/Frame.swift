@@ -48,7 +48,7 @@ public class Frame {
     func closeCode() -> WebSocket.CloseCode? {
         guard opCode == .connectionCloseFrame else { return nil }
         guard payloadLength <= 125 else { return .protocolError }
-        guard payloadLength >= 2 else { return .normalClosure }
+        guard payloadLength >= 2 else { return nil }
         
         let rawCode = Frame.extractValue(from: payload.unsafeBuffer(), offset: 0, count: 2)
         return WebSocket.CloseCode(rawValue: UInt16(rawCode))

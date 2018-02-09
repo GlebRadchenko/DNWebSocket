@@ -22,7 +22,7 @@ public class SSLSertificate {
     }
     
     func extractPublicKey() {
-        guard publicKey == nil else { return }
+        guard publicKey.isNil else { return }
         guard let data = data else { return }
         guard let secCertificate = SecCertificateCreateWithData(nil, data as CFData) else { return }
         publicKey = SSLSertificate.extractPublicKey(for: secCertificate, policy: SecPolicyCreateBasicX509())
