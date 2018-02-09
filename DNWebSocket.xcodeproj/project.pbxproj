@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F715B166202D1A1A008FEB01 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B165202D1A1A008FEB01 /* Date+Format.swift */; };
+		F715B167202D1A1A008FEB01 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B165202D1A1A008FEB01 /* Date+Format.swift */; };
+		F715B168202D1A1A008FEB01 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B165202D1A1A008FEB01 /* Date+Format.swift */; };
+		F715B16A202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
+		F715B16B202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
+		F715B16C202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
 		F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
@@ -123,6 +129,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F715B165202D1A1A008FEB01 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Timeout.swift"; sourceTree = "<group>"; };
 		F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Setup.swift"; sourceTree = "<group>"; };
 		F781C7172024AF130009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +309,8 @@
 				F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */,
 				F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */,
 				F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */,
+				F715B165202D1A1A008FEB01 /* Date+Format.swift */,
+				F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +527,7 @@
 			files = (
 				F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
 				F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
+				F715B166202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F7A65DB02028BB3800F190CB /* SSLValidator.swift in Sources */,
 				F781C75B2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA020289EE400F190CB /* Data+Buffer.swift in Sources */,
@@ -537,6 +548,7 @@
 				F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DB4202AE9D700F190CB /* Frame.swift in Sources */,
 				F7B1420E202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
+				F715B16A202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA42028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D902028850200F190CB /* String+Handshaking.swift in Sources */,
 				F7B14209202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
@@ -551,6 +563,7 @@
 			files = (
 				F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
 				F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
+				F715B167202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F7A65DB12028BB3800F190CB /* SSLValidator.swift in Sources */,
 				F781C75C2024C6490009B0D4 /* UnsafePointer+Extensions.swift in Sources */,
 				F7A65DA120289EE400F190CB /* Data+Buffer.swift in Sources */,
@@ -571,6 +584,7 @@
 				F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DB5202AE9D700F190CB /* Frame.swift in Sources */,
 				F7B1420F202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
+				F715B16B202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA52028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D912028850200F190CB /* String+Handshaking.swift in Sources */,
 				F7B1420A202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
@@ -588,11 +602,13 @@
 				F7A65DA62028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65DAA2028B17F00F190CB /* SSLCertificate.swift in Sources */,
+				F715B168202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F781C73F2024B2670009B0D4 /* main.swift in Sources */,
 				F7B14201202A253A00E49DB5 /* Handshake.swift in Sources */,
 				F7B1420B202A3E2D00E49DB5 /* CompressionSettings.swift in Sources */,
 				F7A65DBB202B1E2900F190CB /* Data+Mask.swift in Sources */,
 				F7A65DB22028BB3800F190CB /* SSLValidator.swift in Sources */,
+				F715B16C202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65D962028868400F190CB /* Registry.swift in Sources */,
 				F7A65D922028850200F190CB /* String+Handshaking.swift in Sources */,
 				F7B141FC202A1C9E00E49DB5 /* StreamBuffer.swift in Sources */,

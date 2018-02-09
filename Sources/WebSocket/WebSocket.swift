@@ -23,6 +23,7 @@ open class WebSocket {
     fileprivate var inputStreamBuffer = StreamBuffer()
     fileprivate let operationQueue: OperationQueue
     fileprivate var currentInputFrame: Frame?
+    fileprivate var closingByMe: Bool = false
     fileprivate var secKey = ""
     
     fileprivate var _status: WebSocketStatus = .disconnected
@@ -111,6 +112,7 @@ open class WebSocket {
     }
     
     open func disconnect(_ timeout: TimeInterval) {
+        closingByMe = true
         closeConnection(timeout: timeout, code: .normalClosure)
     }
     
@@ -197,6 +199,7 @@ extension WebSocket {
         let data = Data(bytes: &value, count: Int(UInt16.memoryLayoutSize))
         
         performSend(data: data, code: .connectionCloseFrame, completion: nil)
+        
         status = .disconnecting
         checkStatus(.disconnected, msTimeout: timeout * 1000)
     }
@@ -207,7 +210,7 @@ extension WebSocket {
             
             if msTimeout < Double(delay) {
                 wSelf.tearDown(reasonError: WebSocketError.timeout, code: .noStatusReceived)
-            } else {
+            } else if wSelf.status != status {
                 wSelf.checkStatus(status, msTimeout: msTimeout - TimeInterval(delay))
             }
         }
@@ -217,9 +220,7 @@ extension WebSocket {
         guard status != .disconnected else { return }
         
         status = .disconnecting
-        reasonError == nil
-            ? operationQueue.waitUntilAllOperationsAreFinished()
-            : operationQueue.cancelAllOperations()
+        operationQueue.cancelAllOperations()
         
         stream.disconnect()
         inputStreamBuffer.reset()
@@ -238,7 +239,8 @@ extension WebSocket {
     fileprivate func log(_ event: String, message: String = "") {
         if debugMode {
             let header = "\n**** \(event.uppercased()) ****\n"
-            handleEvent(.debug(header + message))
+            let date = Date().iso8601ms + "\n"
+            handleEvent(.debug(header + date + message))
         }
     }
     
@@ -305,6 +307,7 @@ extension WebSocket {
     }
     
     fileprivate func handleInputBytesAvailable() {
+        log("New bytes available")
         do {
             let data = try stream.read()
             inputStreamBuffer.enqueue(data)
@@ -335,6 +338,7 @@ extension WebSocket {
             
             do {
                 try processHandshake(handshake)
+                log("Handshake successed")
             } catch {
                 tearDown(reasonError: error, code: .TLSHandshake)
             }
@@ -368,8 +372,6 @@ extension WebSocket {
         if let extensions = handshake.httpHeaders[Header.secExtension.lowercased()] {
             compressionSettings.update(with: extensions)
         }
-        
-        log("Handshake successed")
     }
     
     fileprivate func processData(_ data: Data) {
@@ -551,11 +553,13 @@ extension WebSocket {
                     let dataWritten = try wSelf.stream.write(dataToWrite)
                     totalBytesWritten += dataWritten
                 } catch {
-                    wSelf.tearDown(reasonError: error, code: .unsupportedData)
+                    if wSelf.status == .connected {
+                        wSelf.tearDown(reasonError: error, code: .unsupportedData)
+                    }
                     return
                 }
             }
-            
+            wSelf.log("Sent")
             wSelf.queue.async {
                 completion?()
             }

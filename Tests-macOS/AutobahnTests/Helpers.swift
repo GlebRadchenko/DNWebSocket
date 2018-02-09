@@ -8,20 +8,6 @@
 import Foundation
 import DNWebSocket
 
-public func RunLoopUntil(timeout: TimeInterval, predicate: () -> Bool) -> Bool {
-    let timeoutData = Date(timeIntervalSinceNow: timeout)
-    
-    let timeoutInterval = timeoutData.timeIntervalSinceReferenceDate
-    var currentInterval = Date.timeIntervalSinceReferenceDate
-    
-    while !predicate() && currentInterval < timeoutInterval {
-        RunLoop.current.run(mode: .defaultRunLoopMode, before: Date(timeIntervalSinceNow: 0.1))
-        currentInterval = Date.timeIntervalSinceReferenceDate
-    }
-    
-    return currentInterval <= timeoutInterval
-}
-
 class WebSocketOperation: Operation {
     var url: URL
     var error: Error?

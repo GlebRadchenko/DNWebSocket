@@ -10,11 +10,12 @@ import Foundation
 let testCase = 1
 
 let url = URL(string: "ws://localhost:9001/runCase?case=\(testCase)&agent=com.dialognet.Tests-macOS")!
-let websocket = WebSocket(url: url, timeout: 1)
+let websocket = WebSocket(url: url)
 
 websocket.securitySettings.useSSL = false
 websocket.maskOutputData = true
 websocket.useCompression = false
+websocket.debugMode = true
 websocket.onDebugInfo = { (info) in
     print(info)
 }
@@ -26,6 +27,7 @@ websocket.onText = { (text) in
 websocket.onData = { (data) in
     websocket.send(data: data)
 }
+
 
 websocket.connect()
 
@@ -47,7 +49,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
         print(text)
     }
     
-    //checkWS.connect()
+    checkWS.connect()
 }
 
 let statusURL = URL(string: "ws://localhost:9001/updateReports?agent=com.dialognet.Tests-macOS")!
@@ -68,7 +70,7 @@ DispatchQueue.main.asyncAfter(wallDeadline: .now() + 10) {
         print(text)
     }
     
-   // statusWS.connect()
+    statusWS.connect()
 }
 
 RunLoop.main.run()
