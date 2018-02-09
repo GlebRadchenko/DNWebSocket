@@ -46,6 +46,7 @@ public class Frame {
     }
     
     func closeCode() -> WebSocket.CloseCode? {
+        if payloadLength <= 1 { return .normalClosure }
         guard let rawCode = rawCloseCode() else { return nil }
         return WebSocket.CloseCode.code(with: UInt16(rawCode))
     }
