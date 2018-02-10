@@ -4,11 +4,8 @@
 <a href="https://developer.apple.com/swift/" target="_blank">
 <img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat" alt="Swift 4.0">
 </a>
-<a href="https://developer.apple.com/swift/" target="_blank">
-<img src="https://img.shields.io/badge/Platforms-%20Linux%20%26%20OS%20X%20-brightgreen.svg?style=flat" alt="iOS, macOS, watchOS, tvOS, Linux">
-</a>
 <a href="https://github.com/GlebRadchenko/DNWebSocket/blob/master/LICENSE" target="_blank">
-<img src="https://img.shields.io/aur/license/yaourt.svg?style=flat" alt="MIT">
+<img src="https://img.shields.io/packagist/l/doctrine/orm.svg" alt="MIT">
 </a>
 </p>
 
