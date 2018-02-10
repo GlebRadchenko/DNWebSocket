@@ -46,7 +46,7 @@ public class Frame {
     }
     
     func closeCode() -> WebSocket.CloseCode? {
-        if payloadLength <= 1 { return .normalClosure }
+        if payloadLength == 0 { return .normalClosure }
         guard let rawCode = rawCloseCode() else { return nil }
         return WebSocket.CloseCode.code(with: UInt16(rawCode))
     }
@@ -87,6 +87,7 @@ public class Frame {
         
         fin = frame.fin
         payloadLength += frame.payloadLength
+        frameSize += frame.frameSize
         payload.append(frame.payload)
     }
     
@@ -162,8 +163,6 @@ public class Frame {
     }
     
     static func fullFill(frame: Frame, buffer: UnsafeBufferPointer<UInt8>) -> Int {
-        guard frame.opCode != .unknown else { return 0 }
-        
         var estimatedFrameSize: UInt64 = 2 //first two bytes
         estimatedFrameSize += frame.isMasked ? 4 : 0
         
@@ -212,6 +211,7 @@ public class Frame {
         (0..<count).forEach { (byteIndex) in
             value = (value << 8) | UInt64(buffer[offset + byteIndex])
         }
+        
         return value
     }
 }

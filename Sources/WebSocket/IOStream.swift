@@ -20,7 +20,7 @@ public class IOStream: NSObject {
     deinit { disconnect() }
     
     override init() {
-        queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .default)
+        queue = DispatchQueue(label: "dialognet-websocket-io-stream-queue", qos: .userInitiated)
         super.init()
     }
     

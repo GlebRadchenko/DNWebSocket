@@ -16,4 +16,8 @@ extension Optional {
             return false
         }
     }
+    
+    var isNotNil: Bool {
+        return !isNil
+    }
 }
