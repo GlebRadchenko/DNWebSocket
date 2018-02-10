@@ -12,7 +12,6 @@ class AutobahnTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -21,52 +20,44 @@ class AutobahnTests: XCTestCase {
     }
     
     func updateReports() {
-        let op = AutobahnTestOperation.updateReport(url: TestConfiguration.serverURL,
-                                                    agent: TestConfiguration.agent)
-        op.start()
-        XCTAssert(op.waitUntilFinished(timeout: 40), "Update reports timeout")
+        let action = AutobahnTestAction.updateReport(url: TestConfiguration.serverURL,
+                                                     agent: TestConfiguration.agent)
+        action.perform()
+        XCTAssert(action.waitUntilFinished(timeout: 60), "Update reports timeout")
     }
     
     func testAutoBahnCases() {
-        let count = TestConfiguration.testsCount()
-        (1...count).forEach { (testNumber) in
-            let rawInfo = TestConfiguration.testsCaseInfo(caseNumber: testNumber)
-            let info = rawInfo as? [String: String] ?? [:]
+        let unimplementedCount = 210
+        let count = TestConfiguration.testsCount() - unimplementedCount
+        (1...count).forEach { (number) in
+            let info = TestConfiguration.testInfo(number: number)
             let id = info ["id"] ?? "Unknown id"
+            let description = info["description"] ?? ""
+            print("\nPerforming test \(number), id: \(id), description: \n" + description)
             
-            makeTest(caseNumber: testNumber, id: id)
+            makeTest(number: number, id: id)
+            
+            if number % 10 == 0 {
+                updateReports()
+            }
         }
     }
     
-    func makeTest(caseNumber: Int?, id: String) {
+    func makeTest(number: Int, id: String) {
         let url = TestConfiguration.serverURL
         let agent = TestConfiguration.agent
         
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
+        let testAction = AutobahnTestAction.test(url: url, caseNumber: number, agent: agent)
+        testAction.perform()
+        XCTAssert(testAction.waitUntilFinished(timeout: 120), "Test case \(id) timeout")
         
-        let test = AutobahnTestOperation.test(url: url, caseNumber: caseNumber, agent: agent)
+        let info = TestConfiguration.testResult(number: number)
+        let result = info["behavior"] ?? "NO RESULT"
+        let isAcceptable = TestConfiguration.isAcceptable(result: result)
+        XCTAssert(isAcceptable, "Test \(number), id: \(id) failed with result: \(result)")
         
-        var testInfo: [String: String] = [:]
-        let result = AutobahnTestOperation.testResult(url: url, caseNumber: caseNumber, agent: agent) { (info) in
-            guard let info = info as? [String: String] else {
-                return
-            }
-            
-            testInfo = info
-        }
-        
-        result.addDependency(test)
-        
-        opQueue.addOperation(test)
-        opQueue.addOperation(result)
-        
-        test.start()
-        XCTAssertTrue(result.waitUntilFinished(timeout: 100), "Test case: \(caseNumber ?? -1) timeout")
-        if !TestConfiguration.isValidResult(caseId: id, result: testInfo["behavior"] ?? "") {
-            XCTFail("Invalid test behaviour: \(testInfo["behavior"] ?? "") for test: \(id)")
+        if isAcceptable {
+            print("+")
         }
     }
-    
 }
-

@@ -9,7 +9,7 @@ import Foundation
 
 extension WebSocket {
     public struct Settings {
-        public var debugMode = true
+        public var debugMode = false
         public var callbackQueue: DispatchQueue?
         public var timeout: TimeInterval = 5
         public var useCompression = true

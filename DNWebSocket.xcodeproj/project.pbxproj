@@ -75,6 +75,7 @@
 		F715B1E0202F2C4A008FEB01 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
 		F715B1E1202F2C4F008FEB01 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F715B1E2202F2C52008FEB01 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F715B1E4202F3959008FEB01 /* AutobahnTestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B1E3202F3959008FEB01 /* AutobahnTestAction.swift */; };
 		F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
@@ -155,7 +156,7 @@
 		F7B1420F202A42E000E49DB5 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */; };
 		F7B14210202A42E000E49DB5 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */; };
 		F7CEF8F3202C8CFD002E7EE6 /* TestCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F2202C8CFD002E7EE6 /* TestCommon.swift */; };
-		F7CEF8F6202CBC20002E7EE6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F5202CBC20002E7EE6 /* Helpers.swift */; };
+		F7CEF8F6202CBC20002E7EE6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F5202CBC20002E7EE6 /* Configuration.swift */; };
 		F7CEF8F8202CBC4A002E7EE6 /* AutobahnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */; };
 		F7CEF8FA202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
 		F7CEF8FB202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
@@ -200,6 +201,7 @@
 		F715B175202F2AEC008FEB01 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
 		F715B17F202F2B73008FEB01 /* DNWebSocket_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F715B182202F2B73008FEB01 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		F715B1E3202F3959008FEB01 /* AutobahnTestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnTestAction.swift; sourceTree = "<group>"; };
 		F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Setup.swift"; sourceTree = "<group>"; };
 		F781C7172024AF130009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,7 +238,7 @@
 		F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionSettings.swift; sourceTree = "<group>"; };
 		F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketModels.swift; sourceTree = "<group>"; };
 		F7CEF8F2202C8CFD002E7EE6 /* TestCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommon.swift; sourceTree = "<group>"; };
-		F7CEF8F5202CBC20002E7EE6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		F7CEF8F5202CBC20002E7EE6 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnTests.swift; sourceTree = "<group>"; };
 		F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
@@ -435,8 +437,9 @@
 		F7CEF8F4202CBBFE002E7EE6 /* AutobahnTests */ = {
 			isa = PBXGroup;
 			children = (
-				F7CEF8F5202CBC20002E7EE6 /* Helpers.swift */,
+				F7CEF8F5202CBC20002E7EE6 /* Configuration.swift */,
 				F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */,
+				F715B1E3202F3959008FEB01 /* AutobahnTestAction.swift */,
 			);
 			path = AutobahnTests;
 			sourceTree = "<group>";
@@ -876,8 +879,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F715B1E4202F3959008FEB01 /* AutobahnTestAction.swift in Sources */,
 				F7CEF8F3202C8CFD002E7EE6 /* TestCommon.swift in Sources */,
-				F7CEF8F6202CBC20002E7EE6 /* Helpers.swift in Sources */,
+				F7CEF8F6202CBC20002E7EE6 /* Configuration.swift in Sources */,
 				F7A65F29202C889C00F190CB /* TestCompression.swift in Sources */,
 				F7CEF8F8202CBC4A002E7EE6 /* AutobahnTests.swift in Sources */,
 			);
