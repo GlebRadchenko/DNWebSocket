@@ -13,6 +13,68 @@
 		F715B16A202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
 		F715B16B202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
 		F715B16C202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
+		F715B197202F2C29008FEB01 /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
+		F715B198202F2C29008FEB01 /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
+		F715B199202F2C29008FEB01 /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F715B19A202F2C29008FEB01 /* Data+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB8202B1E2900F190CB /* Data+Mask.swift */; };
+		F715B19B202F2C29008FEB01 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */; };
+		F715B19C202F2C29008FEB01 /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
+		F715B19D202F2C29008FEB01 /* Stream+SSLTrust.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */; };
+		F715B19E202F2C29008FEB01 /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F715B19F202F2C29008FEB01 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
+		F715B1A0202F2C29008FEB01 /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F715B1A1202F2C29008FEB01 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
+		F715B1A2202F2C29008FEB01 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F715B1A3202F2C29008FEB01 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B165202D1A1A008FEB01 /* Date+Format.swift */; };
+		F715B1A4202F2C29008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
+		F715B1A5202F2C29008FEB01 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
+		F715B1B4202F2C2B008FEB01 /* Data+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9F20289EE400F190CB /* Data+Buffer.swift */; };
+		F715B1B5202F2C2B008FEB01 /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D84202869B800F190CB /* Data+Compression.swift */; };
+		F715B1B6202F2C2B008FEB01 /* Data+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8B2028837600F190CB /* Data+SHA1.swift */; };
+		F715B1B7202F2C2B008FEB01 /* Data+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB8202B1E2900F190CB /* Data+Mask.swift */; };
+		F715B1B8202F2C2B008FEB01 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C75A2024C6490009B0D4 /* UnsafePointer+Extensions.swift */; };
+		F715B1B9202F2C2B008FEB01 /* String+Handshaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D8F2028850200F190CB /* String+Handshaking.swift */; };
+		F715B1BA202F2C2B008FEB01 /* Stream+SSLTrust.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA32028A9AC00F190CB /* Stream+SSLTrust.swift */; };
+		F715B1BB202F2C2B008FEB01 /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
+		F715B1BC202F2C2B008FEB01 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
+		F715B1BD202F2C2B008FEB01 /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F715B1BE202F2C2B008FEB01 /* URLRequest+WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14203202A3BE900E49DB5 /* URLRequest+WebSocket.swift */; };
+		F715B1BF202F2C2B008FEB01 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
+		F715B1C0202F2C2C008FEB01 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B165202D1A1A008FEB01 /* Date+Format.swift */; };
+		F715B1C1202F2C2C008FEB01 /* RunLoop+Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */; };
+		F715B1C2202F2C2C008FEB01 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
+		F715B1C3202F2C31008FEB01 /* SizeRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */; };
+		F715B1C4202F2C31008FEB01 /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F715B1C5202F2C32008FEB01 /* SizeRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7572024BEC90009B0D4 /* SizeRetrievable.swift */; };
+		F715B1C6202F2C32008FEB01 /* SSLContextRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */; };
+		F715B1C7202F2C36008FEB01 /* CompressionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7542024BC920009B0D4 /* CompressionStatus.swift */; };
+		F715B1C8202F2C37008FEB01 /* CompressionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7542024BC920009B0D4 /* CompressionStatus.swift */; };
+		F715B1C9202F2C3B008FEB01 /* SSLCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA72028B17F00F190CB /* SSLCertificate.swift */; };
+		F715B1CA202F2C3B008FEB01 /* SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAB2028B83C00F190CB /* SSLSettings.swift */; };
+		F715B1CB202F2C3B008FEB01 /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
+		F715B1CC202F2C3C008FEB01 /* SSLCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DA72028B17F00F190CB /* SSLCertificate.swift */; };
+		F715B1CD202F2C3C008FEB01 /* SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAB2028B83C00F190CB /* SSLSettings.swift */; };
+		F715B1CE202F2C3C008FEB01 /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DAF2028BB3800F190CB /* SSLValidator.swift */; };
+		F715B1CF202F2C43008FEB01 /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry.swift */; };
+		F715B1D0202F2C43008FEB01 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F715B1D1202F2C43008FEB01 /* CompressionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */; };
+		F715B1D2202F2C43008FEB01 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */; };
+		F715B1D3202F2C44008FEB01 /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D932028868400F190CB /* Registry.swift */; };
+		F715B1D4202F2C44008FEB01 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9B2028942000F190CB /* Result.swift */; };
+		F715B1D5202F2C44008FEB01 /* CompressionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */; };
+		F715B1D6202F2C44008FEB01 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */; };
+		F715B1D7202F2C49008FEB01 /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F715B1D8202F2C49008FEB01 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
+		F715B1D9202F2C49008FEB01 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB3202AE9D700F190CB /* Frame.swift */; };
+		F715B1DA202F2C49008FEB01 /* Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* Handshake.swift */; };
+		F715B1DB202F2C49008FEB01 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F715B1DC202F2C4A008FEB01 /* IOStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65D9720288C7C00F190CB /* IOStream.swift */; };
+		F715B1DD202F2C4A008FEB01 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781C7352024B0FE0009B0D4 /* WebSocket.swift */; };
+		F715B1DE202F2C4A008FEB01 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB3202AE9D700F190CB /* Frame.swift */; };
+		F715B1DF202F2C4A008FEB01 /* Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141FE202A253A00E49DB5 /* Handshake.swift */; };
+		F715B1E0202F2C4A008FEB01 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141F9202A1C9E00E49DB5 /* StreamBuffer.swift */; };
+		F715B1E1202F2C4F008FEB01 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F715B1E2202F2C52008FEB01 /* DNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F781C7322024B0CA0009B0D4 /* DNWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
 		F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */; };
@@ -134,6 +196,10 @@
 /* Begin PBXFileReference section */
 		F715B165202D1A1A008FEB01 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		F715B169202D2700008FEB01 /* RunLoop+Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Timeout.swift"; sourceTree = "<group>"; };
+		F715B172202F2AEB008FEB01 /* DNWebSocket_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F715B175202F2AEC008FEB01 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		F715B17F202F2B73008FEB01 /* DNWebSocket_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F715B182202F2B73008FEB01 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		F775FBE2202BAD7400353864 /* OperationQueue+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Setup.swift"; sourceTree = "<group>"; };
 		F781C7172024AF130009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +245,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F715B16E202F2AEB008FEB01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F715B17B202F2B73008FEB01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F781C7132024AF130009B0D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,6 +320,8 @@
 				F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */,
 				F781C73C2024B2670009B0D4 /* Example */,
 				F7A65F1C202C861100F190CB /* Tests-macOS.xctest */,
+				F715B172202F2AEB008FEB01 /* DNWebSocket_watchOS.framework */,
+				F715B17F202F2B73008FEB01 /* DNWebSocket_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,6 +338,8 @@
 				F781C7322024B0CA0009B0D4 /* DNWebSocket.h */,
 				F781C72E2024AF9B0009B0D4 /* Info-iOS.plist */,
 				F781C72F2024AF9B0009B0D4 /* Info-macOS.plist */,
+				F715B182202F2B73008FEB01 /* Info-tvOS.plist */,
+				F715B175202F2AEC008FEB01 /* Info-watchOS.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -360,6 +444,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		F715B16F202F2AEB008FEB01 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F715B1E2202F2C52008FEB01 /* DNWebSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F715B17C202F2B73008FEB01 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F715B1E1202F2C4F008FEB01 /* DNWebSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F781C7142024AF130009B0D4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +479,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		F715B171202F2AEB008FEB01 /* DNWebSocket-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F715B179202F2AEC008FEB01 /* Build configuration list for PBXNativeTarget "DNWebSocket-watchOS" */;
+			buildPhases = (
+				F715B16D202F2AEB008FEB01 /* Sources */,
+				F715B16E202F2AEB008FEB01 /* Frameworks */,
+				F715B16F202F2AEB008FEB01 /* Headers */,
+				F715B170202F2AEB008FEB01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DNWebSocket-watchOS";
+			productName = watchOS;
+			productReference = F715B172202F2AEB008FEB01 /* DNWebSocket_watchOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F715B17E202F2B73008FEB01 /* DNWebSocket-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F715B184202F2B73008FEB01 /* Build configuration list for PBXNativeTarget "DNWebSocket-tvOS" */;
+			buildPhases = (
+				F715B17A202F2B73008FEB01 /* Sources */,
+				F715B17B202F2B73008FEB01 /* Frameworks */,
+				F715B17C202F2B73008FEB01 /* Headers */,
+				F715B17D202F2B73008FEB01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DNWebSocket-tvOS";
+			productName = "DNWebSocket-tvOS";
+			productReference = F715B17F202F2B73008FEB01 /* DNWebSocket_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F781C7162024AF130009B0D4 /* DNWebSocket-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F781C71D2024AF130009B0D4 /* Build configuration list for PBXNativeTarget "DNWebSocket-iOS" */;
@@ -459,6 +595,14 @@
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				TargetAttributes = {
+					F715B171202F2AEB008FEB01 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F715B17E202F2B73008FEB01 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					F781C7162024AF130009B0D4 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -492,7 +636,9 @@
 			projectRoot = "";
 			targets = (
 				F781C7162024AF130009B0D4 /* DNWebSocket-iOS */,
+				F715B17E202F2B73008FEB01 /* DNWebSocket-tvOS */,
 				F781C7242024AF2D0009B0D4 /* DNWebSocket-macOS */,
+				F715B171202F2AEB008FEB01 /* DNWebSocket-watchOS */,
 				F781C73B2024B2670009B0D4 /* Example */,
 				F7A65F1B202C861100F190CB /* Tests-macOS */,
 			);
@@ -500,6 +646,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F715B170202F2AEB008FEB01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F715B17D202F2B73008FEB01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F781C7152024AF130009B0D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,6 +686,80 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F715B16D202F2AEB008FEB01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F715B1C8202F2C37008FEB01 /* CompressionStatus.swift in Sources */,
+				F715B1C5202F2C32008FEB01 /* SizeRetrievable.swift in Sources */,
+				F715B1B6202F2C2B008FEB01 /* Data+SHA1.swift in Sources */,
+				F715B1DF202F2C4A008FEB01 /* Handshake.swift in Sources */,
+				F715B1C2202F2C2C008FEB01 /* Optional+Extensions.swift in Sources */,
+				F715B1BF202F2C2B008FEB01 /* URL+Extensions.swift in Sources */,
+				F715B1BD202F2C2B008FEB01 /* URLRequest+Handshake.swift in Sources */,
+				F715B1BC202F2C2B008FEB01 /* OperationQueue+Setup.swift in Sources */,
+				F715B1D5202F2C44008FEB01 /* CompressionSettings.swift in Sources */,
+				F715B1E0202F2C4A008FEB01 /* StreamBuffer.swift in Sources */,
+				F715B1B5202F2C2B008FEB01 /* Data+Compression.swift in Sources */,
+				F715B1B8202F2C2B008FEB01 /* UnsafePointer+Extensions.swift in Sources */,
+				F715B1BE202F2C2B008FEB01 /* URLRequest+WebSocket.swift in Sources */,
+				F715B1DC202F2C4A008FEB01 /* IOStream.swift in Sources */,
+				F715B1C1202F2C2C008FEB01 /* RunLoop+Timeout.swift in Sources */,
+				F715B1D6202F2C44008FEB01 /* WebSocketModels.swift in Sources */,
+				F715B1BA202F2C2B008FEB01 /* Stream+SSLTrust.swift in Sources */,
+				F715B1C6202F2C32008FEB01 /* SSLContextRetrievable.swift in Sources */,
+				F715B1DD202F2C4A008FEB01 /* WebSocket.swift in Sources */,
+				F715B1D4202F2C44008FEB01 /* Result.swift in Sources */,
+				F715B1CE202F2C3C008FEB01 /* SSLValidator.swift in Sources */,
+				F715B1D3202F2C44008FEB01 /* Registry.swift in Sources */,
+				F715B1CC202F2C3C008FEB01 /* SSLCertificate.swift in Sources */,
+				F715B1B9202F2C2B008FEB01 /* String+Handshaking.swift in Sources */,
+				F715B1CD202F2C3C008FEB01 /* SSLSettings.swift in Sources */,
+				F715B1BB202F2C2B008FEB01 /* Stream+SSLSettings.swift in Sources */,
+				F715B1B4202F2C2B008FEB01 /* Data+Buffer.swift in Sources */,
+				F715B1DE202F2C4A008FEB01 /* Frame.swift in Sources */,
+				F715B1B7202F2C2B008FEB01 /* Data+Mask.swift in Sources */,
+				F715B1C0202F2C2C008FEB01 /* Date+Format.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F715B17A202F2B73008FEB01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F715B1C7202F2C36008FEB01 /* CompressionStatus.swift in Sources */,
+				F715B1C3202F2C31008FEB01 /* SizeRetrievable.swift in Sources */,
+				F715B199202F2C29008FEB01 /* Data+SHA1.swift in Sources */,
+				F715B1DA202F2C49008FEB01 /* Handshake.swift in Sources */,
+				F715B1A5202F2C29008FEB01 /* Optional+Extensions.swift in Sources */,
+				F715B1A2202F2C29008FEB01 /* URL+Extensions.swift in Sources */,
+				F715B1A0202F2C29008FEB01 /* URLRequest+Handshake.swift in Sources */,
+				F715B19F202F2C29008FEB01 /* OperationQueue+Setup.swift in Sources */,
+				F715B1D1202F2C43008FEB01 /* CompressionSettings.swift in Sources */,
+				F715B1DB202F2C49008FEB01 /* StreamBuffer.swift in Sources */,
+				F715B198202F2C29008FEB01 /* Data+Compression.swift in Sources */,
+				F715B19B202F2C29008FEB01 /* UnsafePointer+Extensions.swift in Sources */,
+				F715B1A1202F2C29008FEB01 /* URLRequest+WebSocket.swift in Sources */,
+				F715B1D7202F2C49008FEB01 /* IOStream.swift in Sources */,
+				F715B1A4202F2C29008FEB01 /* RunLoop+Timeout.swift in Sources */,
+				F715B1D2202F2C43008FEB01 /* WebSocketModels.swift in Sources */,
+				F715B19D202F2C29008FEB01 /* Stream+SSLTrust.swift in Sources */,
+				F715B1C4202F2C31008FEB01 /* SSLContextRetrievable.swift in Sources */,
+				F715B1D8202F2C49008FEB01 /* WebSocket.swift in Sources */,
+				F715B1D0202F2C43008FEB01 /* Result.swift in Sources */,
+				F715B1CB202F2C3B008FEB01 /* SSLValidator.swift in Sources */,
+				F715B1CF202F2C43008FEB01 /* Registry.swift in Sources */,
+				F715B1C9202F2C3B008FEB01 /* SSLCertificate.swift in Sources */,
+				F715B19C202F2C29008FEB01 /* String+Handshaking.swift in Sources */,
+				F715B1CA202F2C3B008FEB01 /* SSLSettings.swift in Sources */,
+				F715B19E202F2C29008FEB01 /* Stream+SSLSettings.swift in Sources */,
+				F715B197202F2C29008FEB01 /* Data+Buffer.swift in Sources */,
+				F715B1D9202F2C49008FEB01 /* Frame.swift in Sources */,
+				F715B19A202F2C29008FEB01 /* Data+Mask.swift in Sources */,
+				F715B1A3202F2C29008FEB01 /* Date+Format.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F781C7122024AF130009B0D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -660,6 +894,290 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F715B177202F2AEC008FEB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialognet.watchOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F715B178202F2AEC008FEB01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialognet.watchOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		F715B185202F2B73008FEB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dialognet.DNWebSocket-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F715B186202F2B73008FEB01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XN4R59V3UY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dialognet.DNWebSocket-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F781C7102024AEED0009B0D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -735,7 +1253,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -802,7 +1320,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dialognet.$(PROJECT_NAME)";
@@ -878,7 +1396,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dialognet.$(PROJECT_NAME)";
@@ -947,7 +1465,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dialognet.$(PROJECT_NAME)";
 				SDKROOT = macosx;
@@ -1204,6 +1722,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F715B179202F2AEC008FEB01 /* Build configuration list for PBXNativeTarget "DNWebSocket-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F715B177202F2AEC008FEB01 /* Debug */,
+				F715B178202F2AEC008FEB01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F715B184202F2B73008FEB01 /* Build configuration list for PBXNativeTarget "DNWebSocket-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F715B185202F2B73008FEB01 /* Debug */,
+				F715B186202F2B73008FEB01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F781C70F2024AEED0009B0D4 /* Build configuration list for PBXProject "DNWebSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

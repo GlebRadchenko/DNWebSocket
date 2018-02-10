@@ -28,12 +28,13 @@ public class SSLSettings {
     
     func cfSettings() -> [CFString: NSObject] {
         var settings: [CFString: NSObject] = [:]
-        
+        #if os(watchOS) || os(Linux)
+        #else
         settings[kCFStreamSSLValidatesCertificateChain] = NSNumber(value: certificateValidationEnabled)
         if overrideTrustHostname {
             settings[kCFStreamSSLPeerName] = trustHostname as NSString? ?? kCFNull
         }
-        
+        #endif
         return settings
     }
 }

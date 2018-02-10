@@ -167,6 +167,8 @@ extension WebSocket {
     }
     
     fileprivate func validateCertificates() throws {
+        #if os(watchOS) || os(Linux)
+        #else
         if securitySettings.useSSL, !certificatesValidated {
             let domain = stream.outputStream?.domain
             
@@ -177,6 +179,7 @@ extension WebSocket {
                 throw WebSocketError.sslValidationFailed
             }
         }
+        #endif
     }
     
     fileprivate func performHandshake() throws {

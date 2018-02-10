@@ -5,6 +5,9 @@
 //  Created by Gleb Radchenko on 2/6/18.
 //
 
+#if os(watchOS) || os(Linux)
+#else
+
 import Foundation
 
 extension Stream {
@@ -24,3 +27,4 @@ extension Stream {
     }
 }
 
+#endif

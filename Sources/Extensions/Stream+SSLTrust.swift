@@ -5,6 +5,9 @@
 //  Created by Gleb Radchenko on 2/5/18.
 //
 
+#if os(watchOS) || os(Linux)
+#else
+
 import Foundation
 
 extension InputStream: SSLContextRetrievable {
@@ -42,4 +45,4 @@ extension OutputStream: SSLContextRetrievable {
     }
 }
 
-
+#endif
