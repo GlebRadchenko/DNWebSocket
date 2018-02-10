@@ -15,7 +15,6 @@ extension WebSocket {
         public var useCompression = true
         public var maskOutputData: Bool = true
         public var respondPingRequestsAutomatically = true
-        public var validateFragmentedMessages = false
     }
     
     public enum Status {
