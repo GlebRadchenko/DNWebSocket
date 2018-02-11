@@ -15,4 +15,6 @@ Conforms to all necessary Autobahn fuzzing tests. [Autobahn](http://autobahn.ws/
 
 Test results for DNWebSocket you can see [here](https://glebradchenko.github.io/dnwebsocket.github.io/).
 
+In comparison with [SocketRocket](http://facebook.github.io/SocketRocket/results/), this library shows 2-10 times better performance in many Limits/Performance tests.
+
 Cases 6.4.1, 6.4.2, 6.4.3, 6.4.4 received result Non-Strict due to perfomance improvements(it's complicated to validate each fragmented text message)
