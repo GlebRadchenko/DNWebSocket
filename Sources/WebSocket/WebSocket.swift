@@ -547,7 +547,7 @@ extension WebSocket {
         if compressionSettings.useCompression && frame.rsv1 {
             frame.payload.addTail()
             let data = try frame.payload.decompress(windowBits: compressionSettings.serverMaxWindowBits)
-            handleEvent(.pongReceived(data))
+            frame.payload = data
         }
     }
     
@@ -615,9 +615,8 @@ extension WebSocket {
     }
     
     fileprivate func prepareFrame(payload: Data, opCode: Opcode) -> Frame {
-        var payload = payload
-        
         let frame = Frame(fin: true, opCode: opCode)
+        frame.payload = payload
         
         if settings.maskOutputData {
             frame.isMasked = true
@@ -627,16 +626,13 @@ extension WebSocket {
         if compressionSettings.useCompression {
             do {
                 frame.rsv1 = true
-                frame.payload = try payload.compress(windowBits:compressionSettings.clientMaxWindowBits)
+                frame.payload = try frame.payload.compress(windowBits: compressionSettings.clientMaxWindowBits)
                 frame.payload.removeTail()
             } catch {
                 //Temporary solution
                 debugPrint(error.localizedDescription)
-                frame.payload = payload
                 frame.rsv1 = false
             }
-        } else {
-            frame.payload = payload
         }
         
         if frame.isMasked {

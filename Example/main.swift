@@ -43,7 +43,7 @@ func performTestCase(_ caseNumber: Int, agent: String, completion: @escaping () 
 func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.securitySettings.useSSL = false
     ws.settings.useCompression = false
-    ws.settings.debugMode = true
+    ws.settings.debugMode = respond
     
     ws.onText = {
         if respond {
@@ -67,13 +67,13 @@ func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.onDebugInfo = { print($0) }
 }
 
-testCase = 260
+testCase = 304
 let infoURL = URL(string: "ws://localhost:9001/getCaseInfo?case=\(testCase)")!
 let infoWS = WebSocket(url: infoURL)
 configure(ws: infoWS, respond: false, number: testCase)
 //infoWS.connect()
 
-performTestCase(testCase, agent: agent, completion: {})
-//performTests(count: 30)
+//performTestCase(testCase, agent: agent, completion: {})
+//performTests(count: 80)
 
 RunLoop.main.run()
