@@ -21,13 +21,14 @@ class TestCommon: XCTestCase {
 
     func testMasking() {
         let inputString = "String to test mask/unmask String to test mask/unmask String to test mask/unmask String to test mask/unmask"
-        let data = inputString.data(using: .utf8)
+        var data = inputString.data(using: .utf8)
         XCTAssertNotNil(data, "String data is empty")
-        let mask = Data.randomMask()
+        var mask = Data.randomMask()
         
-        let maskedData = data!.masked(with: mask)
-        let unmaskedData = maskedData.unmasked(with: mask)
-        let outputString = String(data: unmaskedData, encoding: .utf8) ?? ""
+        data!.mask(with: mask)
+        data!.unmask(with: mask)
+        
+        let outputString = String(data: data!, encoding: .utf8) ?? ""
         
         XCTAssertEqual(inputString, outputString)
     }
@@ -85,7 +86,7 @@ class TestCommon: XCTestCase {
         let outputFrame = result!.0
         
         if outputFrame.isMasked && outputFrame.fin {
-            outputFrame.payload = outputFrame.payload.unmasked(with: outputFrame.mask)
+            outputFrame.payload.unmask(with: outputFrame.mask)
         }
         
         if useCompression {
@@ -125,7 +126,7 @@ class TestCommon: XCTestCase {
         }
         
         if frame.isMasked {
-            frame.payload = frame.payload.masked(with: frame.mask)
+            frame.payload.mask(with: frame.mask)
         }
         
         frame.payloadLength = UInt64(frame.payload.count)

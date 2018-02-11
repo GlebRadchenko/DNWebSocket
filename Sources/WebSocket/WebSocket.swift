@@ -582,22 +582,17 @@ extension WebSocket {
             frame.frameSize = UInt64(frameSize)
             
             let buffer = frameData.unsafeBuffer()
-            let rawBuffer = UnsafeRawBufferPointer(buffer)
-            let dispatchData = DispatchData(bytesNoCopy: rawBuffer, deallocator: .custom(nil, {}))
             var bytesWritten = 0
-            
             var streamError: Error?
+            
             while bytesWritten < frameSize && !wOperation.isCancelled && streamError.isNil {
-                let subData = dispatchData.subdata(in: bytesWritten..<frameSize)
-                subData.enumerateBytes { (buffer, byteIndex, stop) in
-                    do {
-                        let writtenCount = try wSelf.stream.write(buffer.baseAddress!, count: buffer.count)
-                        bytesWritten += writtenCount
-                        stop = writtenCount <= buffer.count
-                    } catch {
-                        streamError = error
-                        stop = true
-                    }
+                let pointer = buffer.baseAddress!.advanced(by: bytesWritten)
+                do {
+                    let writtenCount = try wSelf.stream.write(pointer, count: buffer.count - bytesWritten)
+                    bytesWritten += writtenCount
+                } catch {
+                    streamError = error
+                    break
                 }
             }
             

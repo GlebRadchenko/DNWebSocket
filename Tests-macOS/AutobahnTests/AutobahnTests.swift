@@ -49,7 +49,7 @@ class AutobahnTests: XCTestCase {
         
         let testAction = AutobahnTestAction.test(url: url, caseNumber: number, agent: agent)
         testAction.perform()
-        XCTAssert(testAction.waitUntilFinished(timeout: 120), "Test case \(id) timeout")
+        XCTAssert(testAction.waitUntilFinished(timeout: 60), "Test case \(id) timeout")
         
         let info = TestConfiguration.testResult(number: number)
         let result = info["behavior"] ?? "NO RESULT"

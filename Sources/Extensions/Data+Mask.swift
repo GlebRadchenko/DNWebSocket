@@ -9,6 +9,7 @@ import Foundation
 
 extension Data {
     mutating func mask(with mask: Data) {
+        guard !isEmpty else { return }
         let buffer = unsafeMutableBuffer()
         buffer.enumerated().forEach { (index, byte) in
             buffer[index] = byte ^ mask[index % 4]
