@@ -8,17 +8,15 @@
 import Foundation
 
 extension Data {
-    func masked(with mask: Data) -> Data {
-        var data: Data = Data(count: count)
-        enumerated().forEach { (index, byte) in
-            data[index] = self[index] ^ mask[index % 4]
+    mutating func mask(with mask: Data) {
+        let buffer = unsafeMutableBuffer()
+        buffer.enumerated().forEach { (index, byte) in
+            buffer[index] = byte ^ mask[index % 4]
         }
-        
-        return data
     }
     
-    func unmasked(with mask: Data) -> Data {
-        return masked(with: mask)
+    mutating func unmask(with mask: Data) {
+        self.mask(with: mask)
     }
     
     static func randomMask() -> Data {
@@ -32,3 +30,4 @@ extension Data {
         return data
     }
 }
+

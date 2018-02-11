@@ -374,19 +374,26 @@ extension WebSocket {
     }
     
     fileprivate func processData(_ data: Data) -> Bool {
+        var data = data
         let unsafeBuffer = data.unsafeBuffer()
-        var successed = false
         
-        if let (frame, usedAmount) = Frame.decode(from: unsafeBuffer), frame.isFullfilled {
-            inputStreamBuffer.clearBuffer()
-            if usedAmount < data.count {
-                inputStreamBuffer.buffer = Data(unsafeBuffer[usedAmount..<data.count])
+        var offset = 0
+        var successed = true
+        
+        while offset + 2 <= unsafeBuffer.count {
+            if let (frame, newOffset) = Frame.decode(from: unsafeBuffer, fromOffset: offset) {
+                if frame.isFullfilled, processFrame(frame) {
+                    offset = newOffset
+                    continue
+                } else {
+                    successed = false
+                    break
+                }
             }
-            
-            successed = processFrame(frame)
         }
         
-        if !successed {
+        if offset < unsafeBuffer.count {
+            data.removeFirst(offset)
             inputStreamBuffer.buffer = data
         }
         
@@ -406,7 +413,7 @@ extension WebSocket {
         }
         
         if frame.isMasked && frame.fin {
-            frame.payload = frame.payload.unmasked(with: frame.mask)
+            frame.payload.unmask(with: frame.mask)
         }
         
         if frame.isControlFrame {
@@ -575,20 +582,28 @@ extension WebSocket {
             frame.frameSize = UInt64(frameSize)
             
             let buffer = frameData.unsafeBuffer()
-            var totalBytesWritten = 0
+            let rawBuffer = UnsafeRawBufferPointer(buffer)
+            let dispatchData = DispatchData(bytesNoCopy: rawBuffer, deallocator: .custom(nil, {}))
+            var bytesWritten = 0
             
-            wSelf.log("Sending Frame", message: frame.description)
-            while totalBytesWritten < frameSize && !wOperation.isCancelled {
-                do {
-                    let dataToWrite = Data(buffer[totalBytesWritten..<frameSize])
-                    let dataWritten = try wSelf.stream.write(dataToWrite)
-                    totalBytesWritten += dataWritten
-                } catch {
-                    if wSelf.status == .connected {
-                        wSelf.tearDown(reasonError: error, code: .unsupportedData)
+            var streamError: Error?
+            while bytesWritten < frameSize && !wOperation.isCancelled && streamError.isNil {
+                let subData = dispatchData.subdata(in: bytesWritten..<frameSize)
+                subData.enumerateBytes { (buffer, byteIndex, stop) in
+                    do {
+                        let writtenCount = try wSelf.stream.write(buffer.baseAddress!, count: buffer.count)
+                        bytesWritten += writtenCount
+                        stop = writtenCount <= buffer.count
+                    } catch {
+                        streamError = error
+                        stop = true
                     }
-                    return
                 }
+            }
+            
+            if let error = streamError, wSelf.status == .connected {
+                wSelf.tearDown(reasonError: error, code: .unsupportedData)
+                return
             }
             
             wSelf.log("Sent")
@@ -630,7 +645,7 @@ extension WebSocket {
         }
         
         if frame.isMasked {
-            frame.payload = frame.payload.masked(with: frame.mask)
+            frame.payload.mask(with: frame.mask)
         }
         
         frame.payloadLength = UInt64(frame.payload.count)

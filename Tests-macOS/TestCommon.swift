@@ -80,7 +80,7 @@ class TestCommon: XCTestCase {
         let inputFrame = prepareFrame(payload: payload, opCode: opCode, useC: useCompression, mask: maskData)
         let inputFrameData = Frame.encode(inputFrame)
         
-        let result = Frame.decode(from: inputFrameData.unsafeBuffer())
+        let result = Frame.decode(from: inputFrameData.unsafeBuffer(), fromOffset: 0)
         XCTAssertNotNil(result)
         let outputFrame = result!.0
         

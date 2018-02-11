@@ -9,7 +9,7 @@ import Foundation
 
 extension Data {
     static var bufferSize: Int {
-        return 4096
+        return 8192
     }
     
     static func buffer() -> Data {
@@ -21,4 +21,11 @@ extension Data {
             UnsafeBufferPointer<UInt8>(start: pointer, count: count)
         }
     }
+    
+    mutating func unsafeMutableBuffer() -> UnsafeMutableBufferPointer<UInt8> {
+        return withUnsafeMutableBytes { (pointer) in
+            UnsafeMutableBufferPointer<UInt8>(start: pointer, count: count)
+        }
+    }
 }
+

@@ -146,27 +146,32 @@ public class Frame {
         return data
     }
     
-    static func decode(from unsafeBuffer: UnsafeBufferPointer<UInt8>) -> (Frame, Int)? {
-        guard unsafeBuffer.count > 1 else { return nil }
+    static func decode(from unsafeBuffer: UnsafeBufferPointer<UInt8>, fromOffset: Int) -> (Frame, Int)? {
+        guard unsafeBuffer.count >= fromOffset + 2 else { return nil }
+        var offset = fromOffset
+        
         let frame = Frame()
+        let firstByte = offset
+        let secondByte = offset + 1
         
-        frame.fin =  unsafeBuffer[0] & Mask.fin != 0
-        frame.rsv1 = unsafeBuffer[0] & Mask.rsv1 != 0
-        frame.rsv2 = unsafeBuffer[0] & Mask.rsv2 != 0
-        frame.rsv3 = unsafeBuffer[0] & Mask.rsv3 != 0
-        frame.opCode = WebSocket.Opcode(rawValue: unsafeBuffer[0] & Mask.opCode) ?? .unknown
-        frame.isMasked = unsafeBuffer[1] & Mask.mask != 0
-        frame.payloadLength = UInt64(unsafeBuffer[1] & Mask.payloadLen)
+        frame.fin =  unsafeBuffer[firstByte] & Mask.fin != 0
+        frame.rsv1 = unsafeBuffer[firstByte] & Mask.rsv1 != 0
+        frame.rsv2 = unsafeBuffer[firstByte] & Mask.rsv2 != 0
+        frame.rsv3 = unsafeBuffer[firstByte] & Mask.rsv3 != 0
+        frame.opCode = WebSocket.Opcode(rawValue: unsafeBuffer[firstByte] & Mask.opCode) ?? .unknown
+        frame.isMasked = unsafeBuffer[secondByte] & Mask.mask != 0
+        frame.payloadLength = UInt64(unsafeBuffer[secondByte] & Mask.payloadLen)
         
-        let offset = fullFill(frame: frame, buffer: unsafeBuffer)
+        offset = fullFill(frame: frame, buffer: unsafeBuffer, globalOffset: offset)
+        
         return (frame, offset)
     }
     
-    static func fullFill(frame: Frame, buffer: UnsafeBufferPointer<UInt8>) -> Int {
+    static func fullFill(frame: Frame, buffer: UnsafeBufferPointer<UInt8>, globalOffset: Int) -> Int {
         var estimatedFrameSize: UInt64 = 2 //first two bytes
         estimatedFrameSize += frame.isMasked ? 4 : 0
         
-        guard buffer.count >= estimatedFrameSize else { return 0 }
+        guard buffer.count >= estimatedFrameSize + UInt64(globalOffset) else { return globalOffset }
         
         var payloadLengthSize = 0
         if frame.payloadLength == 126 {
@@ -178,15 +183,15 @@ public class Frame {
         }
         
         estimatedFrameSize += UInt64(payloadLengthSize)
-        guard buffer.count >= estimatedFrameSize else { return 0 }
+        guard buffer.count >= estimatedFrameSize + UInt64(globalOffset) else { return globalOffset }
         
-        var offset = 2
+        var offset = globalOffset + 2
         if payloadLengthSize > 0 {
             frame.payloadLength = extractValue(from: buffer, offset: offset, count: payloadLengthSize)
         }
         
         estimatedFrameSize += frame.payloadLength
-        guard buffer.count >= estimatedFrameSize else { return 0 }
+        guard buffer.count >= estimatedFrameSize + UInt64(globalOffset) else { return globalOffset }
         offset += payloadLengthSize
         
         if frame.isMasked {
@@ -195,7 +200,7 @@ public class Frame {
             offset += 4
         }
         
-        guard let base = buffer.baseAddress else { return 0 }
+        guard let base = buffer.baseAddress else { return globalOffset }
         
         frame.payload = Data(bytes: base + offset, count: Int(frame.payloadLength))
         frame.frameSize = estimatedFrameSize

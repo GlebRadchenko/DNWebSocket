@@ -7,7 +7,7 @@
 
 import Foundation
 
-let agent = "com.dialognet.Tests-macOS"
+let agent = "com.dialognet.Tests-macOS-new"
 
 var testCase = 1
 
@@ -43,7 +43,7 @@ func performTestCase(_ caseNumber: Int, agent: String, completion: @escaping () 
 func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.securitySettings.useSSL = false
     ws.settings.useCompression = false
-    ws.settings.debugMode = respond
+    ws.settings.debugMode = false
     
     ws.onText = {
         if respond {
@@ -67,13 +67,13 @@ func configure(ws: WebSocket, respond: Bool, number: Int) {
     ws.onDebugInfo = { print($0) }
 }
 
-testCase = 125
+testCase = 254
 let infoURL = URL(string: "ws://localhost:9001/getCaseInfo?case=\(testCase)")!
 let infoWS = WebSocket(url: infoURL)
 configure(ws: infoWS, respond: false, number: testCase)
 //infoWS.connect()
 
 performTestCase(testCase, agent: agent, completion: {})
-//performTests(count: 500)
+//performTests(count: 60)
 
 RunLoop.main.run()

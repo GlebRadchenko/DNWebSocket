@@ -80,11 +80,16 @@ public class IOStream: NSObject {
     
     @discardableResult
     func write(_ data: Data) throws -> Int {
-        guard let output = outputStream else { throw StreamError.wrongIOPair }
-        let writeLength = data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-            output.write(bytes, maxLength: data.count)
+        return try data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+            return try write(bytes, count: data.count)
         }
+    }
+    
+    @discardableResult
+    func write(_ bytes: UnsafePointer<UInt8>, count: Int) throws -> Int {
+        guard let output = outputStream else { throw StreamError.wrongIOPair }
         
+        let writeLength = output.write(bytes, maxLength: count)
         if writeLength <= 0 {
             throw output.streamError ?? StreamError.unknown
         }
