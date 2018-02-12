@@ -8,11 +8,12 @@
 import Foundation
 
 extension WebSocket {
+    
     public struct Settings {
         public var debugMode = false
         public var callbackQueue: DispatchQueue?
         public var timeout: TimeInterval = 5
-        public var useCompression = true
+        public var useCompression = false
         public var maskOutputData: Bool = true
         public var respondPingRequestsAutomatically = true
     }
