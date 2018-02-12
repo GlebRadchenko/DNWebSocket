@@ -544,11 +544,12 @@ extension WebSocket {
     }
     
     fileprivate func decompressFrameIfNeeded(_ frame: Frame) throws {
-        if compressionSettings.useCompression && frame.rsv1 {
-            frame.payload.addTail()
-            let data = try frame.payload.decompress(windowBits: compressionSettings.serverMaxWindowBits)
-            frame.payload = data
-        }
+        guard let inflater = compressionSettings.inflater else { return }
+        guard compressionSettings.useCompression && frame.rsv1 else { return }
+        
+        frame.payload.addTail()
+        let decompressedPayload = try inflater.decompress(windowBits: compressionSettings.serverMaxWindowBits, data: frame.payload)
+        frame.payload = decompressedPayload
     }
     
     //MARK: - Output Flow
@@ -623,10 +624,12 @@ extension WebSocket {
             frame.mask = Data.randomMask()
         }
         
-        if compressionSettings.useCompression {
+        if compressionSettings.useCompression, let deflater = compressionSettings.deflater {
             do {
                 frame.rsv1 = true
-                frame.payload = try frame.payload.compress(windowBits: compressionSettings.clientMaxWindowBits)
+                let compressedPayload = try deflater.compress(windowBits: compressionSettings.clientMaxWindowBits,
+                                                              data: frame.payload)
+                frame.payload = compressedPayload
                 frame.payload.removeTail()
             } catch {
                 //Temporary solution

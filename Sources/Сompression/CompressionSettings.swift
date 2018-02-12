@@ -16,6 +16,9 @@ struct CompressionSettings {
     var clientNoContextTakeover = false
     var serverNoContextTakeover = false
     
+    var inflater: Inflater?
+    var deflater: Deflater?
+    
     static var `default`: CompressionSettings {
         return CompressionSettings()
     }
@@ -41,6 +44,9 @@ struct CompressionSettings {
                 }
             }
         }
+        
+        inflater = Inflater(windowBits: serverMaxWindowBits)
+        deflater = Deflater(windowBits: clientMaxWindowBits)
     }
     
     fileprivate func extractIntValue(from ext: String) -> CInt? {

@@ -161,6 +161,21 @@
 		F7CEF8FA202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
 		F7CEF8FB202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
 		F7CEF8FC202DE210002E7EE6 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */; };
+		F7CEF91120318E60002E7EE6 /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91020318E60002E7EE6 /* Inflater.swift */; };
+		F7CEF91220318E60002E7EE6 /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91020318E60002E7EE6 /* Inflater.swift */; };
+		F7CEF91320318E60002E7EE6 /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91020318E60002E7EE6 /* Inflater.swift */; };
+		F7CEF91420318E60002E7EE6 /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91020318E60002E7EE6 /* Inflater.swift */; };
+		F7CEF91520318E60002E7EE6 /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91020318E60002E7EE6 /* Inflater.swift */; };
+		F7CEF91720318E70002E7EE6 /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91620318E70002E7EE6 /* Deflater.swift */; };
+		F7CEF91820318E70002E7EE6 /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91620318E70002E7EE6 /* Deflater.swift */; };
+		F7CEF91920318E70002E7EE6 /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91620318E70002E7EE6 /* Deflater.swift */; };
+		F7CEF91A20318E70002E7EE6 /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91620318E70002E7EE6 /* Deflater.swift */; };
+		F7CEF91B20318E70002E7EE6 /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91620318E70002E7EE6 /* Deflater.swift */; };
+		F7CEF91D20319060002E7EE6 /* CompressionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91C20319060002E7EE6 /* CompressionObject.swift */; };
+		F7CEF91E20319060002E7EE6 /* CompressionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91C20319060002E7EE6 /* CompressionObject.swift */; };
+		F7CEF91F20319060002E7EE6 /* CompressionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91C20319060002E7EE6 /* CompressionObject.swift */; };
+		F7CEF92020319060002E7EE6 /* CompressionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91C20319060002E7EE6 /* CompressionObject.swift */; };
+		F7CEF92120319060002E7EE6 /* CompressionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF91C20319060002E7EE6 /* CompressionObject.swift */; };
 		F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
 		F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */; };
@@ -241,6 +256,9 @@
 		F7CEF8F5202CBC20002E7EE6 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		F7CEF8F7202CBC4A002E7EE6 /* AutobahnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnTests.swift; sourceTree = "<group>"; };
 		F7CEF8F9202DE210002E7EE6 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		F7CEF91020318E60002E7EE6 /* Inflater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inflater.swift; sourceTree = "<group>"; };
+		F7CEF91620318E70002E7EE6 /* Deflater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deflater.swift; sourceTree = "<group>"; };
+		F7CEF91C20319060002E7EE6 /* CompressionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionObject.swift; sourceTree = "<group>"; };
 		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
 		F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLContextRetrievable.swift; sourceTree = "<group>"; };
 		F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Handshake.swift"; sourceTree = "<group>"; };
@@ -298,7 +316,6 @@
 			children = (
 				F7A65D932028868400F190CB /* Registry.swift */,
 				F7A65D9B2028942000F190CB /* Result.swift */,
-				F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */,
 				F7B1420D202A42E000E49DB5 /* WebSocketModels.swift */,
 			);
 			path = Models;
@@ -370,7 +387,11 @@
 		F781C7442024B3AE0009B0D4 /* Сompression */ = {
 			isa = PBXGroup;
 			children = (
+				F7B14208202A3E2D00E49DB5 /* CompressionSettings.swift */,
 				F781C7542024BC920009B0D4 /* CompressionStatus.swift */,
+				F7CEF91C20319060002E7EE6 /* CompressionObject.swift */,
+				F7CEF91020318E60002E7EE6 /* Inflater.swift */,
+				F7CEF91620318E70002E7EE6 /* Deflater.swift */,
 			);
 			path = "Сompression";
 			sourceTree = "<group>";
@@ -703,11 +724,13 @@
 				F715B1BC202F2C2B008FEB01 /* OperationQueue+Setup.swift in Sources */,
 				F715B1D5202F2C44008FEB01 /* CompressionSettings.swift in Sources */,
 				F715B1E0202F2C4A008FEB01 /* StreamBuffer.swift in Sources */,
+				F7CEF91420318E60002E7EE6 /* Inflater.swift in Sources */,
 				F715B1B5202F2C2B008FEB01 /* Data+Compression.swift in Sources */,
 				F715B1B8202F2C2B008FEB01 /* UnsafePointer+Extensions.swift in Sources */,
 				F715B1BE202F2C2B008FEB01 /* URLRequest+WebSocket.swift in Sources */,
 				F715B1DC202F2C4A008FEB01 /* IOStream.swift in Sources */,
 				F715B1C1202F2C2C008FEB01 /* RunLoop+Timeout.swift in Sources */,
+				F7CEF91A20318E70002E7EE6 /* Deflater.swift in Sources */,
 				F715B1D6202F2C44008FEB01 /* WebSocketModels.swift in Sources */,
 				F715B1BA202F2C2B008FEB01 /* Stream+SSLTrust.swift in Sources */,
 				F715B1C6202F2C32008FEB01 /* SSLContextRetrievable.swift in Sources */,
@@ -715,6 +738,7 @@
 				F715B1D4202F2C44008FEB01 /* Result.swift in Sources */,
 				F715B1CE202F2C3C008FEB01 /* SSLValidator.swift in Sources */,
 				F715B1D3202F2C44008FEB01 /* Registry.swift in Sources */,
+				F7CEF92020319060002E7EE6 /* CompressionObject.swift in Sources */,
 				F715B1CC202F2C3C008FEB01 /* SSLCertificate.swift in Sources */,
 				F715B1B9202F2C2B008FEB01 /* String+Handshaking.swift in Sources */,
 				F715B1CD202F2C3C008FEB01 /* SSLSettings.swift in Sources */,
@@ -740,11 +764,13 @@
 				F715B19F202F2C29008FEB01 /* OperationQueue+Setup.swift in Sources */,
 				F715B1D1202F2C43008FEB01 /* CompressionSettings.swift in Sources */,
 				F715B1DB202F2C49008FEB01 /* StreamBuffer.swift in Sources */,
+				F7CEF91220318E60002E7EE6 /* Inflater.swift in Sources */,
 				F715B198202F2C29008FEB01 /* Data+Compression.swift in Sources */,
 				F715B19B202F2C29008FEB01 /* UnsafePointer+Extensions.swift in Sources */,
 				F715B1A1202F2C29008FEB01 /* URLRequest+WebSocket.swift in Sources */,
 				F715B1D7202F2C49008FEB01 /* IOStream.swift in Sources */,
 				F715B1A4202F2C29008FEB01 /* RunLoop+Timeout.swift in Sources */,
+				F7CEF91820318E70002E7EE6 /* Deflater.swift in Sources */,
 				F715B1D2202F2C43008FEB01 /* WebSocketModels.swift in Sources */,
 				F715B19D202F2C29008FEB01 /* Stream+SSLTrust.swift in Sources */,
 				F715B1C4202F2C31008FEB01 /* SSLContextRetrievable.swift in Sources */,
@@ -752,6 +778,7 @@
 				F715B1D0202F2C43008FEB01 /* Result.swift in Sources */,
 				F715B1CB202F2C3B008FEB01 /* SSLValidator.swift in Sources */,
 				F715B1CF202F2C43008FEB01 /* Registry.swift in Sources */,
+				F7CEF91E20319060002E7EE6 /* CompressionObject.swift in Sources */,
 				F715B1C9202F2C3B008FEB01 /* SSLCertificate.swift in Sources */,
 				F715B19C202F2C29008FEB01 /* String+Handshaking.swift in Sources */,
 				F715B1CA202F2C3B008FEB01 /* SSLSettings.swift in Sources */,
@@ -777,11 +804,13 @@
 				F7B14204202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65DA82028B17F00F190CB /* SSLCertificate.swift in Sources */,
 				F781C7552024BC920009B0D4 /* CompressionStatus.swift in Sources */,
+				F7CEF91120318E60002E7EE6 /* Inflater.swift in Sources */,
 				F7DB851B2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F7A65D85202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65D9820288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8C2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9C2028942000F190CB /* Result.swift in Sources */,
+				F7CEF91720318E70002E7EE6 /* Deflater.swift in Sources */,
 				F7B141FF202A253A00E49DB5 /* Handshake.swift in Sources */,
 				F7B141C42029DDA700E49DB5 /* URL+Extensions.swift in Sources */,
 				F7DB85172029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
@@ -789,6 +818,7 @@
 				F781C7362024B0FE0009B0D4 /* WebSocket.swift in Sources */,
 				F7DB85132029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DB4202AE9D700F190CB /* Frame.swift in Sources */,
+				F7CEF91D20319060002E7EE6 /* CompressionObject.swift in Sources */,
 				F7B1420E202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F715B16A202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA42028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
@@ -814,11 +844,13 @@
 				F7B14205202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65DA92028B17F00F190CB /* SSLCertificate.swift in Sources */,
 				F781C7562024BC920009B0D4 /* CompressionStatus.swift in Sources */,
+				F7CEF91320318E60002E7EE6 /* Inflater.swift in Sources */,
 				F7DB851C2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F7A65D86202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65D9920288C7C00F190CB /* IOStream.swift in Sources */,
 				F7A65D8D2028837600F190CB /* Data+SHA1.swift in Sources */,
 				F7A65D9D2028942000F190CB /* Result.swift in Sources */,
+				F7CEF91920318E70002E7EE6 /* Deflater.swift in Sources */,
 				F7B14200202A253A00E49DB5 /* Handshake.swift in Sources */,
 				F7B141C52029DDA700E49DB5 /* URL+Extensions.swift in Sources */,
 				F7DB85182029B080009C3E0B /* SSLContextRetrievable.swift in Sources */,
@@ -826,6 +858,7 @@
 				F781C7372024B1080009B0D4 /* WebSocket.swift in Sources */,
 				F7DB85142029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65DB5202AE9D700F190CB /* Frame.swift in Sources */,
+				F7CEF91F20319060002E7EE6 /* CompressionObject.swift in Sources */,
 				F7B1420F202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F715B16B202D2700008FEB01 /* RunLoop+Timeout.swift in Sources */,
 				F7A65DA52028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
@@ -846,6 +879,7 @@
 				F7A65DA62028A9AC00F190CB /* Stream+SSLTrust.swift in Sources */,
 				F7A65D87202869B800F190CB /* Data+Compression.swift in Sources */,
 				F7A65DAA2028B17F00F190CB /* SSLCertificate.swift in Sources */,
+				F7CEF92120319060002E7EE6 /* CompressionObject.swift in Sources */,
 				F715B168202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F781C73F2024B2670009B0D4 /* main.swift in Sources */,
 				F7B14201202A253A00E49DB5 /* Handshake.swift in Sources */,
@@ -860,6 +894,7 @@
 				F7B14210202A42E000E49DB5 /* WebSocketModels.swift in Sources */,
 				F7DB851D2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */,
 				F775FBE5202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
+				F7CEF91B20318E70002E7EE6 /* Deflater.swift in Sources */,
 				F7A65D8320285F4900F190CB /* WebSocket.swift in Sources */,
 				F7DB85152029B046009C3E0B /* Stream+SSLSettings.swift in Sources */,
 				F7A65D9A20288C7C00F190CB /* IOStream.swift in Sources */,
@@ -871,6 +906,7 @@
 				F7A65D8020285F4900F190CB /* SizeRetrievable.swift in Sources */,
 				F7B14206202A3BE900E49DB5 /* URLRequest+WebSocket.swift in Sources */,
 				F7A65D9E2028942000F190CB /* Result.swift in Sources */,
+				F7CEF91520318E60002E7EE6 /* Inflater.swift in Sources */,
 				F7A65DB6202AE9D700F190CB /* Frame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
