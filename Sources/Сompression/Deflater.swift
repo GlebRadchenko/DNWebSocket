@@ -9,20 +9,36 @@ import Foundation
 import CZLib
 
 class Deflater: CompressionObject {
+    var windowBits: CInt
     
     deinit { deflateEnd(&stream) }
     init?(windowBits: CInt) {
+        self.windowBits = windowBits
         super.init()
         
-        let code = deflateInit2_(&stream, Z_DEFAULT_COMPRESSION, Z_DEFLATED,
-                                 -windowBits, 8, Z_DEFAULT_STRATEGY,
-                                 ZLIB_VERSION, z_stream.memoryLayoutSize)
         do {
-            try process(code)
+            try prepareDeflate()
         } catch {
             debugPrint(error)
             return nil
         }
+    }
+    
+    override func reset() {
+        deflateEnd(&stream)
+        
+        do {
+            try prepareDeflate()
+        } catch {
+            debugPrint(error)
+        }
+    }
+    
+    func prepareDeflate() throws {
+        let code = deflateInit2_(&stream, Z_DEFAULT_COMPRESSION, Z_DEFLATED,
+                                 -windowBits, 8, Z_DEFAULT_STRATEGY,
+                                 ZLIB_VERSION, z_stream.memoryLayoutSize)
+        try process(code)
     }
     
     public func compress(windowBits: CInt, data: Data) throws -> Data {

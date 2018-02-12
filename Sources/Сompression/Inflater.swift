@@ -13,18 +13,34 @@ public enum DataProcessingError: LocalizedError {
 }
 
 class Inflater: CompressionObject {
+    var windowBits: CInt
     
     deinit { inflateEnd(&stream) }
-    
     init?(windowBits: CInt) {
+        self.windowBits = windowBits
         super.init()
-        let code = inflateInit2_(&stream, -windowBits, ZLIB_VERSION, z_stream.memoryLayoutSize)
+        
         do {
-            try process(code)
+            try prepareInflate()
         } catch {
             debugPrint(error.localizedDescription)
             return nil
         }
+    }
+    
+    override func reset() {
+        inflateEnd(&stream)
+        
+        do {
+            try prepareInflate()
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+    }
+    
+    func prepareInflate() throws {
+        let code = inflateInit2_(&stream, -windowBits, ZLIB_VERSION, z_stream.memoryLayoutSize)
+        try process(code)
     }
     
     public func decompress(windowBits: CInt, data: Data) throws -> Data {

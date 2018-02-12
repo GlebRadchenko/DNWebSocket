@@ -550,6 +550,10 @@ extension WebSocket {
         frame.payload.addTail()
         let decompressedPayload = try inflater.decompress(windowBits: compressionSettings.serverMaxWindowBits, data: frame.payload)
         frame.payload = decompressedPayload
+        
+        if compressionSettings.serverNoContextTakeover {
+            inflater.reset()
+        }
     }
     
     //MARK: - Output Flow
@@ -631,6 +635,10 @@ extension WebSocket {
                                                               data: frame.payload)
                 frame.payload = compressedPayload
                 frame.payload.removeTail()
+                
+                if compressionSettings.clientNoContextTakeover {
+                    deflater.reset()
+                }
             } catch {
                 //Temporary solution
                 debugPrint(error.localizedDescription)
