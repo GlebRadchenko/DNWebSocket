@@ -67,3 +67,66 @@ So right now, please, use [DNWebSocket-SPM](https://github.com/GlebRadchenko/DNW
 
 ## Usage
 
+Import library as follows: 
+ 
+  ``` swift
+  import DNWebSocket
+```
+
+Now create websocket, configure it and connect:
+
+``` swift
+let websocket = WebSocket(url: URL(string: "wss://echo.websocket.org:80")!,
+                          timeout: 10,
+                          protocols: ["chat", "superchat"])
+
+websocket.onConnect = {
+    print("connected")
+    websocket.sendPing(data: Data())
+}
+
+websocket.onData = { (data) in
+    websocket.send(data: data)
+}
+
+websocket.onText = { (text) in
+    websocket.send(string: text)
+}
+
+websocket.onPing = { (data) in
+    websocket.sendPong(data: data)
+}
+
+websocket.onPong = { (data) in
+    print("Received pong from server")
+}
+
+websocket.onDebugInfo = { (debugInfo) in
+    print(debugInfo)
+}
+
+websocket.onDisconnect = { (error, closeCode) in
+    print("disconnected: \(closeCode)")
+}
+
+websocket.connect()
+```
+
+You can create custom connection by accessing .settings and .securitySettings properties:
+
+``` swift
+
+websocket.settings.timeout = 5 // sec
+websocket.settings.debugMode = true // will trigger .onDebugInfo callback and send .debug(String) event
+websocket.settings.useCompression = true // false by default
+websocket.settings.maskOutputData = true // true by default
+websocket.settings.respondPingRequestsAutomatically = true // true by default 
+websocket.settings.callbackQueue = .main
+
+websocket.securitySettings.useSSL = false // true by default
+websocket.securitySettings.overrideTrustHostname = true // false by default
+websocket.securitySettings.trustHostname = /*your hostname*/
+websocket.securitySettings.certificateValidationEnabled = true
+websocket.securitySettings.cipherSuites = []
+
+```
