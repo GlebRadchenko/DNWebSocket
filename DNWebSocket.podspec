@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DNWebSocket'
-  s.version          = '1.0.1'
+  s.version          = '1.0.0'
   s.summary          = 'Pure Swift WebSocket Library'
   s.description      = <<-DESC
     Object-Oriented, Swift-style WebSocket Library (RFC 6455) for Swift-compatible Platforms.
