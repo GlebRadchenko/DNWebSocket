@@ -31,13 +31,13 @@ Cases 6.4.1, 6.4.2, 6.4.3, 6.4.4 received result Non-Strict due to perfomance im
 
 ### Cocoapods
 
-To install DNWebSocket via [CocoaPods](http://cocoapods.org), install it:
+To install DNWebSocket via [CocoaPods](http://cocoapods.org), get it:
 
 ```bash
 $ gem install cocoapods
 ```
 
-Then, create a `Podfile`:
+Then, create a `Podfile` in your project root directory:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
