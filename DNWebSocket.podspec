@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DNWebSocket'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Pure Swift WebSocket Library'
   s.description      = <<-DESC
     Object-Oriented, Swift-style WebSocket Library (RFC 6455) for Swift-compatible Platforms.
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
 
-  s.source_files = 'Sources/**/*.swift'
+  s.source_files = 'Sources/**'
   s.pod_target_xcconfig = {'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/Sources/CZLib/** $(PODS_TARGET_SRCROOT)/Sources/CommonCrypto/**'}
-  s.preserve_path = 'Sources/CZLib/module.modulemap', 'Sources/CommonCrypto/module.modulemap'
+  s.preserve_path = 'CZLib/module.modulemap', 'CommonCrypto/module.modulemap'
 
 end
