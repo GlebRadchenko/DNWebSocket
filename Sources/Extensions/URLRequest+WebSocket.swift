@@ -17,11 +17,14 @@ import Foundation
 //Sec-WebSocket-Version: 13
 
 extension URLRequest {
-    mutating func prepare(secKey: String, url: URL, useCompression: Bool, protocols: [String]) {
-        let host = allHTTPHeaderFields?[WebSocket.Header.host] ?? "\(url.host ?? ""):\(url.webSocketPort)"
-        
+    mutating func prepare(secKey: String, url: URL, addPortToHost: Bool, useCompression: Bool, protocols: [String]) {
+        var host = allHTTPHeaderFields?[WebSocket.Header.host] ?? "\(url.host ?? "")"
+        if addPortToHost {
+            host += ":\(url.webSocketPort)"
+        }
+
         var origin = url.absoluteString
-        
+
         if let hostURL = URL(string: "/", relativeTo: url) {
             origin = hostURL.absoluteString
             origin.removeLast()
@@ -30,14 +33,14 @@ extension URLRequest {
         setValue(host, forHTTPHeaderField: WebSocket.Header.host)
         setValue(WebSocket.HeaderValue.upgrade, forHTTPHeaderField: WebSocket.Header.upgrade)
         setValue(WebSocket.HeaderValue.connection, forHTTPHeaderField: WebSocket.Header.connection)
-        
+
         setValue(secKey, forHTTPHeaderField: WebSocket.Header.secKey)
         setValue(origin, forHTTPHeaderField: WebSocket.Header.origin)
-        
+
         if !protocols.isEmpty {
             setValue(protocols.joined(separator: ","), forHTTPHeaderField: WebSocket.Header.secProtocol)
         }
-        
+
         if useCompression {
             setValue(WebSocket.HeaderValue.extension, forHTTPHeaderField: WebSocket.Header.secExtension)
         }

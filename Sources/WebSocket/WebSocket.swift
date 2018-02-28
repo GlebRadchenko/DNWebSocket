@@ -93,7 +93,11 @@ open class WebSocket {
         status = .connecting
         
         secKey = String.generateSecKey()
-        request.prepare(secKey: secKey, url: url, useCompression: settings.useCompression, protocols: protocols)
+        request.prepare(secKey: secKey,
+                        url: url,
+                        addPortToHost: settings.addPortToHostInHeader,
+                        useCompression: settings.useCompression,
+                        protocols: protocols)
         
         let port = uint(url.webSocketPort)
         openConnecttion(port: port, msTimeout: settings.timeout * 1000) { [weak self] (result) in
@@ -169,7 +173,7 @@ extension WebSocket {
     fileprivate func validateCertificates() throws {
         #if os(watchOS) || os(Linux)
         #else
-        if securitySettings.useSSL, !certificatesValidated {
+        if securitySettings.useSSL, !certificatesValidated && !securityValidator.certificates.isEmpty {
             let domain = stream.outputStream?.domain
             
             if let secTrust = stream.outputStream?.secTrust, securityValidator.isValid(trust: secTrust, domain: domain) {

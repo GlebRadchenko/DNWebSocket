@@ -16,6 +16,7 @@ extension WebSocket {
         public var useCompression = false
         public var maskOutputData: Bool = true
         public var respondPingRequestsAutomatically = true
+        public var addPortToHostInHeader = true
     }
     
     public enum Status {

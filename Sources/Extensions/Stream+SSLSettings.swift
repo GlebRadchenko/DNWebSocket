@@ -20,9 +20,9 @@ extension Stream {
         
         guard !settings.cipherSuites.isEmpty else { return }
         guard let sslContext = (self as? SSLContextRetrievable)?.sslContext else { return }
-        let suites = settings.cipherSuites
-        
-        let status = SSLSetEnabledCiphers(sslContext, suites, suites.count)
+        var suites = settings.cipherSuites
+
+        let status = SSLSetEnabledCiphers(sslContext, &suites, suites.count)
         guard status == errSecSuccess else { throw IOStream.StreamError.osError(status: status) }
     }
 }

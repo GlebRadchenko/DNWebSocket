@@ -89,15 +89,6 @@ class TestCommon: XCTestCase {
             outputFrame.payload.unmask(with: outputFrame.mask)
         }
         
-        if useCompression {
-            outputFrame.payload.addTail()
-            do {
-                outputFrame.payload = try outputFrame.payload.decompress(windowBits: 15)
-            } catch {
-                XCTFail(error.localizedDescription)
-            }
-        }
-        
         let outputString =  String(data: outputFrame.payload, encoding: .utf8)
         XCTAssertNotNil(outputString)
         XCTAssertEqual(payloadString, outputString)
@@ -111,19 +102,7 @@ class TestCommon: XCTestCase {
         frame.isMasked = mask
         frame.mask = Data.randomMask()
         
-        if useC {
-            do {
-                frame.payload = try payload.compress(windowBits: 15)
-                frame.payload.removeTail()
-            } catch {
-                //Temporary solution
-                debugPrint(error.localizedDescription)
-                frame.payload = payload
-                frame.rsv1 = false
-            }
-        } else {
-            frame.payload = payload
-        }
+        frame.payload = payload
         
         if frame.isMasked {
             frame.payload.mask(with: frame.mask)

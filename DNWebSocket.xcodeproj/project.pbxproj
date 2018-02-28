@@ -134,7 +134,6 @@
 		F7A65DBA202B1E2900F190CB /* Data+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB8202B1E2900F190CB /* Data+Mask.swift */; };
 		F7A65DBB202B1E2900F190CB /* Data+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65DB8202B1E2900F190CB /* Data+Mask.swift */; };
 		F7A65F27202C868000F190CB /* DNWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F781C7252024AF2D0009B0D4 /* DNWebSocket.framework */; };
-		F7A65F29202C889C00F190CB /* TestCompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A65F1E202C861200F190CB /* TestCompression.swift */; };
 		F7B141C42029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
 		F7B141C52029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
 		F7B141C62029DDA700E49DB5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */; };
@@ -243,7 +242,6 @@
 		F7A65DB3202AE9D700F190CB /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		F7A65DB8202B1E2900F190CB /* Data+Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Mask.swift"; sourceTree = "<group>"; };
 		F7A65F1C202C861100F190CB /* Tests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7A65F1E202C861200F190CB /* TestCompression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCompression.swift; sourceTree = "<group>"; };
 		F7A65F20202C861200F190CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7B141C32029DDA700E49DB5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F7B141CD2029EF0800E49DB5 /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 			children = (
 				F7CEF8F4202CBBFE002E7EE6 /* AutobahnTests */,
 				F7CEF8F2202C8CFD002E7EE6 /* TestCommon.swift */,
-				F7A65F1E202C861200F190CB /* TestCompression.swift */,
 				F7A65F20202C861200F190CB /* Info.plist */,
 			);
 			path = "Tests-macOS";
@@ -918,7 +915,6 @@
 				F715B1E4202F3959008FEB01 /* AutobahnTestAction.swift in Sources */,
 				F7CEF8F3202C8CFD002E7EE6 /* TestCommon.swift in Sources */,
 				F7CEF8F6202CBC20002E7EE6 /* Configuration.swift in Sources */,
-				F7A65F29202C889C00F190CB /* TestCompression.swift in Sources */,
 				F7CEF8F8202CBC4A002E7EE6 /* AutobahnTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
