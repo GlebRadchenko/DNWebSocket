@@ -118,13 +118,13 @@ open class WebSocket {
         closeConnection(timeout: timeout, code: .normalClosure)
     }
     
-    open func send(data: Data, completion: (() -> Void)? = nil) {
-        performSend(data: data, code: .binaryFrame, completion: completion)
+    open func send(data: Data, chopSize: Int? = nil, completion: (() -> Void)? = nil) {
+        performSend(data: data, code: .binaryFrame, chopSize: chopSize, completion: completion)
     }
     
-    open func send(string: String, completion: (() -> Void)? = nil) {
+    open func send(string: String, chopSize: Int? = nil, completion: (() -> Void)? = nil) {
         guard let data = string.data(using: .utf8) else { return }
-        performSend(data: data, code: .textFrame, completion: completion)
+        performSend(data: data, code: .textFrame, chopSize: chopSize, completion: completion)
     }
     
     open func sendPing(data: Data, completion: (() -> Void)? = nil) {
@@ -135,8 +135,8 @@ open class WebSocket {
         performSend(data: data, code: .pongFrame, completion: completion)
     }
     
-    open func send(payload: Data, opCode: Opcode, completion: (() -> Void)? = nil) {
-        performSend(data: payload, code: opCode, completion: completion)
+    open func send(payload: Data, opCode: Opcode, chopSize: Int? = nil, completion: (() -> Void)? = nil) {
+        performSend(data: payload, code: opCode, chopSize: chopSize, completion: completion)
     }
 }
 
@@ -161,7 +161,7 @@ extension WebSocket {
             
             do {
                 try wSelf.validateCertificates()
-                try wSelf.performHandshake()
+                try wSelf.performHandshake(operation: wOperation)
             } catch {
                 wSelf.tearDown(reasonError: error, code: .TLSHandshake)
             }
@@ -173,27 +173,28 @@ extension WebSocket {
     fileprivate func validateCertificates() throws {
         #if os(watchOS) || os(Linux)
         #else
-        if securitySettings.useSSL, !certificatesValidated && !securityValidator.certificates.isEmpty {
-            let domain = stream.outputStream?.domain
-            
-            if let secTrust = stream.outputStream?.secTrust, securityValidator.isValid(trust: secTrust, domain: domain) {
-                certificatesValidated = true
-            } else {
-                certificatesValidated = false
-                throw WebSocketError.sslValidationFailed
+            if securitySettings.useSSL, !certificatesValidated && !securityValidator.certificates.isEmpty {
+                let domain = stream.outputStream?.domain
+                
+                if let secTrust = stream.outputStream?.secTrust, securityValidator.isValid(trust: secTrust, domain: domain) {
+                    certificatesValidated = true
+                } else {
+                    certificatesValidated = false
+                    throw WebSocketError.sslValidationFailed
+                }
             }
-        }
         #endif
     }
     
-    fileprivate func performHandshake() throws {
+    fileprivate func performHandshake(operation: Operation) throws {
         let rawHandshake = request.webSocketHandshake()
         log("Sending Handshake", message: rawHandshake)
         guard let data = rawHandshake.data(using: .utf8) else {
             throw WebSocketError.handshakeFailed(response: rawHandshake)
         }
         
-        try stream.write(data)
+        let buffer = data.unsafeBuffer()
+        try write(buffer: buffer, totalSize: data.count, operation: operation)
     }
     
     fileprivate func closeConnection(code: CloseCode) {
@@ -233,7 +234,7 @@ extension WebSocket {
         reasonError.isNil
             ? operationQueue.waitUntilAllOperationsAreFinished()
             : operationQueue.cancelAllOperations()
-            
+        
         stream.disconnect()
         inputStreamBuffer.clearBuffer()
         
@@ -577,7 +578,7 @@ extension WebSocket {
         tearDown(reasonError: error, code: .abnormalClosure)
     }
     
-    fileprivate func performSend(data: Data, code: Opcode, completion: (() -> Void)?) {
+    fileprivate func performSend(data: Data, code: Opcode, chopSize: Int? = nil, completion: (() -> Void)?) {
         guard status == .connected else { return }
         
         let operation = BlockOperation()
@@ -585,46 +586,90 @@ extension WebSocket {
             guard let wSelf = self else { return }
             guard let wOperation = operation, !wOperation.isCancelled else { return }
             
-            let frame = wSelf.prepareFrame(payload: data, opCode: code)
-            let frameData = Frame.encode(frame)
-            let frameSize = frameData.count
-            frame.frameSize = UInt64(frameSize)
+            var frames: [Frame] = []
             
-            let buffer = frameData.unsafeBuffer()
-            var bytesWritten = 0
-            var streamError: Error?
-            
-            while bytesWritten < frameSize && !wOperation.isCancelled && streamError.isNil {
-                let pointer = buffer.baseAddress!.advanced(by: bytesWritten)
+            if let chopSize = chopSize, chopSize < data.count {
                 do {
-                    let writtenCount = try wSelf.stream.write(pointer, count: buffer.count - bytesWritten)
-                    bytesWritten += writtenCount
+                    frames = try wSelf.chopFrames(from: data, opCode: code, chopSize: chopSize)
                 } catch {
-                    streamError = error
-                    break
+                    wSelf.log("Error happened while chopping frames. \nError: \(error.localizedDescription) \n Ignoring.")
+                    return
                 }
-            }
-            
-            if let error = streamError, wSelf.status == .connected {
-                wSelf.tearDown(reasonError: error, code: .unsupportedData)
-                return
-            }
-            
-            wSelf.log("Sent")
-            guard let completion = completion else { return }
-            
-            if let callbackQueue = wSelf.settings.callbackQueue {
-                callbackQueue.async(execute: completion)
             } else {
-                completion()
+                let frame = wSelf.prepareFrame(payload: data, opCode: code)
+                frames.append(frame)
             }
+            
+            wSelf.performSend(frames: frames, operation: wOperation, completion: completion)
         }
         
         operationQueue.addOperation(operation)
     }
     
-    fileprivate func prepareFrame(payload: Data, opCode: Opcode) -> Frame {
-        let frame = Frame(fin: true, opCode: opCode)
+    fileprivate func performSend(frames: [Frame], operation: Operation, completion: (() -> Void)?) {
+        frames.enumerated().forEach { (index, frame) in
+            let frameData = Frame.encode(frame)
+            let frameSize = frameData.count
+            frame.frameSize = UInt64(frameSize)
+            
+            let buffer = frameData.unsafeBuffer()
+            var streamError: Error?
+            
+            do {
+                try write(buffer: buffer, totalSize: frameSize, operation: operation)
+            } catch {
+                streamError = error
+            }
+            
+            if let error = streamError, status == .connected {
+                tearDown(reasonError: error, code: .unsupportedData)
+                return
+            }
+            
+            log("Frame #\(index) has sent")
+        }
+        
+        guard let completion = completion else { return }
+        
+        if let callbackQueue = settings.callbackQueue {
+            callbackQueue.async(execute: completion)
+        } else {
+            completion()
+        }
+    }
+    
+    fileprivate func write(buffer: UnsafeBufferPointer<UInt8>, fromByteIndex: Int = 0, totalSize: Int, operation: Operation) throws {
+        var bytesWritten = fromByteIndex
+        
+        while bytesWritten < totalSize && !operation.isCancelled {
+            let pointer = buffer.baseAddress!.advanced(by: bytesWritten)
+            bytesWritten += try stream.write(pointer, count: buffer.count - bytesWritten)
+        }
+    }
+    
+    fileprivate func chopFrames(from payload: Data, opCode: Opcode, chopSize: Int) throws -> [Frame] {
+        guard opCode == .binaryFrame || opCode == .textFrame else { throw WebSocketError.wrongOpCode }
+        guard chopSize > 0 else { throw WebSocketError.wrongChopSize }
+        
+        if payload.count <= chopSize {
+            return [prepareFrame(payload: payload, opCode: opCode)]
+        }
+        
+        let framePayloads = payload.chopped(by: chopSize)
+        return framePayloads.enumerated().map { (index, framePayload) -> Frame in
+            switch index {
+            case 0:
+                return prepareFrame(payload: framePayload, opCode: opCode, fin: false)
+            case framePayloads.count - 1:
+                return prepareFrame(payload: framePayload, opCode: .continuationFrame, fin: true)
+            default:
+                return prepareFrame(payload: framePayload, opCode: .continuationFrame, fin: false)
+            }
+        }
+    }
+    
+    fileprivate func prepareFrame(payload: Data, opCode: Opcode, fin: Bool = true) -> Frame {
+        let frame = Frame(fin: fin, opCode: opCode)
         frame.payload = payload
         
         if settings.maskOutputData {

@@ -15,11 +15,11 @@ ws.settings.debugMode = true
 
 ws.onDebugInfo = { info in print(info) }
 ws.onConnect = {
-    ws.send(string: "HELLO!")
+    ws.send(string: "Hello, world!", chopSize: 1)
 }
 
-ws.onDisconnect = { error, code in
-    print(error)
+ws.onEvent = { (event) in
+    print(event)
 }
 
 ws.connect()

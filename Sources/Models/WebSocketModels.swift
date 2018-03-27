@@ -47,6 +47,7 @@ extension WebSocket {
         case handshakeFailed(response: String)
         case missingHeader(header: String)
         case wrongOpCode
+        case wrongChopSize
         case timeout
     }
 }

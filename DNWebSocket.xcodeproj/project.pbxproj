@@ -184,6 +184,11 @@
 		F7DB851B2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
 		F7DB851C2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
 		F7DB851D2029D2B5009C3E0B /* URLRequest+Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */; };
+		F7E6A8DC206A4C240064DFE9 /* Array+Chopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */; };
+		F7E6A8DD206A4C240064DFE9 /* Array+Chopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */; };
+		F7E6A8DE206A4C240064DFE9 /* Array+Chopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */; };
+		F7E6A8DF206A4C240064DFE9 /* Array+Chopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */; };
+		F7E6A8E0206A4C240064DFE9 /* Array+Chopped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +265,7 @@
 		F7DB85122029B046009C3E0B /* Stream+SSLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+SSLSettings.swift"; sourceTree = "<group>"; };
 		F7DB85162029B080009C3E0B /* SSLContextRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLContextRetrievable.swift; sourceTree = "<group>"; };
 		F7DB851A2029D2B5009C3E0B /* URLRequest+Handshake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Handshake.swift"; sourceTree = "<group>"; };
+		F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chopped.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +412,7 @@
 		F781C7462024B3E90009B0D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F7E6A8DB206A4C240064DFE9 /* Array+Chopped.swift */,
 				F7A65D9F20289EE400F190CB /* Data+Buffer.swift */,
 				F7A65D84202869B800F190CB /* Data+Compression.swift */,
 				F7A65D8B2028837600F190CB /* Data+SHA1.swift */,
@@ -712,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F715B1C8202F2C37008FEB01 /* CompressionStatus.swift in Sources */,
+				F7E6A8DF206A4C240064DFE9 /* Array+Chopped.swift in Sources */,
 				F715B1C5202F2C32008FEB01 /* SizeRetrievable.swift in Sources */,
 				F715B1B6202F2C2B008FEB01 /* Data+SHA1.swift in Sources */,
 				F715B1DF202F2C4A008FEB01 /* Handshake.swift in Sources */,
@@ -752,6 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F715B1C7202F2C36008FEB01 /* CompressionStatus.swift in Sources */,
+				F7E6A8DD206A4C240064DFE9 /* Array+Chopped.swift in Sources */,
 				F715B1C3202F2C31008FEB01 /* SizeRetrievable.swift in Sources */,
 				F715B199202F2C29008FEB01 /* Data+SHA1.swift in Sources */,
 				F715B1DA202F2C49008FEB01 /* Handshake.swift in Sources */,
@@ -792,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F781C7582024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F7E6A8DC206A4C240064DFE9 /* Array+Chopped.swift in Sources */,
 				F775FBE3202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
 				F715B166202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F7A65DB02028BB3800F190CB /* SSLValidator.swift in Sources */,
@@ -832,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F781C7592024BEC90009B0D4 /* SizeRetrievable.swift in Sources */,
+				F7E6A8DE206A4C240064DFE9 /* Array+Chopped.swift in Sources */,
 				F775FBE4202BAD7400353864 /* OperationQueue+Setup.swift in Sources */,
 				F715B167202D1A1A008FEB01 /* Date+Format.swift in Sources */,
 				F7A65DB12028BB3800F190CB /* SSLValidator.swift in Sources */,
@@ -905,6 +916,7 @@
 				F7A65D9E2028942000F190CB /* Result.swift in Sources */,
 				F7CEF91520318E60002E7EE6 /* Inflater.swift in Sources */,
 				F7A65DB6202AE9D700F190CB /* Frame.swift in Sources */,
+				F7E6A8E0206A4C240064DFE9 /* Array+Chopped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
