@@ -19,7 +19,7 @@ Object-Oriented, Swift-style WebSocket Library ([RFC 6455](https://tools.ietf.or
 
 ## Tests
 
-Conforms to all necessary Autobahn fuzzing tests. [Autobahn](http://autobahn.ws/testsuite/>)
+Conforms to all necessary Autobahn fuzzing tests. [Autobahn](https://github.com/crossbario/autobahn-testsuite)
 
 Test results for DNWebSocket you can see [here](https://glebradchenko.github.io/dnwebsocket.github.io/).
 
