@@ -23,6 +23,7 @@ extension Data {
     }
     
     mutating func unsafeMutableBuffer() -> UnsafeMutableBufferPointer<UInt8> {
+        let count = self.count
         return withUnsafeMutableBytes { (pointer) in
             UnsafeMutableBufferPointer<UInt8>(start: pointer, count: count)
         }

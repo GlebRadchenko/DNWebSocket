@@ -129,13 +129,15 @@ public class IOStream: NSObject {
             streamNetworkServiceType = .voice
         case .video:
             streamNetworkServiceType = .video
-        case .networkServiceTypeCallSignaling:
+        case .callSignaling:
             if #available(iOS 10.0, OSX 10.12, watchOS 3.0, tvOS 10.0, *) {
                 streamNetworkServiceType = .callSignaling
             } else {
                 return
             }
         case .background:
+            streamNetworkServiceType = .background
+        case .responsiveData:
             streamNetworkServiceType = .background
         }
         

@@ -56,14 +56,15 @@ class Inflater: CompressionObject {
                 buffer.count += CompressionObject.chunkSize
             }
             
+            let count = buffer.count
             buffer.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) in
                 stream.next_out = bytes
-                stream.avail_out = uInt(buffer.count)
+                stream.avail_out = uInt(count)
                 
                 let code = inflate(&stream, Z_NO_FLUSH)
                 result = CompressionStatus(status: code)
                 
-                let writtenCount = buffer.count - Int(stream.avail_out)
+                let writtenCount = count - Int(stream.avail_out)
                 decompressedData.append(bytes, count: writtenCount)
             }
             

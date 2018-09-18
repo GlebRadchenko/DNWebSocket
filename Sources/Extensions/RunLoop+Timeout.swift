@@ -15,7 +15,7 @@ extension RunLoop {
         var currentInterval = Date.timeIntervalSinceReferenceDate
         
         while !predicate() && currentInterval < timeoutInterval {
-            RunLoop.current.run(mode: .defaultRunLoopMode, before: Date(timeIntervalSinceNow: 0.1))
+            RunLoop.current.run(mode: .default, before: Date(timeIntervalSinceNow: 0.1))
             currentInterval = Date.timeIntervalSinceReferenceDate
         }
         

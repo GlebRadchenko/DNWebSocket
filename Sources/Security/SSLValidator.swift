@@ -24,7 +24,7 @@ public class SSLValidator {
     
     public convenience init(usePublicKeys: Bool = false) {
         let urls = Bundle.main.urls(forResourcesWithExtension: "cer", subdirectory: nil) ?? []
-        let certificates = urls.flatMap { (url) -> SSLSertificate? in
+        let certificates = urls.compactMap { (url) -> SSLSertificate? in
             guard let data = try? Data(contentsOf: url) else { return nil }
             return SSLSertificate(data: data)
         }
@@ -51,14 +51,14 @@ public class SSLValidator {
     }
     
     fileprivate func isValidPublicKeys(trust: SecTrust) -> Bool {
-        let clientPublicKeys = Set(certificates.flatMap { $0.publicKey })
+        let clientPublicKeys = Set(certificates.compactMap { $0.publicKey })
         let serverPublicKeys = Set(SSLSertificate.publicKeys(for: trust))
         
         return !clientPublicKeys.intersection(serverPublicKeys).isEmpty
     }
     
     fileprivate func isValidCertificates(trust: SecTrust, validateAll: Bool) -> Bool {
-        let secCertificates = certificates.flatMap { $0.secCertificate }
+        let secCertificates = certificates.compactMap { $0.secCertificate }
         SecTrustSetAnchorCertificates(trust, secCertificates as CFArray)
         
         var result = SecTrustResultType.unspecified

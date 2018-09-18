@@ -39,7 +39,7 @@ public class SSLSertificate {
     }
     
     static func secCertificates(for trust: SecTrust) -> [SecCertificate] {
-        return (0..<SecTrustGetCertificateCount(trust)).flatMap { (certificateIndex) -> SecCertificate? in
+        return (0..<SecTrustGetCertificateCount(trust)).compactMap { (certificateIndex) -> SecCertificate? in
             return SecTrustGetCertificateAtIndex(trust, certificateIndex)
         }
     }
@@ -51,7 +51,7 @@ public class SSLSertificate {
     }
     
     static func publicKeys(for trust: SecTrust, policy: SecPolicy = SecPolicyCreateBasicX509()) -> [SecKey] {
-        return secCertificates(for: trust).flatMap { (certificate) -> SecKey? in
+        return secCertificates(for: trust).compactMap { (certificate) -> SecKey? in
             return extractPublicKey(for: certificate, policy: policy)
         }
     }

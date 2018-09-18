@@ -11,7 +11,7 @@ extension String {
     static func generateSecKey() -> String {
         let seed = 16
         
-        let characters: [Character] = (0..<seed).flatMap { _ in
+        let characters: [Character] = (0..<seed).compactMap { _ in
             guard let scalar = UnicodeScalar(UInt32(97 + arc4random_uniform(25))) else { return nil }
             return Character(scalar)
         }
