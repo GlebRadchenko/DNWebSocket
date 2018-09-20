@@ -45,7 +45,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Target Name>' do
-    pod 'DNWebSocket', '~> 1.0.2'
+    pod 'DNWebSocket', '~> 1.1.0'
 end
 ```
 
@@ -54,6 +54,7 @@ And run:
 ```bash
 $ pod install
 ```
+For swift version < 4.2 use 1.0.2 version of pod.
 
 ### Swift Package Manager
 
