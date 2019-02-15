@@ -44,6 +44,17 @@ open class WebSocket {
     public var settings: Settings = Settings()
     public var securitySettings: SSLSettings
     public var securityValidator: SSLValidator
+    public var httpHeaders: [String: String] {
+        get {
+            return request.allHTTPHeaderFields ?? [:]
+        }
+        
+        set {
+            httpHeaders.forEach { (key, value) in
+                request.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+    }
     
     //MARK: - Callbacks
     public var onEvent: ((Event) -> Void)?
